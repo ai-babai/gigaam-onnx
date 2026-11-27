@@ -1,0 +1,192 @@
+{
+  "platform": "Windows 11 Pro x64, build 26300",
+  "vm": {
+    "vcpus": 2,
+    "ram_bytes": 4288409600
+  },
+  "threads": 1,
+  "provider": "cpu",
+  "offline_rnnt_session": {
+    "optimization": "ORT_ENABLE_BASIC",
+    "prepacking": false,
+    "cpu_mem_arena": false
+  },
+  "weights": {
+    "v4-ctc-stock": {
+      "tested_clips": 4,
+      "exact_mac_2_0_3": 3,
+      "decode_seconds": 12.378,
+      "audio_seconds": 41.8,
+      "sampled_peak_working_set": 487059456,
+      "hashes": {
+        "exe": "1d1937ce8df53ed6321a6acc6d13c30fd64eb08330041ba249d152e5b7823831",
+        "model": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+        "tokens": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+      },
+      "runtime": "sherpa-onnx-offline.exe 2.0.3"
+    },
+    "v4": {
+      "versions": {
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "onnxruntime": "1.23.2",
+        "numpy": "2.2.6",
+        "sentencepiece": "0.2.1"
+      },
+      "graph_sha256": {
+        "encoder": "4cc7dd3e2a5f1503239df920976d419287f67df87f1849fff0c34ce4b3d58e20",
+        "advance": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45"
+      },
+      "head_count": 8,
+      "nonempty": 8,
+      "coverage_languages": {
+        "en": 2,
+        "ru": 2
+      },
+      "cases_by_language": {
+        "en": {
+          "cases": 2,
+          "exact_release_mac_tokens": 2,
+          "seconds": 4.62237760000005
+        },
+        "ru": {
+          "cases": 2,
+          "exact_release_mac_tokens": 3,
+          "seconds": 7.163218499999857
+        }
+      },
+      "cases": 4,
+      "exact_control_mac_text": 5,
+      "model_load_seconds": 7.41109229999995,
+      "audio_seconds": 41.8,
+      "decode_seconds": 11.785596099999907,
+      "rtfx": 3.5467022325667794,
+      "peak_working_set_bytes": 402366464,
+      "runtime": "ONNX Runtime encoder and advance"
+    },
+    "multi-int8": {
+      "versions": {
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "onnxruntime": "1.23.2",
+        "numpy": "2.2.6",
+        "sentencepiece": "0.2.1"
+      },
+      "graph_sha256": {
+        "encoder": "0c460231ed0d57e2f6251601d5459dd05cf55ab6a50b55ae2de9333f5bf58d3d",
+        "advance": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc"
+      },
+      "head_count": 20,
+      "nonempty": 20,
+      "coverage_languages": {
+        "en": 2,
+        "kk": 2,
+        "ky": 2,
+        "ru": 2,
+        "uz": 2
+      },
+      "cases_by_language": {
+        "en": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 18.46675960000016
+        },
+        "kk": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 21.924668800000063
+        },
+        "ky": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 24.233779299999696
+        },
+        "ru": {
+          "cases": 2,
+          "exact_release_mac_tokens": 3,
+          "seconds": 25.551924099999837
+        },
+        "uz": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 20.43715320000001
+        }
+      },
+      "cases": 10,
+      "exact_control_mac_text": 19,
+      "model_load_seconds": 25.63022269999999,
+      "audio_seconds": 121.28,
+      "decode_seconds": 110.61428499999977,
+      "rtfx": 1.0964225823093305,
+      "peak_working_set_bytes": 1047678976,
+      "runtime": "ONNX Runtime encoder and advance"
+    },
+    "multi-int4": {
+      "versions": {
+        "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+        "onnxruntime": "1.23.2",
+        "numpy": "2.2.6",
+        "sentencepiece": "0.2.1"
+      },
+      "graph_sha256": {
+        "encoder": "6d6bac76de138ec8af2c76652ddabc9b41c9c515f298a3bf236c54a27e75192a",
+        "advance": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc"
+      },
+      "head_count": 20,
+      "nonempty": 20,
+      "coverage_languages": {
+        "en": 2,
+        "kk": 2,
+        "ky": 2,
+        "ru": 2,
+        "uz": 2
+      },
+      "cases_by_language": {
+        "en": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 49.11106599999994
+        },
+        "kk": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 50.59870660000024
+        },
+        "ky": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 54.39562009999986
+        },
+        "ru": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 55.424870800000235
+        },
+        "uz": {
+          "cases": 2,
+          "exact_release_mac_tokens": 4,
+          "seconds": 55.59231929999987
+        }
+      },
+      "cases": 10,
+      "exact_control_mac_text": 20,
+      "model_load_seconds": 13.91291369999999,
+      "audio_seconds": 121.28,
+      "decode_seconds": 265.12258280000015,
+      "rtfx": 0.45744877225901837,
+      "peak_working_set_bytes": 749674496,
+      "runtime": "ONNX Runtime encoder and advance"
+    },
+    "v4-rnnt-streaming": {
+      "torch": "2.10.0+cpu",
+      "onnxruntime": "1.23.2",
+      "heads": 8,
+      "clips": 4,
+      "exact_mac_text": 4,
+      "exact_mac_packet_sequences": 0,
+      "load_seconds": 7.46034399999985,
+      "decode_seconds": 20.116910199999666,
+      "audio_seconds": 41.8,
+      "observed_peak_working_set_bytes": 555249664,
+      "runtime": "GigaAM OnnxGigaAMStreaming"
+    }
+  }
+}

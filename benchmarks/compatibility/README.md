@@ -21,7 +21,18 @@ The **sherpa-onnx 2.0.3** offline NeMo CTC example ran on both platforms with Nu
 | Russian, 16 clips | ✓ | ✓ | WER 2.53% on Mac and 2.89% on Linux |
 | English, 16 clips | ✓ | ✓ | WER 6.30% on Mac and 5.77% on Linux |
 
-**Windows 11 x64.** The stock sherpa-onnx 2.0.3 executable also transcribed all four v4 CTC clips (two RU, two EN). With one CPU thread, decoding took 12.38 s for 41.80 s of audio. The sampled peak working set was 487 MB. [Windows results and hashes](sherpa-ctc-2.0.3.json)
+### Tested platforms with released software
+
+| Weights and inference path | macOS arm64 | Linux x64 | Windows x64 | Windows smoke test |
+|---|:---:|:---:|:---:|---|
+| v4 CTC INT8 · sherpa-onnx 2.0.3 | ✓ | ✓ | ✓ | Native CLI, 4 RU/EN clips |
+| v4 RNN-T INT8 · ONNX Runtime | ✓ | ✓ | ✓ | 4 clips, 8 text outputs |
+| v4 streaming INT8 · GigaAM ONNX API | ✓ | ✓ | ✓ | 4 clips, partials and flush |
+| Multilingual-v2 INT8 · ONNX Runtime | ✓ | ✓ | ✓ | 5 languages, explicit hints and auto |
+| Multilingual-v2 INT4 · ONNX Runtime | ✓ | ✓ | ✓ | Same 5 recordings and 10 cases |
+
+Windows 11 ran one model at a time on a 4 GiB x64 VM with one CPU inference thread. For the multilingual models, INT4 used a 750 MB peak working set and took 265 s. INT8 used 1,048 MB and took 111 s for the same 121 s of audio. The offline ONNX tests used PCM16 WAV input and disabled weight prepacking and the CPU memory arena. [Windows runtime versions, results and model hashes](windows-cpu.json)
+
 
 Overall, 28 of 30 texts matched byte for byte across platforms. Both one-character differences repeated on rerun. The CLI checks include the five explicit language hints and auto on the same five recordings. The CTC integrations with sherpa-onnx and transcribe-rs were checked independently. See [v4 details](v4-platforms.md), [multilingual details](multilingual-platforms.md), [v4 machine-readable results](linux-v4.json) and [multilingual machine-readable results](linux-multi.json).
 
@@ -77,5 +88,13 @@ print(stream.result.text)
 ```
 
 For a Rust integration, use the GigaAM module and ONNX Runtime setup from the [transcribe-rs 0.3.11 example](https://docs.rs/crate/transcribe-rs/0.3.11/source/examples/gigaam.rs). The check covered the native engine used by AutoSubs. Its GUI catalog was outside the test.
+
+### Windows 11 with the stock Sherpa CLI
+
+Download and extract the [sherpa-onnx 2.0.3 Windows x64 archive](https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.3/sherpa-onnx-v2.0.3-win-x64-shared-MT-Release-no-tts.tar.bz2). Place [model.int8.onnx](https://huggingface.co/ai-babai/gigaam-v4-onnx/resolve/d39e2a200f596315acef7003d246b65a73e9a327/ctc-e2e/model.int8.onnx), [tokens.txt](https://huggingface.co/ai-babai/gigaam-v4-onnx/resolve/d39e2a200f596315acef7003d246b65a73e9a327/ctc-e2e/tokens.txt) and a 16 kHz mono PCM16 WAV beside the extracted folder. Run this command in PowerShell.
+
+```powershell
+.\sherpa-onnx-v2.0.3-win-x64-shared-MT-Release-no-tts\bin\sherpa-onnx-offline.exe --nemo-ctc-model=model.int8.onnx --tokens=tokens.txt --feat-dim=64 --provider=cpu --num-threads=1 speech.wav
+```
 
 **LM Studio 0.4.25+1 (Mac).** The stock importer warned about the ONNX extension. After importing the v4 CTC file as a symbolic link, the model catalog returned `Model not found`. We found no direct ASR loader for these weights in this version. [Supported imports](https://lmstudio.ai/docs/app/advanced/import-model)
