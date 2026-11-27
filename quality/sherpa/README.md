@@ -59,7 +59,7 @@ The real-audio single/list pattern follows Sherpa's offline integration tests. T
 
 ## Native code review
 
-The two patches build on sherpa-onnx `7a924305`. The measurements below cover added functions and executable changes on macOS arm64. [Offline patch](https://github.com/ai-babai/sherpa-onnx/compare/7a924305...cf96b9a3) · [Streaming patch](https://github.com/ai-babai/sherpa-onnx/compare/7a924305...7b8e9cff) · [Measurements and scope](code-metrics.json)
+The two patches build on sherpa-onnx `7a924305`. The measurements below cover added functions and executable changes on macOS arm64. [Offline patch](https://github.com/ai-babai/sherpa-onnx/compare/7a924305...a39d5a50) · [Streaming patch](https://github.com/ai-babai/sherpa-onnx/compare/7a924305...e0e1154f) · [Measurements and scope](code-metrics.json)
 
 | Check | Target | Offline | Streaming | Result | Note |
 |---|---|---:|---:|:---:|---|
@@ -72,3 +72,26 @@ The two patches build on sherpa-onnx `7a924305`. The measurements below cover ad
 | Selected mutations detected | Each exercised fault | 1/1 | 1/1 | 🟢 | Swapped output head and dropped EOF remainder |
 
 Project clang-format, cpplint 2.0.2, Black and clean patch application passed. The offline Python API covered all 17 changed executable lines. Linux and Windows runtime checks are reported separately in the [preview platform results](../../benchmarks/compatibility/sherpa-preview.md).
+
+## Upstream regression checks
+
+The [test revision](https://github.com/ai-babai/sherpa-onnx/tree/9d0fdcbff3a77a015472449c534dd37e1d158180) adds 59 lines of GoogleTest code and CMake registration to the three-platform preview. Its inference code is byte-identical to `411c7c3e`. The patched and upstream builds used identical options within each OS. Counts below are individual tests already present upstream. Both new tests and the real-model tests are counted separately.
+
+| Common test suite | Passed on both | Skipped or missing fixture on both | Failed on both | Different outcome |
+|---|---:|---:|---:|---:|
+| macOS arm64, C++ and Python | 551 | 14 | 0 | 0 of 565 |
+| Linux x64, C++ and Python, diarization disabled | 525 | 33 | 2 | 0 of 560 |
+
+The two Linux failures were the existing `TestFastClustering` cases in builds with speaker diarization disabled. With `SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION=ON`, both clustering tests passed on both the upstream and preview Linux builds (2/2 each). The 33 skips include missing fixtures and tests that return early. On macOS, all 40 transcripts captured by the upstream unit tests matched across the three builds. Six recordings for existing recognizers also produced the same transcripts before and after the patches on macOS, Linux and Windows. [Runtime scenarios](../../benchmarks/compatibility/sherpa-preview.md)
+
+**Tests without model downloads.** The offline test verifies the language-vector slot order for all 21 Multilingual-v2 languages, automatic selection, the `kz` alias and an invalid code. The streaming test checks numerical log-mel features for an impulse and a silent frame. Swapping the `kk` and `ky` slots breaks the first test. Disabling the GigaAM feature path breaks the second. [Language slots](https://github.com/ai-babai/sherpa-onnx/blob/a39d5a503913ca600dcf653abcab0d1a4d695e27/sherpa-onnx/csrc/gigaam-language-slot-test.cc) · [Streaming features](https://github.com/ai-babai/sherpa-onnx/blob/e0e1154f4ef1c7ce1929fd3d788a63dcfd4350f1/sherpa-onnx/csrc/online-stream-test.cc)
+
+The upstream PR template asks contributors to compile and test their changes. The numerical coverage and complexity targets above are this project's thresholds. [Sherpa PR template](https://github.com/k2-fsa/sherpa-onnx/blob/7a9243056d334c73b6d1f8890cf257ba94f0f328/.github/pull_request_template.md)
+
+In the pinned Sherpa checkout, enable tests in the existing CMake build and run the two targets. The targets contain seven cases in total, including five existing online-stream cases.
+
+```sh
+cmake -S . -B build -DSHERPA_ONNX_ENABLE_TESTS=ON
+cmake --build build --target gigaam-language-slot-test online-stream-test
+ctest --test-dir build -R '^(gigaam-language-slot-test|online-stream-test)$' --output-on-failure
+```
