@@ -211,4 +211,6 @@ SHERPA_ONNX_GIGAAM_TEST_PROVIDER=coreml_fused \
   ctest --test-dir "$sherpa_build" -R '^test_online_gigaam_v4_py$' --output-on-failure
 ```
 
-For Linux CUDA, use a matching ORT CUDA build of the same test source and the released INT8 fixture. Set `SHERPA_ONNX_GIGAAM_TEST_PROVIDER=cuda:/absolute/provider.conf` and omit the encoder override. The extra 48 kHz resampling and EOF bookkeeping and the `tokens_buf` guard exercise shared C++ before provider execution. The decode calls in the device tests use the selected provider. On macOS, use the Instruments Metal System Trace template and inspect GPU execution intervals for the recognizer process during warm decoding.
+For the Linux CUDA regression, check out `4ce634bd4104a586e78c0f368b85e93d41a6cc3d` and use the CUDA build commands above with `-DSHERPA_ONNX_ENABLE_TESTS=ON` in a fresh build directory. Use the released INT8 fixture, set `SHERPA_ONNX_GIGAAM_TEST_PROVIDER=cuda` and unset `SHERPA_ONNX_GIGAAM_STREAMING_ENCODER` to select its default encoder. Run `test_online_gigaam_v4_py` for the device tests. Build and run `online-stream-test` for the shared C++ checks, including 48 kHz input at EOF and rejection of `tokens_buf`.
+
+On macOS, use Instruments Metal System Trace to inspect GPU execution intervals for the recognizer process during warm decoding.
