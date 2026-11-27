@@ -221,3 +221,14 @@ SHERPA_ONNX_GIGAAM_TEST_PROVIDER=coreml_fused \
 For the Linux CUDA regression, check out `4ce634bd4104a586e78c0f368b85e93d41a6cc3d` and use the CUDA build commands above with `-DSHERPA_ONNX_ENABLE_TESTS=ON` in a fresh build directory. Use the released INT8 fixture, set `SHERPA_ONNX_GIGAAM_TEST_PROVIDER=cuda` and unset `SHERPA_ONNX_GIGAAM_STREAMING_ENCODER` to select its default encoder. Run `test_online_gigaam_v4_py` for the device tests. Build and run `online-stream-test` for the shared C++ checks, including 48 kHz input at EOF and rejection of `tokens_buf`.
 
 On macOS, use Instruments Metal System Trace to inspect GPU execution intervals for the recognizer process during warm decoding.
+
+### Separate offline RNN-T preview for Apple Silicon
+
+The offline encoders have their own build of Sherpa. Compile the model from the corresponding package and keep the packaged `*_advance.onnx` and tokenizer beside it. Core ML runs the encoder and both output projections on the M4 Pro. ORT runs the token-decoding step on CPU. Both models accept up to 1,600 mel frames. [Offline Sherpa source](https://github.com/ai-babai/sherpa-onnx/tree/d83bc72e344bf8458ecec8b98d02b251187309c4)
+
+| Package and instructions | FLEURS results compared with the published FP32 transcripts |
+|---|---|
+| [v4 offline RNN-T](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/b383b237364db47ff2e0682cde51be5396c97b7b/rnnt/coreml-experimental/mil-fp16) | All 32 RU/EN transcripts matched on each head. Formatted WER was 4.86% for both implementations. |
+| [Multilingual-v2 offline RNN-T](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/6f19a3872d78761756dd2eb9eaa6f4bd07ad22c0/coreml-experimental/mil-fp16) | 80 clips in five languages. Formatted output matched on 79/80 in each language-selection mode, with the same WER as FP32 (4.92% auto, 4.99% explicit). Raw output matched on 80/80 auto and 79/80 explicit. |
+
+Metal traces captured GPU activity during warm offline decoding for both encoders. The two package links pin the preview snapshots separately from the CTC and streaming packages in the HF `v0.4.0` tag.
