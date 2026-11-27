@@ -5,6 +5,7 @@ title: "GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU"
 authors:
   - given-names: Maksim
     family-names: Popkov
+    website: https://popkov.dev/
 version: 0.2.2
 date-released: 2026-11-27
 repository-code: https://github.com/ai-babai/gigaam-onnx

@@ -156,4 +156,4 @@ Please cite the model papers and this ONNX release. [GigaAM, Interspeech 2025](h
 
 </details>
 
-ONNX conversion, quantization and cross-platform evaluation by **[Maksim Popkov](https://huggingface.co/ai-babai)**.
+ONNX conversion, quantization and cross-platform evaluation by **[Maksim Popkov](https://popkov.dev/)**.
