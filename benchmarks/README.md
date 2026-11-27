@@ -1,6 +1,6 @@
 # GigaAM ONNX INT8 benchmarks
 
-Paired speech recognition quality and CPU performance for the v0.2.0 release. Each language contributes 16 seeded Google FLEURS test clips. GigaAM-v4 is evaluated on Russian and English. GigaAM Multilingual-v2 is evaluated on Russian, Kazakh, Uzbek, Kyrgyz and English, with explicit language hints.
+Paired speech recognition quality and CPU performance for the v0.2.0 release. We sampled 16 Google FLEURS test clips per language using a fixed seed. GigaAM-v4 is evaluated on Russian and English. GigaAM Multilingual-v2 is evaluated on Russian, Kazakh, Uzbek, Kyrgyz and English, with explicit language hints.
 
 ## CPU throughput
 
