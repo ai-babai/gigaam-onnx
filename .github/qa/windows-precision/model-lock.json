@@ -1,0 +1,37 @@
+{
+  "source_commit": "dc0f2d32385502b3ed8347a8dcf6a32d4b676a0b",
+  "variants": {
+    "fp32": {
+      "revision": "f641a9a0b82b95062f495696eedb471c2e3515b2",
+      "directory": "",
+      "encoder": "multilingual_v2_rnnt_encoder.onnx",
+      "sidecar": "multilingual_v2_rnnt_encoder.weights.bin",
+      "sha256": {
+        "multilingual_v2_rnnt_encoder.onnx": "121b23570c0377d86959092f0c82d452ad5b37466d29ff7fc265e452633372b1",
+        "multilingual_v2_rnnt_encoder.weights.bin": "244bc12a4b534aa4d29f791b5551f8aaea8d5566c8bdb0f04120c145581efebe",
+        "config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423",
+        "manifest.json": "112e2ff6640b99a5ac2861c6c3fb7c2fcbcef7ec95046dee3c396a34d6b22892"
+      }
+    },
+    "fp16-storage": {
+      "revision": "4e29c392dd7b9fb22b9950703ba8794a4be09bbd",
+      "directory": "",
+      "encoder": "multilingual_v2_rnnt_encoder.onnx",
+      "sidecar": "multilingual_v2_rnnt_encoder.weights.bin",
+      "sha256": {
+        "config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "manifest.json": "17f3f9b81605aa8bf022b8ccae985a897b128a3fd44b946ccf8e15782a99317d",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "multilingual_v2_rnnt_encoder.onnx": "81ae7281d14782c910663f3ad3653ac406bd0c7bdcf0ea5b9f3508763c171767",
+        "multilingual_v2_rnnt_encoder.weights.bin": "0022ab457d2a499f6d531d02cbb49b20503e5a2813d562edce0eacac08849d90",
+        "multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423"
+      }
+    }
+  }
+}
