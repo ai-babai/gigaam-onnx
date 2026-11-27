@@ -4,6 +4,9 @@ Run GigaAM speech-to-text locally on a CPU with ONNX Runtime. This repository co
 
 GigaAM-v4 supports Russian and English. Its three packages cover offline CTC, full-context RNN-T, and streaming RNN-T. The GigaAM Multilingual-v2 package provides full-context RNN-T for 21 languages, including Russian, English, Kazakh, Kyrgyz, and Uzbek.
 
+
+The four release clients were tested on Apple Silicon macOS and x86_64 Ubuntu. See the [macOS and Linux compatibility matrix](benchmarks/compatibility/README.md) for loader versions, cross-platform transcript differences and integration limits.
+
 ## Choose a model package
 
 | Model | Recognition mode | Output | GitHub Release asset |

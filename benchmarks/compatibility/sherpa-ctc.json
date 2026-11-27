@@ -1,0 +1,28 @@
+{
+  "platform": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "provider": "CPU",
+  "threads": 3,
+  "model_sha256": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+  "backend": "sherpa",
+  "backend_version": "1.13.2",
+  "ort_version": "1.24.4",
+  "mac": "macOS 15.8.1 arm64",
+  "linux": "Ubuntu 26.04.1 LTS x86_64",
+  "samples": [
+    {
+      "lang": "ru",
+      "id": "ru_ru:7721997118013656128",
+      "mac_native_text": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "linux_native_text": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "exact_match": true
+    },
+    {
+      "lang": "en",
+      "id": "en_us:11200231708585274851",
+      "mac_native_text": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "linux_native_text": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "exact_match": true
+    }
+  ]
+}

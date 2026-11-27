@@ -1,0 +1,7 @@
+# Multilingual-v2 runtime compatibility
+
+The included NumPy, SentencePiece and ONNX Runtime 1.23.2 client ran on **macOS 15.8.1 arm64** and **Ubuntu 26.04.1 x86_64**. On both platforms we used identical runtime files and FLEURS audio, with an explicit language hint and again in auto mode on one recording for each of the five evaluated languages. With explicit hints all ten formatted and raw texts matched across platforms. In auto mode nine of ten texts matched. The raw Russian text had a reproducible one-character difference. The formatted output matched on that recording.
+
+The official GigaAM full-context Python API also read the INT8 package on Mac with one filename alias. In a writable copy of the package run `ln -s multilingual_v2_rnnt_encoder.int8.onnx multilingual_v2_rnnt_encoder.onnx`. This supplies the filename the upstream loader expects. Its `load_onnx` / `infer_onnx` path requires upstream dependencies including PyTorch. We verified the explicit Kazakh and auto modes. The included CLI runs directly without the alias.
+
+**Python `onnx-asr` 0.12.0** has no direct loader for this RNN-T package on Mac or Linux. Its older multilingual GigaAM loader expects CTC. Use `multi_client.py` for the exported language-conditioning input and paired RNN-T outputs. [Upstream GigaAM loader](https://github.com/salute-developers/GigaAM/blob/e9bbf2e773eedd217c6f0d3b89b9728c41332b7d/gigaam/onnx_utils.py#L335-L404) · [onnx-asr registry](https://github.com/istupakov/onnx-asr/blob/b9e0ce0ae3223b3d24ce5a22a5e701a726ca35fc/src/onnx_asr/loader.py)

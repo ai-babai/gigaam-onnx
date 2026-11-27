@@ -1,0 +1,166 @@
+{
+  "checked_on": "2026-11-27",
+  "method": "Packaged Python CLIs, CPU inference, one identical FLEURS clip per language on both platforms. The streaming diagnostic wraps the shipped decode() while preserving its 640 ms packetization and flush.",
+  "scope": "One-clip-per-language integration smoke check and verbatim transcript parity. Streaming first-update values measure the amount of audio fed before the first update. Multilingual-v2 is sampled in five of its 21 upstream languages.",
+  "environment": {
+    "linux": {
+      "os": "Linux",
+      "architecture": "x86_64",
+      "python": "3.12.16",
+      "upstream_gigaam_revision": "e9bbf2e773eedd217c6f0d3b89b9728c41332b7d",
+      "ffmpeg": "n9.0.2-17-g2a571b6068-20260930",
+      "uv": "0.13.10",
+      "execution_provider": "CPUExecutionProvider",
+      "cpu_threads_per_model": 3,
+      "available_ort_providers": [
+        "AzureExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "onnxruntime": "1.23.2",
+      "torch": "2.10.0+cpu",
+      "torchaudio": "2.10.0+cpu",
+      "numpy": "2.5.5",
+      "sentencepiece": "0.2.3",
+      "soundfile": "0.14.0",
+      "imageio-ffmpeg": "0.8.2",
+      "distribution": "Ubuntu 26.04"
+    },
+    "mac": {
+      "os": "Darwin",
+      "architecture": "arm64",
+      "python": "3.12.11",
+      "upstream_gigaam_revision": "e9bbf2e773eedd217c6f0d3b89b9728c41332b7d",
+      "ffmpeg": "8.1",
+      "uv": "0.8.4",
+      "execution_provider": "CPUExecutionProvider",
+      "cpu_threads_per_model": 3,
+      "available_ort_providers": [
+        "CoreMLExecutionProvider",
+        "AzureExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "onnxruntime": "1.23.2",
+      "torch": "2.10.0",
+      "torchaudio": "2.10.0",
+      "numpy": "2.5.1",
+      "sentencepiece": "0.2.2",
+      "soundfile": "0.14.0",
+      "distribution": "macOS 15.8.1"
+    }
+  },
+  "audio": {
+    "dataset": "Google FLEURS test",
+    "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+    "format": "PCM16 mono 16 kHz",
+    "clips": {
+      "ru": {
+        "sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+        "audio_seconds": 13.8,
+        "sample_id": "ru_ru:7721997118013656128"
+      },
+      "en": {
+        "sha256": "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7",
+        "audio_seconds": 10.18,
+        "sample_id": "en_us:11200231708585274851"
+      }
+    }
+  },
+  "variants": {
+    "ctc-e2e": {
+      "runtime_files_identical": true,
+      "linux_package_runtime_sha256": "f372ea13c5ab72f0dd2ac39cad83c01989c92c36771bef6c0eeed9408d01c7cf",
+      "mac_package_runtime_sha256": "f372ea13c5ab72f0dd2ac39cad83c01989c92c36771bef6c0eeed9408d01c7cf",
+      "cases": {
+        "ru": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true
+          }
+        },
+        "en": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true
+          }
+        }
+      }
+    },
+    "rnnt": {
+      "runtime_files_identical": true,
+      "linux_package_runtime_sha256": "d48c60aed8ec5cf79f5db19cf67fecd04133c2f43ea31f201b24fb58537c03a1",
+      "mac_package_runtime_sha256": "d48c60aed8ec5cf79f5db19cf67fecd04133c2f43ea31f201b24fb58537c03a1",
+      "cases": {
+        "ru": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "en": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        }
+      }
+    },
+    "rnnt-streaming-640ms": {
+      "runtime_files_identical": true,
+      "linux_package_runtime_sha256": "1bbc9664a8818b693e6d0ec15e05a27a1c18878c222ee0a6c0cabf28a59ec8b1",
+      "mac_package_runtime_sha256": "1bbc9664a8818b693e6d0ec15e05a27a1c18878c222ee0a6c0cabf28a59ec8b1",
+      "cases": {
+        "ru": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": false,
+            "raw": true
+          },
+          "nonidentical_heads": {
+            "e2e": {
+              "equal_after_gigaam_text_normalization": false,
+              "character_edits": [
+                {
+                  "operation": "replace",
+                  "mac_characters": 1,
+                  "linux_characters": 1
+                }
+              ],
+              "repeat_cli_matches_initial_on_each_platform": true
+            }
+          },
+          "linux_partials": {
+            "e2e": {
+              "nonempty_updates_before_flush": 19,
+              "first_update_after_input_ms": 2560.0
+            },
+            "raw": {
+              "nonempty_updates_before_flush": 18,
+              "first_update_after_input_ms": 2560.0
+            }
+          },
+          "partial_schedule_matches_mac": true
+        },
+        "en": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          },
+          "linux_partials": {
+            "e2e": {
+              "nonempty_updates_before_flush": 13,
+              "first_update_after_input_ms": 1920.0
+            },
+            "raw": {
+              "nonempty_updates_before_flush": 13,
+              "first_update_after_input_ms": 1920.0
+            }
+          },
+          "partial_schedule_matches_mac": true
+        }
+      }
+    }
+  }
+}

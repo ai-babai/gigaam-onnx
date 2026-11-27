@@ -1,0 +1,58 @@
+{
+  "platform": "macOS arm64 Apple M4 Pro",
+  "os_version": "15.8.1",
+  "python": "3.12.11",
+  "onnxruntime": "1.23.2",
+  "cases": {
+    "multi": {
+      "ru": {
+        "id": "ru_ru:7721997118013656128",
+        "output": {
+          "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+          "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+        },
+        "matches_e2e_benchmark_or_smoke": true
+      },
+      "kk": {
+        "id": "kk_kz:9835764151564761301",
+        "output": {
+          "e2e": "Виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады, дегенмен мұнда кішігірім айырмашылықтар бар.",
+          "raw": "виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады дегенмен мұнда кішігірім айырмашылықтар бар"
+        },
+        "matches_e2e_benchmark_or_smoke": true
+      },
+      "uz": {
+        "id": "uz_uz:11944913131526794147",
+        "output": {
+          "e2e": "Gaiti Adolat va Demokratiya instituti Nepalning BMT tinchlikparvar batalyoni o'zi bilmagan holda Gaitiga xastalikni olib kelganligini ko'rsatuvchi mustaqil izlanishlarga murojaat etdi.",
+          "raw": "gaiti adolat va demokratiya instituti nepalning bmt tinchlikparvar batalyoni o'zi bilmagan holda gaitiga xastalikni olib kelganligini ko'rsatuvchi mustaqil izlanishlarga murojaat etdi"
+        },
+        "matches_e2e_benchmark_or_smoke": true
+      },
+      "ky": {
+        "id": "ky_kg:8254771429698646424",
+        "output": {
+          "e2e": "Айрым адамдарды алардын жасаган нерселерине кантип кызыктыруу керектиги жана айлана-чөйрөдөгү кайсы нерселер алардын айрым нерселерди жасап же жасабоосуна түрткү болору бул теорияда каралган.",
+          "raw": "айрым адамдарды алардын жасаган нерселерине кантип кызыктыруу керектиги жана айлана чөйрөдөгү кайсы нерселер алардын айрым нерселерди жасап же жасабоосуна түрткү болору бул теорияда каралган"
+        },
+        "matches_e2e_benchmark_or_smoke": true
+      },
+      "en": {
+        "id": "en_us:11200231708585274851",
+        "output": {
+          "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+          "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+        },
+        "matches_e2e_benchmark_or_smoke": true
+      },
+      "auto": {
+        "id": "en_us:11200231708585274851",
+        "output": {
+          "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+          "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+        },
+        "matches_e2e_benchmark_or_smoke": true
+      }
+    }
+  }
+}

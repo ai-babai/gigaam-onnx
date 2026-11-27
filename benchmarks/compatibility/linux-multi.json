@@ -1,0 +1,185 @@
+{
+  "checked_on": "2026-11-27",
+  "method": "Packaged Python CLIs, CPU inference, one identical FLEURS clip per language on both platforms. The streaming diagnostic wraps the shipped decode() while preserving its 640 ms packetization and flush.",
+  "scope": "One-clip-per-language integration smoke check and verbatim transcript parity. Streaming first-update values measure the amount of audio fed before the first update. Multilingual-v2 is sampled in five of its 21 upstream languages.",
+  "environment": {
+    "linux": {
+      "os": "Linux",
+      "architecture": "x86_64",
+      "python": "3.12.16",
+      "upstream_gigaam_revision": "e9bbf2e773eedd217c6f0d3b89b9728c41332b7d",
+      "ffmpeg": "n9.0.2-17-g2a571b6068-20260930",
+      "uv": "0.13.10",
+      "execution_provider": "CPUExecutionProvider",
+      "cpu_threads_per_model": 3,
+      "available_ort_providers": [
+        "AzureExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "onnxruntime": "1.23.2",
+      "torch": "2.10.0+cpu",
+      "torchaudio": "2.10.0+cpu",
+      "numpy": "2.5.5",
+      "sentencepiece": "0.2.3",
+      "soundfile": "0.14.0",
+      "imageio-ffmpeg": "0.8.2",
+      "distribution": "Ubuntu 26.04"
+    },
+    "mac": {
+      "os": "Darwin",
+      "architecture": "arm64",
+      "python": "3.12.11",
+      "upstream_gigaam_revision": "e9bbf2e773eedd217c6f0d3b89b9728c41332b7d",
+      "ffmpeg": "8.1",
+      "uv": "0.8.4",
+      "execution_provider": "CPUExecutionProvider",
+      "cpu_threads_per_model": 3,
+      "available_ort_providers": [
+        "CoreMLExecutionProvider",
+        "AzureExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "onnxruntime": "1.23.2",
+      "torch": "2.10.0",
+      "torchaudio": "2.10.0",
+      "numpy": "2.5.1",
+      "sentencepiece": "0.2.2",
+      "soundfile": "0.14.0",
+      "distribution": "macOS 15.8.1"
+    }
+  },
+  "audio": {
+    "dataset": "Google FLEURS test",
+    "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+    "format": "PCM16 mono 16 kHz",
+    "clips": {
+      "ru": {
+        "sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+        "audio_seconds": 13.8,
+        "sample_id": "ru_ru:7721997118013656128"
+      },
+      "en": {
+        "sha256": "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7",
+        "audio_seconds": 10.18,
+        "sample_id": "en_us:11200231708585274851"
+      },
+      "kk": {
+        "sha256": "61ecd0c5848da6acd0d1a39ec66abc141b27f733a9a8f585b3b963b47f340546",
+        "audio_seconds": 11.82,
+        "sample_id": "kk_kz:9835764151564761301"
+      },
+      "uz": {
+        "sha256": "eb7d5af451d6c290673444c5645d9b722d0fcc9c4440d8f739e1213c92e13e30",
+        "audio_seconds": 11.64,
+        "sample_id": "uz_uz:11944913131526794147"
+      },
+      "ky": {
+        "sha256": "9c49aec0b062895c49cdc9e6bb743fb2ec9c1ce3d4195cb625d96e0dcaa6de74",
+        "audio_seconds": 13.2,
+        "sample_id": "ky_kg:8254771429698646424"
+      }
+    }
+  },
+  "variants": {
+    "multilingual-v2": {
+      "runtime_files_identical": true,
+      "linux_package_runtime_sha256": "d45548b8084e47be96182e51c30ceaa3da635bb3f4cf406a315b29092fe31613",
+      "mac_package_runtime_sha256": "d45548b8084e47be96182e51c30ceaa3da635bb3f4cf406a315b29092fe31613",
+      "cases": {
+        "ru/ru": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "ru/auto": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": false
+          },
+          "nonidentical_heads": {
+            "raw": {
+              "equal_after_gigaam_text_normalization": false,
+              "character_edits": [
+                {
+                  "operation": "replace",
+                  "mac_characters": 1,
+                  "linux_characters": 1
+                }
+              ],
+              "repeat_cli_matches_initial_on_each_platform": true
+            }
+          }
+        },
+        "en/en": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "en/auto": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "kk/kk": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "kk/auto": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "uz/uz": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "uz/auto": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "ky/ky": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        },
+        "ky/auto": {
+          "cli_pass": true,
+          "equal_text_on_mac": {
+            "e2e": true,
+            "raw": true
+          }
+        }
+      },
+      "explicit_hint_matches_auto_on_linux": {
+        "ru": false,
+        "en": true,
+        "kk": true,
+        "uz": true,
+        "ky": true
+      }
+    }
+  },
+  "runtime_notes": [
+    "The Multilingual-v2 repeat emitted an ONNX Runtime LSTM subgraph input-name optimizer warning on both platforms. Both CLIs exited successfully."
+  ]
+}
