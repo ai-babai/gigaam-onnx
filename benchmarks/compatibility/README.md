@@ -2,13 +2,13 @@
 
 All four release clients completed 16 paired cases on **Apple Silicon macOS 15.8.1** and **x86_64 Ubuntu 26.04.1 LTS**. They used the CPU execution provider in ONNX Runtime 1.23.2. Model and audio hashes matched across hosts. This is a loader and transcript smoke test. The [quality and throughput benchmarks](../README.md) use the larger FLEURS sample on Mac.
 
-| Weights | ONNX Runtime | sherpa-onnx | transcribe-rs | onnx-asr | GigaAM API | Note |
-|---|:---:|:---:|:---:|:---:|:---:|---|
-| v4 CTC | ✓ | ✓ | ✓ | | | NeMo CTC or GigaAM loader |
-| v4 RNN-T | ✓ | | | | | Offline, both text outputs |
-| v4 streaming RNN-T | ✓ | | | | ✓ | 640 ms context |
-| Multilingual-v2 INT8 | ✓ | | | | ✓ | GigaAM API on Mac with filename alias |
-| Multilingual-v2 INT4 | ✓ | | | | | Lower peak memory |
+| Weights | ONNX Runtime | Sherpa release | [Sherpa preview](sherpa-preview.md) | transcribe-rs | onnx-asr | GigaAM API | Note |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|---|
+| v4 CTC | ✓ | ✓ | ✓ | ✓ | | | Offline NeMo CTC |
+| v4 RNN-T | ✓ | | ✓ | | | | Raw or formatted text |
+| v4 streaming RNN-T | ✓ | | ✓ | | | ✓ | Partial and final text, 640 ms |
+| Multilingual-v2 INT8 | ✓ | | ✓ | | | ✓ | GigaAM API tested on Mac with a filename alias |
+| Multilingual-v2 INT4 | ✓ | | ✓ | | | | Same decoder, smaller encoder |
 
 ✓ = verified with the released weights. Empty cells have no verified integration. Checks cover macOS arm64 and Linux x86-64 unless the note specifies one platform.
 

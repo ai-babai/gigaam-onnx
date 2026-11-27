@@ -10,13 +10,13 @@ Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multiling
 
 ## Tested compatibility
 
-| Weights | ONNX Runtime | sherpa-onnx | transcribe-rs | onnx-asr | GigaAM API | Note |
-|---|:---:|:---:|:---:|:---:|:---:|---|
-| v4 CTC | ✓ | ✓ | ✓ | | | NeMo CTC or GigaAM loader |
-| v4 RNN-T | ✓ | | | | | Offline, both text outputs |
-| v4 streaming RNN-T | ✓ | | | | ✓ | 640 ms context |
-| Multilingual-v2 INT8 | ✓ | | | | ✓ | GigaAM API on Mac with filename alias |
-| Multilingual-v2 INT4 | ✓ | | | | | Lower peak memory |
+| Weights | ONNX Runtime | Sherpa release | [Sherpa preview](benchmarks/compatibility/sherpa-preview.md) | transcribe-rs | onnx-asr | GigaAM API | Note |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|---|
+| v4 CTC | ✓ | ✓ | ✓ | ✓ | | | Offline NeMo CTC |
+| v4 RNN-T | ✓ | | ✓ | | | | Raw or formatted text |
+| v4 streaming RNN-T | ✓ | | ✓ | | | ✓ | Partial and final text, 640 ms |
+| Multilingual-v2 INT8 | ✓ | | ✓ | | | ✓ | GigaAM API tested on Mac with a filename alias |
+| Multilingual-v2 INT4 | ✓ | | ✓ | | | | Same decoder, smaller encoder |
 
 ✓ = verified with the released weights. Empty cells have no verified integration. Checks cover macOS arm64 and Linux x86-64 unless the note specifies one platform. ONNX Runtime 1.23.2, sherpa-onnx 1.13.2 and 2.0.3 and transcribe-rs 0.3.11 were tested. onnx-asr 0.12.0 has no compatible built-in loader. Windows 11 x64 passed all five weight variants with the inference engines listed in the platform matrix. [Platform versions and test results](benchmarks/compatibility/README.md)
 
