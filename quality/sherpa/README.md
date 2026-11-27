@@ -56,3 +56,19 @@ Both `raw` and `e2e` run by default. Use `--head raw` or `--head e2e`, and `--ba
 - The focused suite uses INT8 packages. Separate full-corpus native offline QA covers Multilingual-v2 INT4 with 80 clips, both heads and both language modes. [INT4 package](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/v0.2.1/int4) · [INT4 evaluation](../../benchmarks/multilingual-v2/int4/README.md)
 
 The real-audio single/list pattern follows Sherpa's offline integration tests. The online lifecycle cases follow its ready/EOF/reset tests. [Offline real WAV](https://github.com/k2-fsa/sherpa-onnx/pull/4263/files) · [Offline CI matrix](https://github.com/k2-fsa/sherpa-onnx/pull/3456/files) · [Streaming lifecycle](https://github.com/k2-fsa/sherpa-onnx/pull/4133/files)
+
+## Native code review
+
+The two patches build on sherpa-onnx `7a924305`. The measurements below cover added functions and executable changes on macOS arm64. [Offline patch](https://github.com/ai-babai/sherpa-onnx/compare/7a924305...cf96b9a3) · [Streaming patch](https://github.com/ai-babai/sherpa-onnx/compare/7a924305...7b8e9cff) · [Measurements and scope](code-metrics.json)
+
+| Check | Target | Offline | Streaming | Result | Note |
+|---|---|---:|---:|:---:|---|
+| Cyclomatic complexity of new functions | ≤10 | 10 | 10 | 🟢 | Lizard, C++ and Python |
+| Cognitive complexity of new functions | ≤15 | 15 | 10 | 🟢 | clang-tidy for C++, complexipy for Python |
+| CRAP, new C++ functions (mean / max) | <5 / ≤30 | 4.50 / 10.00 | 2.90 / 10.00 | 🟢 | Based on observed function line coverage |
+| CRAP, all touched C++ functions (mean / max) | <5 / ≤30 | 289.17 / 7934.33 | 12.90 / 334.61 | 🔴 | Includes existing model dispatchers under GigaAM-only workloads |
+| Changed executable C++ lines covered | ≥80% | 458/460 | 326/326 | 🟢 | LLVM source-based coverage including the native binding |
+| New include cycles | 0 | 0 | 0 | 🟢 | Local project headers |
+| Selected mutations detected | Each exercised fault | 1/1 | 1/1 | 🟢 | Swapped output head and dropped EOF remainder |
+
+Project clang-format, cpplint 2.0.2, Black and clean patch application passed. The offline Python API covered all 17 changed executable lines. Linux and Windows runtime checks are reported separately in the [preview platform results](../../benchmarks/compatibility/sherpa-preview.md).

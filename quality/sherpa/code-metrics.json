@@ -1,0 +1,628 @@
+{
+  "base": "7a9243056d334c73b6d1f8890cf257ba94f0f328",
+  "mac_arm64": {
+    "offline": {
+      "revision": "e25b277ce6da9c4f5bf847c929f1ba8babbbe3ea",
+      "baseline_revision": "efe169d18b0f30a0ff58bb7457f1b4b4b45cbfef",
+      "baseline": {
+        "lines": {
+          "hit": 380,
+          "total": 386,
+          "percent": 98.45
+        },
+        "branches": {
+          "hit": 175,
+          "total": 200,
+          "percent": 87.5
+        },
+        "crap": {
+          "function_count": 26,
+          "mean": 388.388,
+          "max": 7934.3309
+        },
+        "new_functions_crap": {
+          "function_count": 21,
+          "mean": 5.338,
+          "max": 26.0
+        }
+      },
+      "extended": {
+        "lines": {
+          "hit": 458,
+          "total": 460,
+          "percent": 99.57
+        },
+        "branches": {
+          "hit": 212,
+          "total": 232,
+          "percent": 91.38
+        },
+        "crap": {
+          "function_count": 35,
+          "mean": 289.171,
+          "max": 7934.3309
+        },
+        "new_functions_crap": {
+          "function_count": 30,
+          "mean": 4.5,
+          "max": 10.0031
+        }
+      },
+      "common_suite": {
+        "lines": {
+          "hit": 438,
+          "total": 460,
+          "percent": 95.22
+        },
+        "branches": {
+          "hit": 192,
+          "total": 232,
+          "percent": 82.76
+        },
+        "crap": {
+          "function_count": 35,
+          "mean": 289.323,
+          "max": 7934.3309
+        },
+        "new_functions_crap": {
+          "function_count": 30,
+          "mean": 4.678,
+          "max": 10.1
+        }
+      },
+      "python": {
+        "lines": {
+          "hit": 17,
+          "total": 17,
+          "percent": 100.0
+        },
+        "branches": {
+          "hit": 2,
+          "total": 2,
+          "percent": 100.0
+        },
+        "crap": {
+          "function_count": 1,
+          "mean": 2.0,
+          "max": 2.0
+        }
+      },
+      "tensor_scenarios": 19,
+      "runtime_smoke": {
+        "v4-int8": {
+          "native_vs_ort_total": 4,
+          "native_vs_ort_exact": 4
+        },
+        "multi-int8": {
+          "native_vs_ort_total": 20,
+          "native_vs_ort_exact": 20
+        },
+        "multi-int4": {
+          "native_vs_ort_total": 20,
+          "native_vs_ort_exact": 20
+        }
+      },
+      "missed_changed_lines": {
+        "sherpa-onnx/csrc/gigaam-sentencepiece-decoder.cc": {
+          "121": "break;"
+        },
+        "sherpa-onnx/csrc/offline-recognizer-gigaam-impl.cc": {
+          "120": "OfflineRecognizerConfig GetConfig() const override { return config_; }"
+        }
+      },
+      "previous_revision": "97231419d293e52acd923147dceaef398253e8a8",
+      "extended_with_public_unittest": {
+        "lines": {
+          "hit": 458,
+          "total": 460,
+          "percent": 99.57
+        },
+        "branches": {
+          "hit": 212,
+          "total": 232,
+          "percent": 91.38
+        },
+        "crap": {
+          "function_count": 35,
+          "mean": 289.171,
+          "max": 7934.3309
+        },
+        "new_functions_crap": {
+          "function_count": 30,
+          "mean": 4.5,
+          "max": 10.0031
+        }
+      },
+      "static_analysis": {
+        "revision": "cf96b9a3b74ac4b96e2cf81bb02775f72acad2db",
+        "functions": {
+          "new": {
+            "count": 34,
+            "max_cyclomatic": 10,
+            "max_cognitive": 15
+          },
+          "existing": {
+            "count": 7,
+            "max_cyclomatic": 91,
+            "max_cognitive": 80
+          }
+        },
+        "new_include_cycles": []
+      }
+    },
+    "online": {
+      "revision": "7b8e9cffc67d5e1d5d70ade25f43d37951d0789c",
+      "baseline_revision": "bae98581d7d0983169b17e503a8b6effc4d12fe1",
+      "baseline": {
+        "lines": {
+          "hit": 267,
+          "total": 273,
+          "percent": 97.8
+        },
+        "branches": {
+          "hit": 83,
+          "total": 98,
+          "percent": 84.69
+        },
+        "crap": {
+          "function_count": 27,
+          "mean": 15.028,
+          "max": 334.6108
+        },
+        "new_functions_crap": {
+          "function_count": 24,
+          "mean": 2.797,
+          "max": 12.1244
+        }
+      },
+      "extended": {
+        "lines": {
+          "hit": 326,
+          "total": 326,
+          "percent": 100.0
+        },
+        "branches": {
+          "hit": 120,
+          "total": 128,
+          "percent": 93.75
+        },
+        "crap": {
+          "function_count": 33,
+          "mean": 12.898,
+          "max": 334.6108
+        },
+        "new_functions_crap": {
+          "function_count": 30,
+          "mean": 2.9,
+          "max": 10.0
+        }
+      },
+      "common_suite": {
+        "lines": {
+          "hit": 309,
+          "total": 326,
+          "percent": 94.79
+        },
+        "branches": {
+          "hit": 103,
+          "total": 128,
+          "percent": 80.47
+        },
+        "crap": {
+          "function_count": 33,
+          "mean": 12.969,
+          "max": 334.6108
+        },
+        "new_functions_crap": {
+          "function_count": 30,
+          "mean": 2.979,
+          "max": 10.6911
+        }
+      },
+      "python": null,
+      "tensor_scenarios": 20,
+      "runtime_smoke": {
+        "text_compared": {
+          "matched": 316,
+          "total": 322
+        },
+        "unmodified_staging_and_baseline_trace_equal": true,
+        "misses_by_head": {
+          "e2e": 4,
+          "raw": 2
+        }
+      },
+      "missed_changed_lines": {},
+      "previous_revision": "646560306138d9740c4f14303c1d5e608ea31575",
+      "static_analysis": {
+        "revision": "7b8e9cffc67d5e1d5d70ade25f43d37951d0789c",
+        "functions": {
+          "new": {
+            "count": 33,
+            "max_cyclomatic": 10,
+            "max_cognitive": 10
+          },
+          "existing": {
+            "count": 4,
+            "max_cyclomatic": 20,
+            "max_cognitive": 22
+          }
+        },
+        "new_include_cycles": []
+      }
+    }
+  },
+  "mutation_probes": {
+    "offline_head_swap_detected": true,
+    "online_eof_remainder_drop_detected": true
+  },
+  "offline_validation_recheck": {
+    "base": "97231419d293e52acd923147dceaef398253e8a8",
+    "revision": "e25b277ce6da9c4f5bf847c929f1ba8babbbe3ea",
+    "lines": {
+      "hit": 14,
+      "total": 14,
+      "percent": 100.0
+    },
+    "branches": {
+      "hit": 16,
+      "total": 16,
+      "percent": 100.0
+    },
+    "crap": {
+      "function_count": 2,
+      "mean": 6.0,
+      "max": 7.0
+    },
+    "functions": [
+      {
+        "file": "sherpa-onnx/csrc/offline-gigaam-model-config.cc",
+        "name": "sherpa_onnx::ValidateHead",
+        "start": 22,
+        "end": 34,
+        "CC": 7,
+        "coverage": {
+          "hit": 13,
+          "total": 13,
+          "percent": 100.0
+        },
+        "new_function": true,
+        "CRAP": 7.0
+      },
+      {
+        "file": "sherpa-onnx/csrc/offline-gigaam-model-config.cc",
+        "name": "sherpa_onnx::OfflineGigaAMModelConfig::Validate",
+        "start": 57,
+        "end": 73,
+        "CC": 5,
+        "coverage": {
+          "hit": 16,
+          "total": 16,
+          "percent": 100.0
+        },
+        "new_function": false,
+        "CRAP": 5.0
+      }
+    ],
+    "validation_cases": 13,
+    "matches_prior_revision": true
+  },
+  "earlier_mac_results": {
+    "offline_97231419": {
+      "revision": "97231419d293e52acd923147dceaef398253e8a8",
+      "baseline_revision": "efe169d18b0f30a0ff58bb7457f1b4b4b45cbfef",
+      "baseline": {
+        "lines": {
+          "hit": 380,
+          "total": 386,
+          "percent": 98.45
+        },
+        "branches": {
+          "hit": 175,
+          "total": 200,
+          "percent": 87.5
+        },
+        "crap": {
+          "function_count": 26,
+          "mean": 388.388,
+          "max": 7934.3309
+        },
+        "new_functions_crap": {
+          "function_count": 21,
+          "mean": 5.338,
+          "max": 26.0
+        }
+      },
+      "extended": {
+        "lines": {
+          "hit": 452,
+          "total": 454,
+          "percent": 99.56
+        },
+        "branches": {
+          "hit": 210,
+          "total": 230,
+          "percent": 91.3
+        },
+        "crap": {
+          "function_count": 34,
+          "mean": 297.617,
+          "max": 7934.3309
+        },
+        "new_functions_crap": {
+          "function_count": 29,
+          "mean": 4.586,
+          "max": 10.0031
+        }
+      },
+      "common_suite": {
+        "lines": {
+          "hit": 432,
+          "total": 454,
+          "percent": 95.15
+        },
+        "branches": {
+          "hit": 190,
+          "total": 230,
+          "percent": 82.61
+        },
+        "crap": {
+          "function_count": 34,
+          "mean": 297.774,
+          "max": 7934.3309
+        },
+        "new_functions_crap": {
+          "function_count": 29,
+          "mean": 4.77,
+          "max": 10.1
+        }
+      },
+      "python": {
+        "lines": {
+          "hit": 17,
+          "total": 17,
+          "percent": 100.0
+        },
+        "branches": {
+          "hit": 2,
+          "total": 2,
+          "percent": 100.0
+        },
+        "crap": {
+          "function_count": 1,
+          "mean": 2.0,
+          "max": 2.0
+        }
+      },
+      "tensor_scenarios": 19,
+      "runtime_smoke": {
+        "v4-int8": {
+          "native_vs_ort_total": 4,
+          "native_vs_ort_exact": 4
+        },
+        "multi-int8": {
+          "native_vs_ort_total": 20,
+          "native_vs_ort_exact": 20
+        },
+        "multi-int4": {
+          "native_vs_ort_total": 20,
+          "native_vs_ort_exact": 20
+        }
+      },
+      "missed_changed_lines": {
+        "sherpa-onnx/csrc/gigaam-sentencepiece-decoder.cc": {
+          "121": "break;"
+        },
+        "sherpa-onnx/csrc/offline-recognizer-gigaam-impl.cc": {
+          "120": "OfflineRecognizerConfig GetConfig() const override { return config_; }"
+        }
+      }
+    },
+    "online_64656030": {
+      "revision": "646560306138d9740c4f14303c1d5e608ea31575",
+      "baseline_revision": "bae98581d7d0983169b17e503a8b6effc4d12fe1",
+      "baseline": {
+        "lines": {
+          "hit": 267,
+          "total": 273,
+          "percent": 97.8
+        },
+        "branches": {
+          "hit": 83,
+          "total": 98,
+          "percent": 84.69
+        },
+        "crap": {
+          "function_count": 27,
+          "mean": 15.028,
+          "max": 334.6108
+        },
+        "new_functions_crap": {
+          "function_count": 24,
+          "mean": 2.797,
+          "max": 12.1244
+        }
+      },
+      "extended": {
+        "lines": {
+          "hit": 325,
+          "total": 325,
+          "percent": 100.0
+        },
+        "branches": {
+          "hit": 120,
+          "total": 128,
+          "percent": 93.75
+        },
+        "crap": {
+          "function_count": 33,
+          "mean": 12.898,
+          "max": 334.6108
+        },
+        "new_functions_crap": {
+          "function_count": 30,
+          "mean": 2.9,
+          "max": 10.0
+        }
+      },
+      "common_suite": {
+        "lines": {
+          "hit": 308,
+          "total": 325,
+          "percent": 94.77
+        },
+        "branches": {
+          "hit": 103,
+          "total": 128,
+          "percent": 80.47
+        },
+        "crap": {
+          "function_count": 33,
+          "mean": 12.969,
+          "max": 334.6108
+        },
+        "new_functions_crap": {
+          "function_count": 30,
+          "mean": 2.979,
+          "max": 10.6911
+        }
+      },
+      "python": null,
+      "tensor_scenarios": 20,
+      "runtime_smoke": {
+        "text_compared": {
+          "matched": 316,
+          "total": 322
+        },
+        "unmodified_staging_and_baseline_trace_equal": true,
+        "misses_by_head": {
+          "e2e": 4,
+          "raw": 2
+        }
+      },
+      "missed_changed_lines": {}
+    }
+  },
+  "online_precision_suffix_recheck": {
+    "base": "646560306138d9740c4f14303c1d5e608ea31575",
+    "revision": "7b8e9cffc67d5e1d5d70ade25f43d37951d0789c",
+    "lines": {
+      "hit": 3,
+      "total": 3,
+      "percent": 100.0
+    },
+    "branches": {
+      "hit": 0,
+      "total": 0,
+      "percent": null
+    },
+    "crap": {
+      "function_count": 1,
+      "mean": 3.0,
+      "max": 3.0
+    },
+    "frontend_path_outcomes": {
+      "hit": 4,
+      "total": 4
+    },
+    "negative_cases": 4
+  },
+  "public_python_tests": {
+    "offline": {
+      "test_source_revision": "cf96b9a3b74ac4b96e2cf81bb02775f72acad2db",
+      "ctest": {
+        "no-fixtures": "skipped",
+        "int8": {
+          "methods_passed": 2,
+          "methods_total": 2
+        }
+      },
+      "lines": {
+        "hit": 28,
+        "total": 28,
+        "percent": 100.0
+      },
+      "branches": {
+        "hit": 5,
+        "total": 6,
+        "percent": 83.33
+      },
+      "crap": {
+        "function_count": 3,
+        "mean": 2.0,
+        "max": 4.0
+      }
+    },
+    "online": {
+      "test_source_revision": "7b8e9cffc67d5e1d5d70ade25f43d37951d0789c",
+      "ctest": {
+        "no-fixtures": "skipped",
+        "int8": {
+          "methods_passed": 2,
+          "methods_total": 2
+        },
+        "int4": {
+          "methods_passed": 2,
+          "methods_total": 2
+        },
+        "fp16": {
+          "methods_passed": 2,
+          "methods_total": 2
+        }
+      },
+      "lines": {
+        "hit": 35,
+        "total": 35,
+        "percent": 100.0
+      },
+      "branches": {
+        "hit": 7,
+        "total": 8,
+        "percent": 87.5
+      },
+      "crap": {
+        "function_count": 3,
+        "mean": 2.0,
+        "max": 3.0
+      }
+    }
+  },
+  "streaming_precision_assets": {
+    "int4": {
+      "source_filename": "v4_rnnt_640ms_stream_step.int4.onnx",
+      "runtime_filename": "v4_rnnt_640ms_stream_step.int4.onnx",
+      "sha256": "4f4453af2721f0868df2deb9e5675d2982d71258bf609af4db179b540cfc190a",
+      "bytes": 151006066,
+      "initializers_by_dtype": {
+        "FLOAT": 365,
+        "UINT8": 133
+      },
+      "matmul_nbits_nodes": {
+        "4": 133
+      },
+      "primary_io_types": {
+        "features": "FLOAT",
+        "feature_lengths": "INT64",
+        "encoded": "FLOAT",
+        "encoded_lengths": "INT64"
+      }
+    },
+    "fp16": {
+      "source_filename": "v4_rnnt_640ms_stream_step.onnx",
+      "runtime_filename": "v4_rnnt_640ms_stream_step.fp16.onnx",
+      "sha256": "cca07981957130d06b18266ba41481218f36111c3c48a637b4cf17630138e8fb",
+      "bytes": 485746433,
+      "initializers_by_dtype": {
+        "FLOAT": 119,
+        "FLOAT16": 246
+      },
+      "matmul_nbits_nodes": {},
+      "primary_io_types": {
+        "features": "FLOAT",
+        "feature_lengths": "INT64",
+        "encoded": "FLOAT",
+        "encoded_lengths": "INT64"
+      }
+    }
+  }
+}

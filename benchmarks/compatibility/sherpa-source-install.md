@@ -10,7 +10,7 @@ Tested on macOS 15.8.1 with AppleClang 17.0.0, CMake 4.3.2, and CPython 3.12.11.
 Build from the GigaAM preview fork. The published sherpa-onnx 2.0.3 wheels support the v4 CTC model. The RNN-T loaders in this guide require the preview source.
 
 ```bash
-revision=c8a28e207b87a408ea758347c475b4d1ee82701a
+revision=411c7c3ed6232348add92537fdfd61f7f5b6588d
 scratch="$(mktemp -d /tmp/sherpa-gigaam.XXXXXX)"
 mkdir "$scratch/src"
 git clone --quiet --filter=blob:none --single-branch --branch preview/gigaam-rnnt https://github.com/ai-babai/sherpa-onnx.git "$scratch/repo"
@@ -83,4 +83,4 @@ print(stream.result.text)
 PY
 ```
 
-[Upstream Python source installation](https://k2-fsa.github.io/sherpa/onnx/python/install.html#method-4-from-source) · [GigaAM-v4 CTC recipe](https://github.com/ai-babai/sherpa-onnx/blob/c8a28e207b87a408ea758347c475b4d1ee82701a/python-api-examples/gigaam-v4-ctc.md) · [Offline RNN-T recipe](https://github.com/ai-babai/sherpa-onnx/blob/c8a28e207b87a408ea758347c475b4d1ee82701a/python-api-examples/gigaam-offline-rnnt.md) · [Streaming RNN-T recipe](https://github.com/ai-babai/sherpa-onnx/blob/c8a28e207b87a408ea758347c475b4d1ee82701a/scripts/gigaam-v4-streaming/README.md)
+[Upstream Python source installation](https://k2-fsa.github.io/sherpa/onnx/python/install.html#method-4-from-source) · [GigaAM-v4 CTC recipe](https://github.com/ai-babai/sherpa-onnx/blob/411c7c3ed6232348add92537fdfd61f7f5b6588d/python-api-examples/gigaam-v4-ctc.md) · [Offline RNN-T recipe](https://github.com/ai-babai/sherpa-onnx/blob/411c7c3ed6232348add92537fdfd61f7f5b6588d/python-api-examples/gigaam-offline-rnnt.md) · [Streaming RNN-T recipe](https://github.com/ai-babai/sherpa-onnx/blob/411c7c3ed6232348add92537fdfd61f7f5b6588d/scripts/gigaam-v4-streaming/README.md)
