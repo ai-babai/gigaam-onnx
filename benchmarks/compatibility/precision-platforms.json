@@ -1,0 +1,800 @@
+{
+  "checked_on": "2026-11-27",
+  "provider": "CPUExecutionProvider",
+  "fleurs_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "gigaam_streaming_revision": "e9bbf2e773eedd217c6f0d3b89b9728c41332b7d",
+  "runtimes": {
+    "mac-ort": {
+      "platform": "macOS 15.8.1 arm64",
+      "python": "3.12.11",
+      "ort": "1.23.2",
+      "numpy": "2.5.1",
+      "sentencepiece": "0.2.2",
+      "threads": 3,
+      "client_revision": "3a42502cd2b54210e7742d7106afcd0fbfcdb681"
+    },
+    "linux-ort-precision": {
+      "platform": "Ubuntu 26.04 x64",
+      "python": "3.12.16",
+      "ort": "1.23.2",
+      "numpy": "2.5.1",
+      "sentencepiece": "0.2.2",
+      "threads": 1,
+      "client": "Hugging Face package CLI"
+    },
+    "linux-ort-release": {
+      "platform": "Ubuntu 26.04.1 x64",
+      "python": "3.12.16",
+      "ort": "1.23.2",
+      "numpy": "2.5.5",
+      "sentencepiece": "0.2.3",
+      "threads": 3,
+      "client": "Hugging Face package CLI"
+    },
+    "linux-ort-int4": {
+      "platform": "Linux x64",
+      "python": "3.12.16",
+      "ort": "1.23.2",
+      "threads": 3,
+      "client": "Released Multilingual-v2 inference class"
+    },
+    "windows-ort-release": {
+      "platform": "Windows 11 x64 build 26300",
+      "python": "3.12.10",
+      "ort": "1.23.2",
+      "numpy": "2.2.6",
+      "sentencepiece": "0.2.1",
+      "threads": 1,
+      "client": "Released inference class in a PCM and ORT session harness"
+    },
+    "windows-ort-stream": {
+      "platform": "Windows 11 x64 build 26300",
+      "python": "3.12.10",
+      "ort": "1.23.2",
+      "torch": "2.10.0+cpu",
+      "threads": 1,
+      "gigaam_revision": "e9bbf2e773eedd217c6f0d3b89b9728c41332b7d",
+      "client": "Released GigaAM streaming API with partial results and flush"
+    },
+    "mac-sherpa-stock": {
+      "platform": "macOS 15.8.1 arm64",
+      "sherpa": "2.0.3",
+      "ort": "1.28.2",
+      "threads": 3,
+      "loader": "NeMo CTC"
+    },
+    "linux-sherpa-stock": {
+      "platform": "Ubuntu 26.04.1 x64",
+      "sherpa": "2.0.3",
+      "threads": 3,
+      "loader": "NeMo CTC"
+    },
+    "windows-sherpa-stock": {
+      "platform": "Windows 11 x64 build 26300",
+      "sherpa": "2.0.3",
+      "threads": 1,
+      "loader": "NeMo CTC"
+    },
+    "mac-sherpa-preview": {
+      "platform": "macOS 15.8.1 arm64",
+      "sherpa": "2.0.3",
+      "ort": "1.28.2",
+      "threads": 3,
+      "source_revision": "411c7c3ed6232348add92537fdfd61f7f5b6588d"
+    },
+    "linux-sherpa-preview": {
+      "platform": "Ubuntu 26.04.1 x64",
+      "ort": "1.28.2",
+      "source_revisions": [
+        "c8a28e207b87a408ea758347c475b4d1ee82701a",
+        "8a603bd5a7143ed70fc1213c682599027e591767"
+      ]
+    },
+    "windows-ort-v4-precision": {
+      "platform": "Windows 11 x64 build 26300",
+      "python": "3.12.10",
+      "ort": "1.23.2",
+      "numpy": "2.5.1",
+      "threads": 1,
+      "client": "Published inference classes and audio loaders in an ORT session harness",
+      "arena": false,
+      "prepacking": false
+    },
+    "windows-sherpa-preview": {
+      "platform": "Windows 11 x64 build 26300",
+      "python": "3.12.10",
+      "sherpa": "2.0.3",
+      "ort": "1.28.2",
+      "threads": 1,
+      "source_revision": "411c7c3ed6232348add92537fdfd61f7f5b6588d",
+      "build": "https://github.com/ai-babai/sherpa-onnx/actions/runs/46017272361"
+    },
+    "windows-sherpa-earlier-preview": {
+      "platform": "Windows 11 x64 build 26300",
+      "python": "3.12.10",
+      "sherpa": "2.0.3",
+      "ort": "1.28.2",
+      "threads": 1,
+      "source_revision": "c8a28e207b87a408ea758347c475b4d1ee82701a",
+      "build": "https://github.com/ai-babai/sherpa-onnx/actions/runs/46013116152"
+    }
+  },
+  "rows": [
+    {
+      "model_path": "ctc-e2e",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "3d26669a200b282be6db065c16d30fed5375183f",
+      "files": {
+        "ctc-e2e/model.fp32.onnx": "54813114c35d0ad889629b972b2dfd1837b41ddaf845fb69b5e75eba9f0d90e8",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "606867d56b846feee4cba26983b35abbfb0be4a932d8a488507917402700d974"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "cc1a782bd482d4627d6c4f8313968092d732fe05ec79a0dd2f48cc59c18ee2d4",
+          "tested_revision": "3d26669a200b282be6db065c16d30fed5375183f",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {},
+          "mark": "✓†"
+        }
+      },
+      "notes": "Packaged waveform frontend.",
+      "stock_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-stock",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "ctc-e2e",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+      "files": {
+        "ctc-e2e/model.fp16.onnx": "4471c8b3b0c4001e3b566d3383a5e8c15bd4695ae1d7477296815a7aaeebb420",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "606867d56b846feee4cba26983b35abbfb0be4a932d8a488507917402700d974"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "f882f55ad927dfd1bf1ca217afcb439804a96d1e03d0063a4d21d7154ce5c5fc",
+          "tested_revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {},
+          "mark": "✓†"
+        }
+      },
+      "notes": "Packaged waveform frontend.",
+      "stock_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-stock",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "ctc-e2e",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "d39e2a200f596315acef7003d246b65a73e9a327",
+      "files": {
+        "ctc-e2e/model.int8.onnx": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "606867d56b846feee4cba26983b35abbfb0be4a932d8a488507917402700d974"
+        },
+        "linux": {
+          "runtime": "linux-ort-release",
+          "cases": 2,
+          "evidence": "linux-v4.json"
+        },
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 4,
+          "client_sha256": "bb030f053648dcafeab19d77ac33eea2559ff031e5a98cacf5f31a27a1b9da2b",
+          "tested_revision": "9c1f125787db5befcfcd3c8e232a642f9b1531f6",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "05c4656e672ba9b299374f77d6ebab575d9077c113eca92115f77677827f843b",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7",
+            "2869e662f8d79b8d0199768a4ba88d880e47adac50112a4a703643ce263f0514"
+          ],
+          "dependencies": {},
+          "mark": "✓†"
+        }
+      },
+      "notes": "Packaged waveform frontend.",
+      "stock_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-stock",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": {
+          "runtime": "linux-sherpa-stock",
+          "cases": 32,
+          "evidence": "sherpa-ctc-2.0.3.json"
+        },
+        "windows": {
+          "runtime": "windows-sherpa-stock",
+          "cases": 4,
+          "evidence": "windows-cpu.json"
+        }
+      }
+    },
+    {
+      "model_path": "ctc-e2e",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef",
+      "files": {
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b",
+        "ctc-e2e/model.int4.onnx": "35670961667f8cd01a02a07245384225d993e86591688b37d2c2a722c92db220"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "606867d56b846feee4cba26983b35abbfb0be4a932d8a488507917402700d974"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": null
+      },
+      "notes": "Packaged waveform frontend.",
+      "final_card_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
+      "stock_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-stock",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "rnnt",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "3d26669a200b282be6db065c16d30fed5375183f",
+      "files": {
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_encoder.onnx": "39aab161988e6aada5f7b5b6c26a883d735bd6556d329a263a02fdfc1d42a590"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "078f6b3aef7c8a3d0a5b2b12e215ca6de714fd73ff5f72c1a455210db8d6d0cb"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "424a881c519bf8045a30e05b0d0f8708281cafa9c27866aa6e3a92305fdf998e",
+          "tested_revision": "3d26669a200b282be6db065c16d30fed5375183f",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {
+            "sentencepiece": "0.2.2"
+          },
+          "mark": "✓†"
+        }
+      },
+      "notes": "Raw and formatted text.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "rnnt",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+      "files": {
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_encoder.onnx": "268540256d7fd46984315fda7b935bb5d26d64292b646d4219b33d2e5910ada2"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "078f6b3aef7c8a3d0a5b2b12e215ca6de714fd73ff5f72c1a455210db8d6d0cb"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": null
+      },
+      "notes": "Raw and formatted text.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "rnnt",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "d39e2a200f596315acef7003d246b65a73e9a327",
+      "files": {
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_encoder.int8.onnx": "4cc7dd3e2a5f1503239df920976d419287f67df87f1849fff0c34ce4b3d58e20"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "078f6b3aef7c8a3d0a5b2b12e215ca6de714fd73ff5f72c1a455210db8d6d0cb"
+        },
+        "linux": {
+          "runtime": "linux-ort-release",
+          "cases": 2,
+          "evidence": "linux-v4.json"
+        },
+        "windows": {
+          "runtime": "windows-ort-release",
+          "cases": 4,
+          "evidence": "windows-cpu.json",
+          "mark": "✓†"
+        }
+      },
+      "notes": "Raw and formatted text.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": {
+          "runtime": "linux-sherpa-preview",
+          "cases": 32,
+          "evidence": "sherpa-preview.json"
+        },
+        "windows": {
+          "runtime": "windows-sherpa-preview",
+          "output": "raw and e2e"
+        }
+      }
+    },
+    {
+      "model_path": "rnnt",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef",
+      "files": {
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_encoder.int4.onnx": "f90351a5ad4e7579595135458b8776be52d735f854ec57d7238af047ae2dc907"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "078f6b3aef7c8a3d0a5b2b12e215ca6de714fd73ff5f72c1a455210db8d6d0cb"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": null
+      },
+      "notes": "Raw and formatted text.",
+      "final_card_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "rnnt-streaming-640ms",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "3d26669a200b282be6db065c16d30fed5375183f",
+      "files": {
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.onnx": "b2d8533e213b950c632acfe4dcc726190792f006273239029fc617a83437b9c6"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "315c9a08c1e26c3d7713b00818b11cdcf08d8d781d503d84c3ba11fc2bef84bb"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "2086858c16256540f49c17bf78d8fe6585ce9c762d7d43e5bd7113f3330ad4e5",
+          "tested_revision": "3d26669a200b282be6db065c16d30fed5375183f",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {
+            "sentencepiece": "0.2.2",
+            "torch": "2.10.0+cpu",
+            "torchaudio": "2.10.0+cpu",
+            "soundfile": "0.14.0"
+          },
+          "mark": "✓†"
+        }
+      },
+      "notes": "640 ms future context.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "rnnt-streaming-640ms",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+      "files": {
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.onnx": "cca07981957130d06b18266ba41481218f36111c3c48a637b4cf17630138e8fb"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "315c9a08c1e26c3d7713b00818b11cdcf08d8d781d503d84c3ba11fc2bef84bb"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": null
+      },
+      "notes": "640 ms future context.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "rnnt-streaming-640ms",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "d39e2a200f596315acef7003d246b65a73e9a327",
+      "files": {
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int8.onnx": "c0eb2185b884ceaef5f0ab79d01f6032591577f1aabbf04b85e7e157436ed69c"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "315c9a08c1e26c3d7713b00818b11cdcf08d8d781d503d84c3ba11fc2bef84bb"
+        },
+        "linux": {
+          "runtime": "linux-ort-release",
+          "cases": 2,
+          "evidence": "linux-v4.json"
+        },
+        "windows": {
+          "runtime": "windows-ort-stream",
+          "cases": 4,
+          "evidence": "windows-cpu.json",
+          "mark": "✓†"
+        }
+      },
+      "notes": "640 ms future context.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": {
+          "runtime": "linux-sherpa-preview",
+          "cases": 32,
+          "evidence": "sherpa-preview.json"
+        },
+        "windows": {
+          "runtime": "windows-sherpa-preview",
+          "output": "raw and e2e with partial output and end-of-input"
+        }
+      }
+    },
+    {
+      "model_path": "rnnt-streaming-640ms",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "revision": "9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef",
+      "files": {
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int4.onnx": "4f4453af2721f0868df2deb9e5675d2982d71258bf609af4db179b540cfc190a"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "client_sha256": "315c9a08c1e26c3d7713b00818b11cdcf08d8d781d503d84c3ba11fc2bef84bb"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 2
+        },
+        "windows": null
+      },
+      "notes": "640 ms future context.",
+      "final_card_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 2,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": {
+          "runtime": "windows-sherpa-preview",
+          "output": "native streaming regression"
+        }
+      }
+    },
+    {
+      "model_path": "multilingual-v2",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "revision": "f641a9a0b82b95062f495696eedb471c2e3515b2",
+      "files": {
+        "multilingual_v2_rnnt_encoder.onnx": "121b23570c0377d86959092f0c82d452ad5b37466d29ff7fc265e452633372b1",
+        "multilingual_v2_rnnt_encoder.weights.bin": "244bc12a4b534aa4d29f791b5551f8aaea8d5566c8bdb0f04120c145581efebe",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "kk_kz:9835764151564761301",
+          "client_sha256": "a403bbeaa8f32c05cd0813f7a18626acea8f2dc248d31bb10ff9e1c5155dd1ef"
+        },
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 10
+        },
+        "windows": null
+      },
+      "notes": "Keep the external tensor file beside the encoder.",
+      "final_card_revision": "685d629e8ecc0839938a5b097b6f91caece6c513",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 6,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "multilingual-v2",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "revision": "4e29c392dd7b9fb22b9950703ba8794a4be09bbd",
+      "files": {
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_encoder.onnx": "81ae7281d14782c910663f3ad3653ac406bd0c7bdcf0ea5b9f3508763c171767",
+        "multilingual_v2_rnnt_encoder.weights.bin": "0022ab457d2a499f6d531d02cbb49b20503e5a2813d562edce0eacac08849d90"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "kk_kz:9835764151564761301",
+          "client_sha256": "a403bbeaa8f32c05cd0813f7a18626acea8f2dc248d31bb10ff9e1c5155dd1ef"
+        },
+        "linux": null,
+        "windows": null
+      },
+      "notes": "Keep the external tensor file beside the encoder.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 6,
+          "output": "e2e"
+        },
+        "linux": null,
+        "windows": null
+      }
+    },
+    {
+      "model_path": "multilingual-v2",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "revision": "b37aa1110317e7ffc6d8ba737b94629a3d63d4cc",
+      "files": {
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_encoder.int8.onnx": "0c460231ed0d57e2f6251601d5459dd05cf55ab6a50b55ae2de9333f5bf58d3d"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "kk_kz:9835764151564761301",
+          "client_sha256": "a403bbeaa8f32c05cd0813f7a18626acea8f2dc248d31bb10ff9e1c5155dd1ef"
+        },
+        "linux": {
+          "runtime": "linux-ort-release",
+          "cases": 10,
+          "evidence": "linux-multi.json"
+        },
+        "windows": {
+          "runtime": "windows-ort-release",
+          "cases": 10,
+          "evidence": "windows-cpu.json",
+          "mark": "✓†"
+        }
+      },
+      "notes": "Explicit language hints and auto mode.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 6,
+          "output": "e2e"
+        },
+        "linux": {
+          "runtime": "linux-sherpa-preview",
+          "cases": 80,
+          "evidence": "sherpa-preview.json"
+        },
+        "windows": {
+          "runtime": "windows-sherpa-preview",
+          "output": "raw and e2e"
+        }
+      }
+    },
+    {
+      "model_path": "multilingual-v2",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "revision": "4e0da82538e6fc1fd8f27fe012451f83cc034974",
+      "files": {
+        "int4/multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "int4/multilingual_v2_rnnt_encoder.int4.onnx": "6d6bac76de138ec8af2c76652ddabc9b41c9c515f298a3bf236c54a27e75192a"
+      },
+      "ort": {
+        "mac": {
+          "runtime": "mac-ort",
+          "cases": 1,
+          "sample": "kk_kz:9835764151564761301",
+          "client_sha256": "a403bbeaa8f32c05cd0813f7a18626acea8f2dc248d31bb10ff9e1c5155dd1ef"
+        },
+        "linux": {
+          "runtime": "linux-ort-int4",
+          "cases": 10,
+          "evidence": "../multilingual-v2/int4/linux.json"
+        },
+        "windows": {
+          "runtime": "windows-ort-release",
+          "cases": 10,
+          "evidence": "windows-cpu.json",
+          "mark": "✓†"
+        }
+      },
+      "notes": "Explicit language hints and auto mode.",
+      "preview_sherpa": {
+        "mac": {
+          "runtime": "mac-sherpa-preview",
+          "cases": 6,
+          "output": "e2e"
+        },
+        "linux": {
+          "runtime": "linux-sherpa-preview",
+          "cases": 80,
+          "evidence": "sherpa-preview.json"
+        },
+        "windows": {
+          "runtime": "windows-sherpa-earlier-preview",
+          "cases": 1,
+          "output": "e2e"
+        }
+      }
+    }
+  ]
+}

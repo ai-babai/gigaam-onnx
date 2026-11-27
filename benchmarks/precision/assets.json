@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "client_source": {
+    "github_repo": "ai-babai/gigaam-onnx",
+    "revision": "3a42502cd2b54210e7742d7106afcd0fbfcdb681",
+    "files_sha256": {
+      "clients/ctc_transcribe.py": "606867d56b846feee4cba26983b35abbfb0be4a932d8a488507917402700d974",
+      "clients/multi_client.py": "a403bbeaa8f32c05cd0813f7a18626acea8f2dc248d31bb10ff9e1c5155dd1ef",
+      "clients/rnnt_transcribe.py": "078f6b3aef7c8a3d0a5b2b12e215ca6de714fd73ff5f72c1a455210db8d6d0cb",
+      "clients/stream_transcribe.py": "315c9a08c1e26c3d7713b00818b11cdcf08d8d781d503d84c3ba11fc2bef84bb"
+    }
+  },
+  "sherpa_preview": {
+    "github_repo": "ai-babai/sherpa-onnx",
+    "revision": "411c7c3ed6232348add92537fdfd61f7f5b6588d"
+  },
+  "asset_bytes_by_sha256": {
+    "0022ab457d2a499f6d531d02cbb49b20503e5a2813d562edce0eacac08849d90": 1575965952,
+    "0c460231ed0d57e2f6251601d5459dd05cf55ab6a50b55ae2de9333f5bf58d3d": 787823851,
+    "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462": 242080937,
+    "112e2ff6640b99a5ac2861c6c3fb7c2fcbcef7ec95046dee3c396a34d6b22892": 2967,
+    "121b23570c0377d86959092f0c82d452ad5b37466d29ff7fc265e452633372b1": 2196820,
+    "1426d68a1421084a29601dd50ab4baa3215bf93c49e6cf7dbb9ae703c2e0bc26": 2607,
+    "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b": 456066,
+    "171af4edd3e28375439fb413c9675f0b551901a6b4f0170fd50d6faf0bc2a78d": 2712,
+    "17f3f9b81605aa8bf022b8ccae985a897b128a3fd44b946ccf8e15782a99317d": 813,
+    "1e1bf611e1575b3862a89221a96ef7c97ff6003aaa57dd62a59da077fa7f1033": 932,
+    "1fa947bbdd66e3fb131f501d532628e7ffd3dd0bfdf61b4693afb9f5e6304745": 220,
+    "2358c44445f99054119b26f7e5360a136fa71c5e012597b950fd507525e1d02e": 1786,
+    "244bc12a4b534aa4d29f791b5551f8aaea8d5566c8bdb0f04120c145581efebe": 3093703168,
+    "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff": 2712939,
+    "268540256d7fd46984315fda7b935bb5d26d64292b646d4219b33d2e5910ada2": 489277697,
+    "34a7da23d414a6944e9e18b4456bd784a4fd7c2ef9f98dc42f14381178252633": 123,
+    "35670961667f8cd01a02a07245384225d993e86591688b37d2c2a722c92db220": 151972923,
+    "39aab161988e6aada5f7b5b6c26a883d735bd6556d329a263a02fdfc1d42a590": 953251600,
+    "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a": 54214,
+    "4471c8b3b0c4001e3b566d3383a5e8c15bd4695ae1d7477296815a7aaeebb420": 487691905,
+    "4af4f59269ff664ea6a55838b12fa0cb5e07bd5e019202b4d38b3fbc9275e923": 9982,
+    "4cc7dd3e2a5f1503239df920976d419287f67df87f1849fff0c34ce4b3d58e20": 242532777,
+    "4f4453af2721f0868df2deb9e5675d2982d71258bf609af4db179b540cfc190a": 151006066,
+    "531ead751cc5929eb9dc5876de762c6a428139218ccd13f6eb8e2cc5be362a5e": 10789,
+    "54813114c35d0ad889629b972b2dfd1837b41ddaf845fb69b5e75eba9f0d90e8": 951667986,
+    "5ae13217ea7824ca49ce7606af6ae2ca61dd4d12d09e0eb7739ed73451901bf4": 56,
+    "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88": 4599971,
+    "6d6bac76de138ec8af2c76652ddabc9b41c9c515f298a3bf236c54a27e75192a": 496211213,
+    "6d8be27c23e5044e5ecc9e2f068508aa95ffbe084ee0ce6eb29c421ec400cf2d": 2198,
+    "72d3dc0a9ac6138a265d25718bf3db1a425f223ecab2894639248c4e6cc4a983": 242,
+    "7480fcd3e6706900c2039dd65c613e88539dd9a04fef456af85531abe975b8f7": 2239,
+    "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc": 23009508,
+    "81ae7281d14782c910663f3ad3653ac406bd0c7bdcf0ea5b9f3508763c171767": 2107025,
+    "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba": 2712939,
+    "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d": 43014,
+    "91a689c0576ec4ea6fcf8e6257d1ea3f451f559af55924a80063535dfb814336": 207,
+    "967d8c33c1cc084e27f88bc0d01df2f5c0009badc7de86915e63e52c5bb7e891": 33,
+    "9899c9c0159849967938f8c4705cef94261a7a6712614a3a8507bc3c42eeedbb": 6203,
+    "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012": 4599971,
+    "a53cfea81f2ea74975e60dee9b1431107e1d78611d5355e69618014997b40cb6": 1803,
+    "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda": 3561,
+    "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570": 3228803,
+    "b2d8533e213b950c632acfe4dcc726190792f006273239029fc617a83437b9c6": 948130170,
+    "ba44c0acb6325b0d15f1fa73399832affa680c8c988f9af30990c8cc9ac02ca2": 6198,
+    "bc2e491159437f2d0c256db13efba63315880bffe1781aa3c7d507ba2164dac8": 747,
+    "c0eb2185b884ceaef5f0ab79d01f6032591577f1aabbf04b85e7e157436ed69c": 241144602,
+    "c4d6e520e41537a42ca07a89f076d0a9db717f352fdaff4df043c0b0296e3477": 2473,
+    "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423": 26877,
+    "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e": 843,
+    "cca07981957130d06b18266ba41481218f36111c3c48a637b4cf17630138e8fb": 485746433,
+    "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45": 12753376,
+    "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc": 15374,
+    "e67a9970ce3aa3bc13c21bdedd2eddc89ca8e974389a1a0cdc31bc773efc0895": 253,
+    "f2f4f3013a96a30064a6d784ef9dff72769c578f6818565c090c3f712ba96204": 6203,
+    "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39": 14686,
+    "f90351a5ad4e7579595135458b8776be52d735f854ec57d7238af047ae2dc907": 153556537,
+    "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e": 54
+  },
+  "packages": [
+    {
+      "model": "ctc-e2e",
+      "precision": "FP32",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "3d26669a200b282be6db065c16d30fed5375183f",
+      "package_directory": "ctc-e2e",
+      "client": "clients/ctc_transcribe.py",
+      "required_files": {
+        "ctc-e2e/model.fp32.onnx": "54813114c35d0ad889629b972b2dfd1837b41ddaf845fb69b5e75eba9f0d90e8",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b",
+        "ctc-e2e/tokens.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+      },
+      "requirements_file": {
+        "requirements-offline.txt": "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e"
+      }
+    },
+    {
+      "model": "ctc-e2e",
+      "precision": "FP16 storage",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+      "package_directory": "ctc-e2e",
+      "client": "clients/ctc_transcribe.py",
+      "required_files": {
+        "ctc-e2e/model.fp16.onnx": "4471c8b3b0c4001e3b566d3383a5e8c15bd4695ae1d7477296815a7aaeebb420",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b",
+        "ctc-e2e/tokens.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+      },
+      "requirements_file": {
+        "ctc-e2e/requirements.txt": "967d8c33c1cc084e27f88bc0d01df2f5c0009badc7de86915e63e52c5bb7e891"
+      }
+    },
+    {
+      "model": "ctc-e2e",
+      "precision": "INT8",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "d39e2a200f596315acef7003d246b65a73e9a327",
+      "package_directory": "ctc-e2e",
+      "client": "clients/ctc_transcribe.py",
+      "required_files": {
+        "ctc-e2e/model.int8.onnx": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b",
+        "ctc-e2e/tokens.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+      },
+      "additional_files_by_runtime": {
+        "transcribe-rs": {
+          "ctc-e2e/vocab.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+        }
+      }
+    },
+    {
+      "model": "ctc-e2e",
+      "precision": "INT4",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
+      "package_directory": "ctc-e2e",
+      "client": "clients/ctc_transcribe.py",
+      "required_files": {
+        "ctc-e2e/model.int4.onnx": "35670961667f8cd01a02a07245384225d993e86591688b37d2c2a722c92db220",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b",
+        "ctc-e2e/tokens.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+      },
+      "requirements_file": {
+        "ctc-e2e/requirements.txt": "967d8c33c1cc084e27f88bc0d01df2f5c0009badc7de86915e63e52c5bb7e891"
+      }
+    },
+    {
+      "model": "rnnt",
+      "precision": "FP32",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "3d26669a200b282be6db065c16d30fed5375183f",
+      "package_directory": "rnnt",
+      "client": "clients/rnnt_transcribe.py",
+      "required_files": {
+        "rnnt/manifest.json": "bc2e491159437f2d0c256db13efba63315880bffe1781aa3c7d507ba2164dac8",
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt/v4_rnnt_encoder.onnx": "39aab161988e6aada5f7b5b6c26a883d735bd6556d329a263a02fdfc1d42a590",
+        "rnnt/v4_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "rnnt/v4_rnnt_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc"
+      },
+      "requirements_file": {
+        "requirements-offline.txt": "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e"
+      },
+      "additional_files_by_runtime": {
+        "gigaam_onnx_api": {
+          "rnnt/v4_rnnt.yaml": "2358c44445f99054119b26f7e5360a136fa71c5e012597b950fd507525e1d02e"
+        }
+      }
+    },
+    {
+      "model": "rnnt",
+      "precision": "FP16 storage",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+      "package_directory": "rnnt",
+      "client": "clients/rnnt_transcribe.py",
+      "required_files": {
+        "rnnt/manifest.json": "1e1bf611e1575b3862a89221a96ef7c97ff6003aaa57dd62a59da077fa7f1033",
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt/v4_rnnt_encoder.onnx": "268540256d7fd46984315fda7b935bb5d26d64292b646d4219b33d2e5910ada2",
+        "rnnt/v4_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "rnnt/v4_rnnt_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc"
+      },
+      "requirements_file": {
+        "rnnt/requirements.txt": "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e"
+      }
+    },
+    {
+      "model": "rnnt",
+      "precision": "INT8",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "d39e2a200f596315acef7003d246b65a73e9a327",
+      "package_directory": "rnnt",
+      "client": "clients/rnnt_transcribe.py",
+      "required_files": {
+        "rnnt/manifest.json": "c4d6e520e41537a42ca07a89f076d0a9db717f352fdaff4df043c0b0296e3477",
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt/v4_rnnt_encoder.int8.onnx": "4cc7dd3e2a5f1503239df920976d419287f67df87f1849fff0c34ce4b3d58e20",
+        "rnnt/v4_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "rnnt/v4_rnnt_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc"
+      },
+      "requirements_file": {
+        "rnnt/requirements.txt": "5ae13217ea7824ca49ce7606af6ae2ca61dd4d12d09e0eb7739ed73451901bf4"
+      }
+    },
+    {
+      "model": "rnnt",
+      "precision": "INT4",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
+      "package_directory": "rnnt",
+      "client": "clients/rnnt_transcribe.py",
+      "required_files": {
+        "rnnt/manifest.json": "1426d68a1421084a29601dd50ab4baa3215bf93c49e6cf7dbb9ae703c2e0bc26",
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt/v4_rnnt_encoder.int4.onnx": "f90351a5ad4e7579595135458b8776be52d735f854ec57d7238af047ae2dc907",
+        "rnnt/v4_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "rnnt/v4_rnnt_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc"
+      },
+      "requirements_file": {
+        "rnnt/requirements.txt": "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e"
+      }
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "FP32",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "3d26669a200b282be6db065c16d30fed5375183f",
+      "package_directory": "rnnt-streaming-640ms",
+      "client": "clients/stream_transcribe.py",
+      "required_files": {
+        "rnnt-streaming-640ms/streaming.json": "ba44c0acb6325b0d15f1fa73399832affa680c8c988f9af30990c8cc9ac02ca2",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.yaml": "a53cfea81f2ea74975e60dee9b1431107e1d78611d5355e69618014997b40cb6",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.onnx": "b2d8533e213b950c632acfe4dcc726190792f006273239029fc617a83437b9c6"
+      },
+      "requirements_file": {
+        "requirements-streaming.txt": "72d3dc0a9ac6138a265d25718bf3db1a425f223ecab2894639248c4e6cc4a983"
+      },
+      "additional_files_by_runtime": {
+        "sherpa": {
+          "rnnt-streaming-640ms/tokens.e2e.txt": "4af4f59269ff664ea6a55838b12fa0cb5e07bd5e019202b4d38b3fbc9275e923",
+          "rnnt-streaming-640ms/tokens.raw.txt": "531ead751cc5929eb9dc5876de762c6a428139218ccd13f6eb8e2cc5be362a5e"
+        }
+      }
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "FP16 storage",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+      "package_directory": "rnnt-streaming-640ms",
+      "client": "clients/stream_transcribe.py",
+      "required_files": {
+        "rnnt-streaming-640ms/streaming.json": "ba44c0acb6325b0d15f1fa73399832affa680c8c988f9af30990c8cc9ac02ca2",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.yaml": "a53cfea81f2ea74975e60dee9b1431107e1d78611d5355e69618014997b40cb6",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.onnx": "cca07981957130d06b18266ba41481218f36111c3c48a637b4cf17630138e8fb"
+      },
+      "requirements_file": {
+        "rnnt-streaming-640ms/requirements.txt": "91a689c0576ec4ea6fcf8e6257d1ea3f451f559af55924a80063535dfb814336"
+      },
+      "additional_files_by_runtime": {
+        "sherpa": {
+          "rnnt-streaming-640ms/tokens.e2e.txt": "4af4f59269ff664ea6a55838b12fa0cb5e07bd5e019202b4d38b3fbc9275e923",
+          "rnnt-streaming-640ms/tokens.raw.txt": "531ead751cc5929eb9dc5876de762c6a428139218ccd13f6eb8e2cc5be362a5e"
+        }
+      }
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "INT8",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "9c1f125787db5befcfcd3c8e232a642f9b1531f6",
+      "package_directory": "rnnt-streaming-640ms",
+      "client": "clients/stream_transcribe.py",
+      "required_files": {
+        "rnnt-streaming-640ms/streaming.json": "f2f4f3013a96a30064a6d784ef9dff72769c578f6818565c090c3f712ba96204",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.yaml": "a53cfea81f2ea74975e60dee9b1431107e1d78611d5355e69618014997b40cb6",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int8.onnx": "c0eb2185b884ceaef5f0ab79d01f6032591577f1aabbf04b85e7e157436ed69c"
+      },
+      "additional_files_by_runtime": {
+        "sherpa": {
+          "rnnt-streaming-640ms/tokens.e2e.txt": "4af4f59269ff664ea6a55838b12fa0cb5e07bd5e019202b4d38b3fbc9275e923",
+          "rnnt-streaming-640ms/tokens.raw.txt": "531ead751cc5929eb9dc5876de762c6a428139218ccd13f6eb8e2cc5be362a5e"
+        }
+      },
+      "legacy_runtime_revision": "d39e2a200f596315acef7003d246b65a73e9a327"
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "INT4",
+      "huggingface_repo": "ai-babai/gigaam-v4-onnx",
+      "huggingface_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
+      "package_directory": "rnnt-streaming-640ms",
+      "client": "clients/stream_transcribe.py",
+      "required_files": {
+        "rnnt-streaming-640ms/streaming.json": "9899c9c0159849967938f8c4705cef94261a7a6712614a3a8507bc3c42eeedbb",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.yaml": "a53cfea81f2ea74975e60dee9b1431107e1d78611d5355e69618014997b40cb6",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int4.onnx": "4f4453af2721f0868df2deb9e5675d2982d71258bf609af4db179b540cfc190a"
+      },
+      "requirements_file": {
+        "rnnt-streaming-640ms/requirements.txt": "1fa947bbdd66e3fb131f501d532628e7ffd3dd0bfdf61b4693afb9f5e6304745"
+      },
+      "additional_files_by_runtime": {
+        "sherpa": {
+          "rnnt-streaming-640ms/tokens.e2e.txt": "4af4f59269ff664ea6a55838b12fa0cb5e07bd5e019202b4d38b3fbc9275e923",
+          "rnnt-streaming-640ms/tokens.raw.txt": "531ead751cc5929eb9dc5876de762c6a428139218ccd13f6eb8e2cc5be362a5e"
+        }
+      }
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "FP32",
+      "huggingface_repo": "ai-babai/gigaam-multilingual-v2-onnx",
+      "huggingface_revision": "f641a9a0b82b95062f495696eedb471c2e3515b2",
+      "package_directory": ".",
+      "client": "clients/multi_client.py",
+      "required_files": {
+        "config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "manifest.json": "112e2ff6640b99a5ac2861c6c3fb7c2fcbcef7ec95046dee3c396a34d6b22892",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "multilingual_v2_rnnt_encoder.onnx": "121b23570c0377d86959092f0c82d452ad5b37466d29ff7fc265e452633372b1",
+        "multilingual_v2_rnnt_encoder.weights.bin": "244bc12a4b534aa4d29f791b5551f8aaea8d5566c8bdb0f04120c145581efebe",
+        "multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423"
+      },
+      "documentation_revision": "685d629e8ecc0839938a5b097b6f91caece6c513",
+      "requirements_file": {
+        "requirements.txt": "34a7da23d414a6944e9e18b4456bd784a4fd7c2ef9f98dc42f14381178252633"
+      },
+      "additional_files_by_runtime": {
+        "gigaam_onnx_api": {
+          "multilingual_v2_rnnt.yaml": "7480fcd3e6706900c2039dd65c613e88539dd9a04fef456af85531abe975b8f7",
+          "requirements-upstream.txt": "e67a9970ce3aa3bc13c21bdedd2eddc89ca8e974389a1a0cdc31bc773efc0895"
+        }
+      }
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "FP16 storage",
+      "huggingface_repo": "ai-babai/gigaam-multilingual-v2-onnx",
+      "huggingface_revision": "4e29c392dd7b9fb22b9950703ba8794a4be09bbd",
+      "package_directory": ".",
+      "client": "clients/multi_client.py",
+      "required_files": {
+        "config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "manifest.json": "17f3f9b81605aa8bf022b8ccae985a897b128a3fd44b946ccf8e15782a99317d",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "multilingual_v2_rnnt_encoder.onnx": "81ae7281d14782c910663f3ad3653ac406bd0c7bdcf0ea5b9f3508763c171767",
+        "multilingual_v2_rnnt_encoder.weights.bin": "0022ab457d2a499f6d531d02cbb49b20503e5a2813d562edce0eacac08849d90",
+        "multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423"
+      },
+      "requirements_file": {
+        "requirements.txt": "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e"
+      }
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "INT8",
+      "huggingface_repo": "ai-babai/gigaam-multilingual-v2-onnx",
+      "huggingface_revision": "b37aa1110317e7ffc6d8ba737b94629a3d63d4cc",
+      "package_directory": ".",
+      "client": "clients/multi_client.py",
+      "required_files": {
+        "config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "manifest.json": "171af4edd3e28375439fb413c9675f0b551901a6b4f0170fd50d6faf0bc2a78d",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "multilingual_v2_rnnt_encoder.int8.onnx": "0c460231ed0d57e2f6251601d5459dd05cf55ab6a50b55ae2de9333f5bf58d3d",
+        "multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423"
+      },
+      "requirements_file": {
+        "requirements.txt": "5ae13217ea7824ca49ce7606af6ae2ca61dd4d12d09e0eb7739ed73451901bf4"
+      }
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "INT4",
+      "huggingface_repo": "ai-babai/gigaam-multilingual-v2-onnx",
+      "huggingface_revision": "4e0da82538e6fc1fd8f27fe012451f83cc034974",
+      "package_directory": "int4",
+      "client": "clients/multi_client.py",
+      "required_files": {
+        "int4/config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "int4/manifest.json": "6d8be27c23e5044e5ecc9e2f068508aa95ffbe084ee0ce6eb29c421ec400cf2d",
+        "int4/multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "int4/multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "int4/multilingual_v2_rnnt_encoder.int4.onnx": "6d6bac76de138ec8af2c76652ddabc9b41c9c515f298a3bf236c54a27e75192a",
+        "int4/multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "int4/multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423"
+      },
+      "requirements_file": {
+        "requirements.txt": "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e"
+      }
+    }
+  ]
+}
