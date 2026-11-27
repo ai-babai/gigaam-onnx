@@ -84,7 +84,7 @@ class GigaAMRNNT:
     def features(self, audio):
         window = self.preprocessor["win_length"]
         if not window <= audio.size <= 30 * self.sample_rate:
-            raise ValueError("Expected a single audio clip of at most 30 s")
+            raise ValueError(f"Expected a single clip from {1000 * window / self.sample_rate:g} ms to 30 s")
         frames = np.lib.stride_tricks.sliding_window_view(audio, window)[
             :: self.preprocessor["hop_length"]
         ]

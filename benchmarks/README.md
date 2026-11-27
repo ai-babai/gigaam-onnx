@@ -2,6 +2,8 @@
 
 Paired speech recognition quality and CPU performance for the v0.2.0 release. We sampled 16 Google FLEURS test clips per language using a fixed seed. GigaAM-v4 is evaluated on Russian and English. GigaAM Multilingual-v2 is evaluated on Russian, Kazakh, Uzbek, Kyrgyz and English, with explicit language hints.
 
+[Multilingual-v2 INT4: memory, speed and WER](multilingual-v2/int4/README.md)
+
 ## CPU throughput
 
 | CPU package | Package size | Audio seconds per wall second | Speedup over FP32 ONNX |

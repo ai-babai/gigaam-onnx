@@ -63,6 +63,13 @@ class SherpaCtc:
     def __init__(self, package):
         import sherpa_onnx
 
+        for filename in ("model.int8.onnx", "tokens.txt"):
+            path = package / filename
+            if not path.is_file():
+                raise FileNotFoundError(path)
+        tokens = (package / "tokens.txt").read_text(encoding="utf-8").splitlines()
+        if not any(line.split()[:1] == ["<blk>"] for line in tokens):
+            raise ValueError("tokens.txt must contain the CTC blank token <blk>")
         self.recognizer = sherpa_onnx.OfflineRecognizer.from_nemo_ctc(
             model=str(package / "model.int8.onnx"),
             tokens=str(package / "tokens.txt"),

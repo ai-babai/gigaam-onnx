@@ -78,7 +78,7 @@ class MultilingualRNNT:
             for head in self.heads
         }
         if encoder is None:
-            encoder = package / f"{prefix}_encoder.int8.onnx"
+            encoder = package / manifest.get("encoder_filename", f"{prefix}_encoder.int8.onnx")
         self.encoder = onnx_session(encoder)
         self.advance = (
             advance
