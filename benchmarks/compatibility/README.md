@@ -1,4 +1,4 @@
-# macOS and Linux speech recognition compatibility
+# Speech recognition runtime compatibility
 
 All four release clients completed 16 paired cases on **Apple Silicon macOS 15.8.1** and **x86_64 Ubuntu 26.04.1 LTS**. They used the CPU execution provider in ONNX Runtime 1.23.2. Model and audio hashes matched across hosts. This is a loader and transcript smoke test. The [quality and throughput benchmarks](../README.md) use the larger FLEURS sample on Mac.
 
@@ -20,6 +20,8 @@ The **sherpa-onnx 2.0.3** offline NeMo CTC example ran on both platforms with Nu
 |---|:---:|:---:|---|
 | Russian, 16 clips | ✓ | ✓ | WER 2.53% on Mac and 2.89% on Linux |
 | English, 16 clips | ✓ | ✓ | WER 6.30% on Mac and 5.77% on Linux |
+
+**Windows 11 x64.** The stock sherpa-onnx 2.0.3 executable also transcribed all four v4 CTC clips (two RU, two EN). With one CPU thread, decoding took 12.38 s for 41.80 s of audio. The sampled peak working set was 487 MB. [Windows results and hashes](sherpa-ctc-2.0.3.json)
 
 Overall, 28 of 30 texts matched byte for byte across platforms. Both one-character differences repeated on rerun. The CLI checks include the five explicit language hints and auto on the same five recordings. The CTC integrations with sherpa-onnx and transcribe-rs were checked independently. See [v4 details](v4-platforms.md), [multilingual details](multilingual-platforms.md), [v4 machine-readable results](linux-v4.json) and [multilingual machine-readable results](linux-multi.json).
 

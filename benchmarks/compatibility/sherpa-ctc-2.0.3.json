@@ -301,5 +301,48 @@
       "mac": "It may also be beneficial for one to buy a wild card, which provides entrys to either selections of parks in South Africa or all of the South African National Parks.",
       "linux": "It may also be beneficial for one to buy a wild card, which provides entrys to either selections of parks in South Africa or all of the South African national parks."
     }
-  ]
+  ],
+  "windows_smoke": {
+    "os": "Windows 11 Pro x64, build 26300",
+    "executable": "sherpa-onnx-offline.exe",
+    "threads": 1,
+    "provider": "cpu",
+    "feature_dim": 64,
+    "mode": "Four WAV files passed to the Windows CLI in one invocation.",
+    "hashes": {
+      "exe": "1d1937ce8df53ed6321a6acc6d13c30fd64eb08330041ba249d152e5b7823831",
+      "model": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+      "tokens": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+    },
+    "audio_seconds": 41.8,
+    "decode_seconds": 12.378,
+    "wall_seconds": 19.9294191,
+    "sampled_peak_working_set_bytes": 487059456,
+    "clips": [
+      {
+        "id": "ru_ru:7721997118013656128",
+        "lang": "ru",
+        "text": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "matches_mac_2_0_3_single": true
+      },
+      {
+        "id": "ru_ru:13551361006884342562",
+        "lang": "ru",
+        "text": "К региональным и сезонным опасным явлениям погоды относятся метели, снежные бури, ледяные и пыльные бури.",
+        "matches_mac_2_0_3_single": true
+      },
+      {
+        "id": "en_us:11200231708585274851",
+        "lang": "en",
+        "text": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "matches_mac_2_0_3_single": true
+      },
+      {
+        "id": "en_us:3491234462595391279",
+        "lang": "en",
+        "text": "We don't know for sure, but it may have had a four tongue i mhat include turtles, large fish, other mososaurus, and it may even have been a cannibal",
+        "matches_mac_2_0_3_single": false
+      }
+    ]
+  }
 }

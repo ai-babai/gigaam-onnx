@@ -18,7 +18,7 @@ Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multiling
 | Multilingual-v2 INT8 | ✓ | | | | ✓ | GigaAM API on Mac with filename alias |
 | Multilingual-v2 INT4 | ✓ | | | | | Lower peak memory |
 
-✓ = verified with the released weights. Empty cells have no verified integration. Checks cover macOS arm64 and Linux x86-64 unless the note specifies one platform. ONNX Runtime 1.23.2, sherpa-onnx 1.13.2 and 2.0.3 and transcribe-rs 0.3.11 were tested. onnx-asr 0.12.0 has no compatible built-in loader. [Platform versions and test results](benchmarks/compatibility/README.md)
+✓ = verified with the released weights. Empty cells have no verified integration. Checks cover macOS arm64 and Linux x86-64 unless the note specifies one platform. ONNX Runtime 1.23.2, sherpa-onnx 1.13.2 and 2.0.3 and transcribe-rs 0.3.11 were tested. onnx-asr 0.12.0 has no compatible built-in loader. The stock sherpa-onnx 2.0.3 CLI also transcribed four RU/EN clips on Windows 11 x64. [Platform versions and test results](benchmarks/compatibility/README.md)
 
 ## Choose a model package
 
