@@ -1,12 +1,15 @@
 # GigaAM ONNX release checks
 
-**Release v0.2.1.** 🟢 met the stated target · 🟡 observed limit or partial coverage · 🔴 missed the stated target. Each result applies to the named model, tool version and sample. [Model × runtime matrix](../benchmarks/compatibility/README.md) · [Tested dependencies](../benchmarks/compatibility/README.md#tested-dependency-versions)
+**Model release v0.2.1, code layout v0.2.2.** 🟢 met the stated target · 🟡 observed limit or partial coverage · 🔴 missed the stated target. Each result applies to the named model, tool version and sample. [Model × runtime matrix](../benchmarks/compatibility/README.md) · [Tested dependencies](../benchmarks/compatibility/README.md#tested-dependency-versions)
 
 ## Application scenarios
 
 | Scenario | Target | Observed | Status | Note |
 |---|---|---:|:---:|---|
 | Native CPU clients, macOS and Linux | Every prescribed smoke case completes | 16/16 per OS, INT8 | 🟢 | 28/30 compared outputs matched verbatim. |
+| Fresh code checkout, macOS and Linux | Reproduce all four INT8 score reports | 4/4 byte-identical per OS | 🟢 | `make verify-scores` uses stored predictions, including both bootstrap seeds. |
+| Relocated transcription clients | Decode one clip per weight variant | 5/5 per OS | 🟢 | All five Mac transcripts matched their saved predictions. |
+| Converter packaging, macOS | Copy the correct standalone client and verify the manifest | 11/11 + 12/12 files | 🟢 | Rebuilt v4 and multilingual offline RNN-T INT8 packages from their FP32 exports. |
 | Fresh macOS Python environment | Dependency check and transcription | 2/2 model runs | 🟢 | Python 3.12.11, Sherpa CTC and multilingual INT4. |
 | Fresh public INT4 download | All manifest hashes match and Kazakh output reproduces | 9/9 hashes, raw + formatted match | 🟢 | Anonymous Hugging Face download and pinned GitHub client. |
 | INT4 multilingual, Linux | Nonempty raw and formatted text | 20/20 | 🟢 | Five clips, each with a language hint and in auto mode. |

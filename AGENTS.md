@@ -22,12 +22,14 @@ Start with the dependency block for your model in the [README](README.md#downloa
 
 ## Verify a change
 
-**Navigation and syntax** need only Python. These commands work before downloading weights.
+**Navigation and syntax.** These checks used Git, Python 3.12 and GNU Make (3.81 on macOS, 4.4.1 on Linux). They work before downloading weights.
 
 ```sh
 git ls-files 'clients/*.py' 'conversion/*.py' 'benchmarks/tools/*.py'
 make check
 ```
+
+On a minimal Linux image without Make, run `python3 -m compileall -q clients conversion benchmarks/tools` and `git diff --check HEAD` directly.
 
 **Inference.** Run the matching client on a known speech clip, using the pinned dependencies. For offline models use a single utterance between 20 ms and 30 s. The following command uses the v4 CTC package from the quickstart.
 
@@ -43,7 +45,14 @@ Compare formatted text with the saved output for the same clip and runtime. For 
 make verify-scores
 ```
 
-Set `PYTHON=/path/to/python` when invoking Make to select an existing environment. For other predictions, run `python -m benchmarks.tools.score_release --help`.
+Set `PYTHON=/path/to/python` when invoking Make to select an existing environment. To check the five-language report directly with Python, run the scorer and compare its output.
+
+```sh
+metrics=$(mktemp)
+python -m benchmarks.tools.score_release benchmarks/multilingual-v2/sample.jsonl \
+  benchmarks/multilingual-v2/results.jsonl "$metrics" --languages ru kk uz ky en
+cmp "$metrics" benchmarks/multilingual-v2/metrics.json
+```
 
 **Conversion.** Run the affected converter, check the output manifest and open the generated package with its matching client. For INT4 compare the encoder digest with the [published digest and recipe](benchmarks/multilingual-v2/int4/README.md). Report the model revision, runtime version, OS and sample alongside any compatibility or speed claim.
 
