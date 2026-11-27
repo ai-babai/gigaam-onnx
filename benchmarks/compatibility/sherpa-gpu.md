@@ -96,6 +96,10 @@ Each Multilingual-v2 run used 16 recordings per language in Russian, English, Ka
 
 For exact transcript agreement on this sample, choose FP32 or FP16 storage with CUDA for CTC and streaming. The offline v4 INT4 pair also agreed on every clip. Keep CPU as the starting point for INT8 CTC, INT8 streaming and Multilingual-v2 INT8 auto on this host.
 
+In a separate A40 routing experiment, placing only the streaming INT8 encoder on CPU made the 32-clip run 1.53× faster than requesting CUDA throughout. Compared with that CUDA control, token sequences matched on 27/32 clips, token timestamps on 1/32, and WER changed from 5.32% to 5.47%. The shipped preview keeps its existing routing. Streaming FP32 with CUDA took 405 ms on the warm RU clip and 310 ms on EN, compared with 587 ms and 498 ms for the experimental INT8 split.
+
+The streaming review tests also passed on the A40 with both CPU and CUDA for the original dynamic and fixed-width test graphs in FP32 and INT8. Reset preserved queued speech and advanced the segment start from 0.00 to 0.64 seconds in each configuration.
+
 ### CPU thread count for streaming
 
 On a separate Linux VM with three AMD EPYC 7763 vCPUs, one INT8 streaming recognizer ran fastest with `provider="cpu", num_threads=1`. Across six paired runs on 128.52 seconds of audio, median decode time was 19.24 seconds with one thread, 21.64 with two and 34.56 with three. All 220 transcript, timestamp and lifecycle events agreed across the three settings. The profiled build spent 99.47% of decode time in ORT at one thread. Choose the thread count on the deployment host.
