@@ -1,0 +1,124 @@
+"""Transcribe a clip with the packaged GigaAM-v4 RNN-T ONNX models."""
+
+import argparse
+import json
+import os
+from pathlib import Path
+import subprocess
+
+os.environ["OMP_NUM_THREADS"] = "3"
+os.environ["OPENBLAS_NUM_THREADS"] = "3"
+os.environ["VECLIB_MAXIMUM_THREADS"] = "3"
+
+import numpy as np
+import onnxruntime as ort
+import sentencepiece as spm
+
+
+def read_audio(path, sample_rate=16000):
+    result = subprocess.run(
+        [
+            "ffmpeg",
+            "-nostdin",
+            "-v",
+            "error",
+            "-threads",
+            "3",
+            "-i",
+            str(path),
+            "-threads",
+            "3",
+            "-ac",
+            "1",
+            "-ar",
+            str(sample_rate),
+            "-f",
+            "f32le",
+            "-",
+        ],
+        capture_output=True,
+        check=True,
+    )
+    return np.frombuffer(result.stdout, dtype="<f4").copy()
+
+
+def cpu_session(path):
+    options = ort.SessionOptions()
+    options.intra_op_num_threads = 3
+    options.inter_op_num_threads = 1
+    options.add_session_config_entry("session.intra_op.allow_spinning", "0")
+    options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+    return ort.InferenceSession(
+        str(path), sess_options=options, providers=["CPUExecutionProvider"]
+    )
+
+
+class GigaAMRNNT:
+    def __init__(self, package, *, encoder=None):
+        package = Path(package)
+        manifest = json.loads((package / "manifest.json").read_text())
+        prefix = manifest["model_name"]
+        self.heads = manifest["head_order"]
+        self.preprocessor = manifest["preprocessor"]
+        with np.load(package / f"{prefix}_mel.npz") as mel:
+            self.window = mel["window"]
+            self.filterbank = mel["filterbank"]
+        self.tokenizers = {
+            head: spm.SentencePieceProcessor(
+                model_file=str(package / f"{prefix}_{head}_tokenizer.model")
+            )
+            for head in self.heads
+        }
+        self.encoder = cpu_session(encoder or package / f"{prefix}_encoder.int8.onnx")
+        self.advance = cpu_session(package / f"{prefix}_advance.onnx")
+        self.encoder_inputs = [node.name for node in self.encoder.get_inputs()]
+        if len(self.encoder_inputs) != 2:
+            raise ValueError(
+                "Expected a full-context encoder taking log-mel features and lengths"
+            )
+
+    @property
+    def sample_rate(self):
+        return self.preprocessor["sample_rate"]
+
+    def features(self, audio):
+        window = self.preprocessor["win_length"]
+        if not window <= audio.size <= 30 * self.sample_rate:
+            raise ValueError("Expected a single audio clip of at most 30 s")
+        frames = np.lib.stride_tricks.sliding_window_view(audio, window)[
+            :: self.preprocessor["hop_length"]
+        ]
+        spectrum = np.fft.rfft(frames * self.window, n=self.preprocessor["n_fft"])
+        power = spectrum.real**2 + spectrum.imag**2
+        mel = np.log(np.clip(power @ self.filterbank, 1e-9, 1e9))
+        return mel.T[None, :, :]
+
+    def transcribe(self, audio):
+        features = self.features(audio)
+        sizes = np.array([features.shape[-1]], dtype=np.int64)
+        lengths, projected = self.encoder.run(
+            None, dict(zip(self.encoder_inputs, (features, sizes), strict=True))
+        )
+        (tokens,) = self.advance.run(None, {"projected": projected, "lengths": lengths})
+        rows = tokens.transpose(1, 2, 0)[:, 0, :]
+        return {
+            head: self.tokenizers[head].decode(row[row >= 0].tolist())
+            for head, row in zip(self.heads, rows, strict=True)
+        }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("audio", type=Path)
+    parser.add_argument("--package", type=Path, default=Path(__file__).resolve().parent)
+    args = parser.parse_args()
+    model = GigaAMRNNT(args.package)
+    try:
+        result = model.transcribe(read_audio(args.audio, model.sample_rate))
+    except subprocess.CalledProcessError as error:
+        parser.exit(1, error.stderr.decode(errors="replace"))
+    print(json.dumps(result, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

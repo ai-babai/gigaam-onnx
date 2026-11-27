@@ -1,0 +1,34 @@
+{
+  "sherpa": {
+    "ru": {
+      "clips": 16,
+      "words": 277,
+      "errors": 7,
+      "wer_pct": 2.527075812274368,
+      "normalized_matches_with_ort": 16
+    },
+    "en": {
+      "clips": 16,
+      "words": 381,
+      "errors": 22,
+      "wer_pct": 5.774278215223097,
+      "normalized_matches_with_ort": 12
+    }
+  },
+  "transcribe-rs": {
+    "ru": {
+      "clips": 16,
+      "words": 277,
+      "errors": 7,
+      "wer_pct": 2.527075812274368,
+      "normalized_matches_with_ort": 16
+    },
+    "en": {
+      "clips": 16,
+      "words": 381,
+      "errors": 21,
+      "wer_pct": 5.511811023622047,
+      "normalized_matches_with_ort": 14
+    }
+  }
+}

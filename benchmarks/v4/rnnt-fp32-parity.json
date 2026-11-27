@@ -1,0 +1,36 @@
+[
+  {
+    "lang": "ru",
+    "id": "ru_ru:7721997118013656128",
+    "max_abs_log_mel_error": 0.00045871734619140625,
+    "exact_match": {
+      "e2e": true,
+      "raw": true
+    },
+    "torch": {
+      "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+    },
+    "onnx_fp32": {
+      "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+    }
+  },
+  {
+    "lang": "en",
+    "id": "en_us:11200231708585274851",
+    "max_abs_log_mel_error": 0.00017261505126953125,
+    "exact_match": {
+      "e2e": true,
+      "raw": true
+    },
+    "torch": {
+      "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+    },
+    "onnx_fp32": {
+      "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+    }
+  }
+]

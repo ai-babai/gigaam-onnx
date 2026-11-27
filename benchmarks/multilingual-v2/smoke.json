@@ -1,0 +1,18 @@
+{
+  "kk": {
+    "clip": "kk_kz:9835764151564761301",
+    "hint": "kk",
+    "output": {
+      "e2e": "Виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады, дегенмен мұнда кішігірім айырмашылықтар бар.",
+      "raw": "виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады дегенмен мұнда кішігірім айырмашылықтар бар"
+    }
+  },
+  "auto": {
+    "clip": "en_us:11200231708585274851",
+    "hint": "auto",
+    "output": {
+      "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+    }
+  }
+}

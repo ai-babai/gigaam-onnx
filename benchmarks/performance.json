@@ -1,0 +1,26 @@
+{
+  "v4": {
+    "label": "GigaAM-v4 CTC E2E",
+    "package_bytes": 242545607,
+    "rtfx": 79.84978392937074,
+    "speedup": 2.4178025190531494
+  },
+  "rnnt": {
+    "label": "GigaAM-v4 offline RNN-T",
+    "package_bytes": 255380886,
+    "rtfx": 70.9158805042758,
+    "speedup": 2.400109899349362
+  },
+  "stream": {
+    "label": "GigaAM-v4 streaming RNN-T",
+    "package_bytes": 259044872,
+    "rtfx": 32.078753920958896,
+    "speedup": 1.8352238799260445
+  },
+  "multi": {
+    "label": "GigaAM Multilingual-v2",
+    "package_bytes": 810984825,
+    "rtfx": 15.512017765154955,
+    "speedup": 2.8878958784436213
+  }
+}

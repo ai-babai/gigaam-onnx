@@ -1,0 +1,30 @@
+{
+  "ru/1600": {
+    "matches": true,
+    "nonempty_e2e_updates_before_flush": 19
+  },
+  "ru/6400": {
+    "matches": true,
+    "nonempty_e2e_updates_before_flush": 19
+  },
+  "ru/10240": {
+    "matches": true,
+    "nonempty_e2e_updates_before_flush": 19
+  },
+  "en/1600": {
+    "matches": true,
+    "nonempty_e2e_updates_before_flush": 13
+  },
+  "en/6400": {
+    "matches": true,
+    "nonempty_e2e_updates_before_flush": 13
+  },
+  "en/10240": {
+    "matches": true,
+    "nonempty_e2e_updates_before_flush": 13
+  },
+  "silence_4s": {
+    "e2e": "",
+    "raw": ""
+  }
+}

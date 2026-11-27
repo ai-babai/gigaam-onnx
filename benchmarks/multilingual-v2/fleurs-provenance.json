@@ -1,0 +1,74 @@
+{
+  "dataset": "google/fleurs",
+  "revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "dataset_card": "https://huggingface.co/datasets/google/fleurs/blob/70bb2e84b976b7e960aa89f1c648e09c59f894dd/README.md",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "seed": 20261127,
+  "clips_per_language": 16,
+  "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "sample_order": "Ascending SHA-256(seed:config:filename), with filename tie-break.",
+  "eligibility": {
+    "split": "test",
+    "wave": "Decoded with FFmpeg to PCM signed 16-bit mono at 16000 Hz. No trimming or loudness filtering.",
+    "duration_seconds_inclusive": [
+      2,
+      15
+    ],
+    "reference": "Non-empty original human reference (TSV column 3), without decimal digits.",
+    "unique_reference": "First eligible clip per case-folded, space-normalized TSV column 4.",
+    "filename": "Matched by WAV basename between the original TSV and tar.gz."
+  },
+  "sources": {
+    "ru": {
+      "config": "ru_ru",
+      "split": "test",
+      "tsv_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/ru_ru/test.tsv",
+      "tsv_git_blob_sha1": "1b1b37112dcbc6089433084255785f03f9fce445",
+      "archive_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/ru_ru/audio/test.tar.gz",
+      "archive_sha256": "8a0d6a0d23c3421f50c575bcf65d875cd19dadae2f7cabb415024f81b65178b1",
+      "transcript_eligible_filenames": 620,
+      "transcript_eligible_filenames_present_in_archive": 620
+    },
+    "kk": {
+      "config": "kk_kz",
+      "split": "test",
+      "tsv_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/kk_kz/test.tsv",
+      "tsv_git_blob_sha1": "8dabc83e97e1916f47c1b7e5150aa04bb033aacd",
+      "archive_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/kk_kz/audio/test.tar.gz",
+      "archive_sha256": "f29331a9731a00f544e2cb7d1dbcbb5a4258fd200323811ec837d15dd3c2e8a0",
+      "transcript_eligible_filenames": 695,
+      "transcript_eligible_filenames_present_in_archive": 695
+    },
+    "uz": {
+      "config": "uz_uz",
+      "split": "test",
+      "tsv_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/uz_uz/test.tsv",
+      "tsv_git_blob_sha1": "8c655d54f61b4f1bf6225cde1c38ffb4ba29a133",
+      "archive_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/uz_uz/audio/test.tar.gz",
+      "archive_sha256": "1c9e47b37064c4a84bb901e18c79cdc35b6f481673f500bf58ace0145dec057a",
+      "transcript_eligible_filenames": 699,
+      "transcript_eligible_filenames_present_in_archive": 699
+    },
+    "ky": {
+      "config": "ky_kg",
+      "split": "test",
+      "tsv_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/ky_kg/test.tsv",
+      "tsv_git_blob_sha1": "f0eb73ced8f0f3b094e60537fc61fda7a1671e5e",
+      "archive_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/ky_kg/audio/test.tar.gz",
+      "archive_sha256": "e7d33ece89fbf39890fc097ee2e5ab090a10dd5f2dc22ca4ae5e4427f4b04d17",
+      "transcript_eligible_filenames": 793,
+      "transcript_eligible_filenames_present_in_archive": 793
+    },
+    "en": {
+      "config": "en_us",
+      "split": "test",
+      "tsv_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/en_us/test.tsv",
+      "tsv_git_blob_sha1": "bcd7e3e4ecb8ad2a4d9754fc6be14dd6d3364b54",
+      "archive_url": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/en_us/audio/test.tar.gz",
+      "archive_sha256": "d9c2e37b41aacd41bc283554a0a82b5476b36887049774ecb2819dcaaa55a356",
+      "transcript_eligible_filenames": 525,
+      "transcript_eligible_filenames_present_in_archive": 525
+    }
+  }
+}

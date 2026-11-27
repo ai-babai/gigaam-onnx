@@ -1,0 +1,84 @@
+{
+  "ru": {
+    "clips": 16,
+    "reference_words": 277,
+    "audio_seconds": 165.3,
+    "fp": {
+      "wer_pct": 3.2490974729241877,
+      "word_errors": 9,
+      "empty_outputs": 0,
+      "wall_seconds": 39.00823012657929,
+      "rtf": 0.23598445327634174,
+      "times_realtime": 4.237567289354368,
+      "median_seconds_per_clip": 2.44293691648636
+    },
+    "int8": {
+      "wer_pct": 2.888086642599278,
+      "word_errors": 8,
+      "empty_outputs": 0,
+      "wall_seconds": 5.190536251058802,
+      "rtf": 0.03140070327319299,
+      "times_realtime": 31.846420486184055,
+      "median_seconds_per_clip": 0.340468458016403
+    },
+    "delta_wer_pp": -0.36101083032490955,
+    "speed_vs_reference": 7.515260127240634,
+    "verbatim_matches_to_reference_model": 15,
+    "normalized_matches_to_reference_model": 15,
+    "delta_wer_paired_bootstrap_ci95": [
+      {
+        "seed": 20261127,
+        "resamples": 2000,
+        "lower_pp": -1.1495358090185677,
+        "upper_pp": 0.0
+      },
+      {
+        "seed": 20261128,
+        "resamples": 2000,
+        "lower_pp": -1.1111111111111112,
+        "upper_pp": 0.0
+      }
+    ]
+  },
+  "en": {
+    "clips": 16,
+    "reference_words": 381,
+    "audio_seconds": 165.2,
+    "fp": {
+      "wer_pct": 6.824146981627297,
+      "word_errors": 26,
+      "empty_outputs": 0,
+      "wall_seconds": 38.104541459004395,
+      "rtf": 0.2306570306235133,
+      "times_realtime": 4.335441227595772,
+      "median_seconds_per_clip": 2.437240583472885
+    },
+    "int8": {
+      "wer_pct": 6.561679790026247,
+      "word_errors": 25,
+      "empty_outputs": 0,
+      "wall_seconds": 5.1187397942412645,
+      "rtf": 0.03098510771332485,
+      "times_realtime": 32.27356862051377,
+      "median_seconds_per_clip": 0.3218843750655651
+    },
+    "delta_wer_pp": -0.2624671916010497,
+    "speed_vs_reference": 7.444125505631903,
+    "verbatim_matches_to_reference_model": 12,
+    "normalized_matches_to_reference_model": 13,
+    "delta_wer_paired_bootstrap_ci95": [
+      {
+        "seed": 20261127,
+        "resamples": 2000,
+        "lower_pp": -1.591617754952311,
+        "upper_pp": 0.7576237054085153
+      },
+      {
+        "seed": 20261128,
+        "resamples": 2000,
+        "lower_pp": -1.5585430194805197,
+        "upper_pp": 0.7353392831334006
+      }
+    ]
+  }
+}

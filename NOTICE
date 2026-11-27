@@ -1,0 +1,13 @@
+GigaAM-v4 and GigaAM Multilingual-v2 ONNX INT8
+
+Original GigaAM models and software: Copyright (c) 2026 Giga, MIT.
+ONNX conversion, INT8 packaging, and evaluation tooling: Copyright (c) 2026 Maksim Popkov, MIT.
+See LICENSE.
+
+The upstream GigaAM encoder includes code adapted from Xiaomi Corp., Daniel
+Povey, and Zengwei Yao under Apache License 2.0. See LICENSE-APACHE-2.0 and
+https://github.com/salute-developers/GigaAM/tree/e9bbf2e773eedd217c6f0d3b89b9728c41332b7d.
+
+Benchmark reference transcriptions are from Google FLEURS under CC BY 4.0.
+See https://huggingface.co/datasets/google/fleurs and
+https://creativecommons.org/licenses/by/4.0/.
