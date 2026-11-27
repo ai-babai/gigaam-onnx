@@ -23,9 +23,9 @@ Measurements use an Apple M4 Pro with three CPU threads and ONNX Runtime 1.23.2.
 | GigaAM-v4 offline RNN-T | English | 381 | 6.82% | 6.56% | -0.26 [-2.31, +1.49] |
 | GigaAM-v4 streaming RNN-T | Russian | 277 | 3.25% | 2.89% | -0.36 [-1.15, +0.00] |
 | GigaAM-v4 streaming RNN-T | English | 381 | 6.82% | 6.56% | -0.26 [-1.59, +0.76] |
-| GigaAM Multilingual-v2 | Russian | 277 | 1.80% | 1.80% | +0.00 [+0.00, +0.00] |
+| GigaAM Multilingual-v2 | Russian | 277 | 1.81% | 1.81% | +0.00 [+0.00, +0.00] |
 | GigaAM Multilingual-v2 | Kazakh | 241 | 4.56% | 4.56% | +0.00 [+0.00, +0.00] |
-| GigaAM Multilingual-v2 | Uzbek | 271 | 7.75% | 8.49% | +0.74 [+0.00, +1.70] |
+| GigaAM Multilingual-v2 | Uzbek | 271 | 7.75% | 8.49% | +0.74 [+0.00, +1.69] |
 | GigaAM Multilingual-v2 | Kyrgyz | 252 | 6.35% | 6.75% | +0.40 [+0.00, +1.37] |
 | GigaAM Multilingual-v2 | English | 381 | 4.72% | 4.72% | +0.00 [+0.00, +0.00] |
 

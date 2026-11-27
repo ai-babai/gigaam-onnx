@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Cite this ONNX release together with the original GigaAM work listed in the README."
+type: software
+title: "GigaAM-v4 and GigaAM Multilingual-v2 ONNX INT8"
+authors:
+  - given-names: Maksim
+    family-names: Popkov
+version: 0.2.0
+date-released: 2026-11-27
+repository-code: https://github.com/ai-babai/gigaam-onnx
+url: https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.2.0
