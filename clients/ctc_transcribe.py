@@ -41,7 +41,7 @@ def select_model(package):
     default = package / "model.int8.onnx"
     if default.is_file():
         return default
-    names = ("model.fp32.onnx", "model.fp16.onnx", "model.int4.onnx")
+    names = ("model.onnx", "model.fp32.onnx", "model.fp16.onnx", "model.int4.onnx")
     candidates = [package / name for name in names if (package / name).is_file()]
     if len(candidates) == 1:
         return candidates[0]

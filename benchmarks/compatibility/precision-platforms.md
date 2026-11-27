@@ -7,6 +7,8 @@ created: "2026-11-27"
 
 CPU smoke tests from 2026-11-27. **✓** means the named runtime decoded real speech with the published graph bytes. **—** means no verified result for that cell. A pass confirms decoding on the tested inputs. Quality and throughput measurements use larger samples and separate protocols. [Precision guide](../precision/README.md) · [Machine-readable results](precision-platforms.json)
 
+The snapshot links below identify the weights used in the tests. The [current download table](../../README.md#model-files-on-hugging-face) opens the same weights on each model repository’s default branch.
+
 ## Released ONNX Runtime clients
 
 All checks used ONNX Runtime 1.23.2 on CPU. **✓†** marks Windows tests through the released inference class or streaming API. The original offline Windows tests used PCM16 WAV input, one thread and basic graph optimization. The v4 harness used one thread with the published audio loaders. Both disabled the CPU arena and weight prepacking.

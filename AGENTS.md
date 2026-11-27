@@ -41,7 +41,7 @@ Compare formatted text with the saved output for the same clip and runtime. For 
 
 **Sherpa integration.** Use the [native scenario runner](quality/sherpa/README.md) for changes to offline or streaming recognition. It checks pinned WAVs, tokenizers and graphs, exercises both heads, and writes a JSON report.
 
-**Model selection.** Each released precision has its own package directory. The v4 clients accept `--model` for CTC or `--encoder` for offline RNN-T if a directory contains multiple graphs. With the pinned inference dependencies installed, run `python -m unittest quality.test_precision_selection` to check legacy defaults and precision selection.
+**Model selection.** All precisions are visible on Hugging Face `main`. CTC shares one directory and defaults to `model.int8.onnx`. Use `--model PATH` to select another graph. FP32 uses `model.onnx` on main and `model.fp32.onnx` in the original export. RNN-T keeps each precision with its companion files. The offline v4 RNN-T client also accepts an explicit `--encoder PATH`. With the pinned inference dependencies installed, run `python -m unittest quality.test_precision_selection` to check legacy defaults and precision selection.
 
 **Scoring.** Use the [pinned evaluation environment](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/v0.2.1/conversion/README.md). Recompute all four published INT8 score reports, including the paired bootstrap intervals, from the tracked references and predictions. This check needs no weights or audio and exits with a nonzero status on a mismatch.
 

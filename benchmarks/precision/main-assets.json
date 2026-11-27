@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "release_tag": "v0.3.1",
+  "snapshots": {
+    "ai-babai/gigaam-v4-onnx": "868283a297ad4a85b73ad06a080950d0e0aec07e",
+    "ai-babai/gigaam-multilingual-v2-onnx": "2ba2f3882940b11703320abcbf3163b0247a57ef"
+  },
+  "packages": [
+    {
+      "model": "ctc-e2e",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "ctc-e2e",
+      "graph": "ctc-e2e/model.onnx",
+      "sha256": "54813114c35d0ad889629b972b2dfd1837b41ddaf845fb69b5e75eba9f0d90e8",
+      "download_files": [
+        "ctc-e2e/model.onnx",
+        "ctc-e2e/preprocessor.onnx",
+        "ctc-e2e/tokens.txt",
+        "ctc-e2e/vocab.txt"
+      ]
+    },
+    {
+      "model": "ctc-e2e",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "ctc-e2e",
+      "graph": "ctc-e2e/model.fp16.onnx",
+      "sha256": "4471c8b3b0c4001e3b566d3383a5e8c15bd4695ae1d7477296815a7aaeebb420",
+      "download_files": [
+        "ctc-e2e/model.fp16.onnx",
+        "ctc-e2e/preprocessor.onnx",
+        "ctc-e2e/tokens.txt",
+        "ctc-e2e/vocab.txt"
+      ]
+    },
+    {
+      "model": "ctc-e2e",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "ctc-e2e",
+      "graph": "ctc-e2e/model.int8.onnx",
+      "sha256": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+      "download_files": [
+        "ctc-e2e/model.int8.onnx",
+        "ctc-e2e/preprocessor.onnx",
+        "ctc-e2e/tokens.txt",
+        "ctc-e2e/vocab.txt"
+      ]
+    },
+    {
+      "model": "ctc-e2e",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "ctc-e2e",
+      "graph": "ctc-e2e/model.int4.onnx",
+      "sha256": "35670961667f8cd01a02a07245384225d993e86591688b37d2c2a722c92db220",
+      "download_files": [
+        "ctc-e2e/model.int4.onnx",
+        "ctc-e2e/preprocessor.onnx",
+        "ctc-e2e/tokens.txt",
+        "ctc-e2e/vocab.txt"
+      ]
+    },
+    {
+      "model": "rnnt",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt/fp32",
+      "graph": "rnnt/fp32/v4_rnnt_encoder.onnx",
+      "sha256": "39aab161988e6aada5f7b5b6c26a883d735bd6556d329a263a02fdfc1d42a590",
+      "download_files": [
+        "rnnt/fp32/manifest.json",
+        "rnnt/fp32/v4_rnnt_advance.onnx",
+        "rnnt/fp32/v4_rnnt_e2e_tokenizer.model",
+        "rnnt/fp32/v4_rnnt_encoder.onnx",
+        "rnnt/fp32/v4_rnnt_mel.npz",
+        "rnnt/fp32/v4_rnnt_raw_tokenizer.model"
+      ]
+    },
+    {
+      "model": "rnnt",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt/fp16",
+      "graph": "rnnt/fp16/v4_rnnt_encoder.onnx",
+      "sha256": "268540256d7fd46984315fda7b935bb5d26d64292b646d4219b33d2e5910ada2",
+      "download_files": [
+        "rnnt/fp16/manifest.json",
+        "rnnt/fp16/v4_rnnt_advance.onnx",
+        "rnnt/fp16/v4_rnnt_e2e_tokenizer.model",
+        "rnnt/fp16/v4_rnnt_encoder.onnx",
+        "rnnt/fp16/v4_rnnt_mel.npz",
+        "rnnt/fp16/v4_rnnt_raw_tokenizer.model"
+      ]
+    },
+    {
+      "model": "rnnt",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt",
+      "graph": "rnnt/v4_rnnt_encoder.int8.onnx",
+      "sha256": "4cc7dd3e2a5f1503239df920976d419287f67df87f1849fff0c34ce4b3d58e20",
+      "download_files": [
+        "rnnt/manifest.json",
+        "rnnt/v4_rnnt_advance.onnx",
+        "rnnt/v4_rnnt_e2e_tokenizer.model",
+        "rnnt/v4_rnnt_encoder.int8.onnx",
+        "rnnt/v4_rnnt_mel.npz",
+        "rnnt/v4_rnnt_raw_tokenizer.model"
+      ]
+    },
+    {
+      "model": "rnnt",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt/int4",
+      "graph": "rnnt/int4/v4_rnnt_encoder.int4.onnx",
+      "sha256": "f90351a5ad4e7579595135458b8776be52d735f854ec57d7238af047ae2dc907",
+      "download_files": [
+        "rnnt/int4/manifest.json",
+        "rnnt/int4/v4_rnnt_advance.onnx",
+        "rnnt/int4/v4_rnnt_e2e_tokenizer.model",
+        "rnnt/int4/v4_rnnt_encoder.int4.onnx",
+        "rnnt/int4/v4_rnnt_mel.npz",
+        "rnnt/int4/v4_rnnt_raw_tokenizer.model"
+      ]
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt-streaming-640ms/fp32",
+      "graph": "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_stream_step.onnx",
+      "sha256": "b2d8533e213b950c632acfe4dcc726190792f006273239029fc617a83437b9c6",
+      "download_files": [
+        "rnnt-streaming-640ms/fp32/streaming.json",
+        "rnnt-streaming-640ms/fp32/tokens.e2e.txt",
+        "rnnt-streaming-640ms/fp32/tokens.raw.txt",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms.streaming.json",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms.yaml",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_e2e_decoder.onnx",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_e2e_joint.onnx",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_e2e_tokenizer.model",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_raw_decoder.onnx",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_raw_joint.onnx",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_raw_tokenizer.model",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_stream_frontend.onnx",
+        "rnnt-streaming-640ms/fp32/v4_rnnt_640ms_stream_step.onnx"
+      ]
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt-streaming-640ms/fp16",
+      "graph": "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_stream_step.onnx",
+      "sha256": "cca07981957130d06b18266ba41481218f36111c3c48a637b4cf17630138e8fb",
+      "download_files": [
+        "rnnt-streaming-640ms/fp16/streaming.json",
+        "rnnt-streaming-640ms/fp16/tokens.e2e.txt",
+        "rnnt-streaming-640ms/fp16/tokens.raw.txt",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms.streaming.json",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms.yaml",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_e2e_decoder.onnx",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_e2e_joint.onnx",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_e2e_tokenizer.model",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_raw_decoder.onnx",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_raw_joint.onnx",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_raw_tokenizer.model",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_stream_frontend.onnx",
+        "rnnt-streaming-640ms/fp16/v4_rnnt_640ms_stream_step.onnx"
+      ]
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt-streaming-640ms",
+      "graph": "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int8.onnx",
+      "sha256": "c0eb2185b884ceaef5f0ab79d01f6032591577f1aabbf04b85e7e157436ed69c",
+      "download_files": [
+        "rnnt-streaming-640ms/streaming.json",
+        "rnnt-streaming-640ms/tokens.e2e.txt",
+        "rnnt-streaming-640ms/tokens.raw.txt",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.streaming.json",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.yaml",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_tokenizer.model",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_tokenizer.model",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int8.onnx"
+      ]
+    },
+    {
+      "model": "rnnt-streaming-640ms",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-v4-onnx",
+      "directory": "rnnt-streaming-640ms/int4",
+      "graph": "rnnt-streaming-640ms/int4/v4_rnnt_640ms_stream_step.int4.onnx",
+      "sha256": "4f4453af2721f0868df2deb9e5675d2982d71258bf609af4db179b540cfc190a",
+      "download_files": [
+        "rnnt-streaming-640ms/int4/streaming.json",
+        "rnnt-streaming-640ms/int4/tokens.e2e.txt",
+        "rnnt-streaming-640ms/int4/tokens.raw.txt",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms.streaming.json",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms.yaml",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_e2e_decoder.onnx",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_e2e_joint.onnx",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_e2e_tokenizer.model",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_raw_decoder.onnx",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_raw_joint.onnx",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_raw_tokenizer.model",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_stream_frontend.onnx",
+        "rnnt-streaming-640ms/int4/v4_rnnt_640ms_stream_step.int4.onnx"
+      ]
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "FP32",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "directory": "fp32",
+      "graph": "fp32/multilingual_v2_rnnt_encoder.onnx",
+      "sha256": "121b23570c0377d86959092f0c82d452ad5b37466d29ff7fc265e452633372b1",
+      "download_files": [
+        "fp32/config.json",
+        "fp32/manifest.json",
+        "fp32/multilingual_v2_rnnt_advance.onnx",
+        "fp32/multilingual_v2_rnnt_e2e_tokenizer.model",
+        "fp32/multilingual_v2_rnnt_encoder.onnx",
+        "fp32/multilingual_v2_rnnt_encoder.weights.bin",
+        "fp32/multilingual_v2_rnnt_mel.npz",
+        "fp32/multilingual_v2_rnnt_raw_tokenizer.model"
+      ]
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "FP16 storage",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "directory": "fp16",
+      "graph": "fp16/multilingual_v2_rnnt_encoder.onnx",
+      "sha256": "81ae7281d14782c910663f3ad3653ac406bd0c7bdcf0ea5b9f3508763c171767",
+      "download_files": [
+        "fp16/config.json",
+        "fp16/manifest.json",
+        "fp16/multilingual_v2_rnnt_advance.onnx",
+        "fp16/multilingual_v2_rnnt_e2e_tokenizer.model",
+        "fp16/multilingual_v2_rnnt_encoder.onnx",
+        "fp16/multilingual_v2_rnnt_encoder.weights.bin",
+        "fp16/multilingual_v2_rnnt_mel.npz",
+        "fp16/multilingual_v2_rnnt_raw_tokenizer.model"
+      ]
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "INT8",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "directory": ".",
+      "graph": "multilingual_v2_rnnt_encoder.int8.onnx",
+      "sha256": "0c460231ed0d57e2f6251601d5459dd05cf55ab6a50b55ae2de9333f5bf58d3d",
+      "download_files": [
+        "config.json",
+        "manifest.json",
+        "multilingual_v2_rnnt_advance.onnx",
+        "multilingual_v2_rnnt_e2e_tokenizer.model",
+        "multilingual_v2_rnnt_encoder.int8.onnx",
+        "multilingual_v2_rnnt_mel.npz",
+        "multilingual_v2_rnnt_raw_tokenizer.model"
+      ]
+    },
+    {
+      "model": "multilingual-v2",
+      "precision": "INT4",
+      "repository": "ai-babai/gigaam-multilingual-v2-onnx",
+      "directory": "int4",
+      "graph": "int4/multilingual_v2_rnnt_encoder.int4.onnx",
+      "sha256": "6d6bac76de138ec8af2c76652ddabc9b41c9c515f298a3bf236c54a27e75192a",
+      "download_files": [
+        "int4/config.json",
+        "int4/manifest.json",
+        "int4/multilingual_v2_rnnt_advance.onnx",
+        "int4/multilingual_v2_rnnt_e2e_tokenizer.model",
+        "int4/multilingual_v2_rnnt_encoder.int4.onnx",
+        "int4/multilingual_v2_rnnt_mel.npz",
+        "int4/multilingual_v2_rnnt_raw_tokenizer.model"
+      ]
+    }
+  ]
+}

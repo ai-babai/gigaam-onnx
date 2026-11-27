@@ -14,41 +14,74 @@ Select a model path first, then a weight format. Sizes are decimal MB for the ON
 | v4 streaming RNN-T, 640 ms | [966.0 MB][stream-fp32] | [503.6 MB][stream-fp16] | [259.0 MB][stream-int8] | [168.9 MB][stream-int4] |
 | Multilingual-v2 offline RNN-T | [3,118.9 MB][multi-fp32] | [1,601.1 MB][multi-fp16] | [810.8 MB][multi-int8] | [519.2 MB][multi-int4] |
 
-The optional Hub branches are `float`, `fp16` and v4 `int4`. The current v4 INT8 pin includes the streaming token tables. Multilingual-v2 INT8 uses `v0.2.0` and INT4 uses the `int4/` directory at `v0.2.1`.
+The table links to the selected model graph on Hugging Face `main`. v4 CTC keeps its four graphs together in `ctc-e2e/`. Its FP32 graph is `model.onnx` on `main` and `model.fp32.onnx` in the tested snapshot. The v4 offline and streaming RNN-T INT8 packages stay in their existing directories, with the other formats in `fp32/`, `fp16/` and `int4/` subdirectories. Multilingual-v2 keeps INT8 at the root and one directory per other format.
 
 **FP32 ONNX** stores and computes floating-point tensors in FP32. **FP16 storage** stores selected weights in FP16 and casts them to FP32 for inference. **INT8** stores selected weights as INT8 and dynamically quantizes activations for those matrix products. **INT4** packs selected matrix weights for ONNX Runtime `MatMulNBits` (symmetric blocks of 32, `accuracy_level=4`). Eligible CPU kernels can quantize activations to INT8 inside that operator. Floating-point graph I/O stays FP32 in all four formats. [ONNX Runtime quantization](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#quantize-to-int4uint4)
 
-[Choosing a model by size and accuracy](accuracy-and-size.md) · [Machine-readable index of weights, companion files and SHA-256 hashes](assets.json)
+[Choosing a model by size and accuracy](accuracy-and-size.md) · [Current main paths and exact file lists](main-assets.json) · [Tested snapshots and SHA-256 provenance](assets.json)
 
 ## Download one path
 
-Run the matching command from the GitHub checkout. Use the client and dependencies listed in the pinned model card. The sibling directories keep separate copies of formats that use the same filenames.
-
-Pinned release cards — [v4 FP32][v4-fp32-card] · [v4 FP16 storage][v4-fp16-card] · [v4 INT4][v4-int4-card] · [Multilingual-v2 FP32][multi-fp32-card] · [Multilingual-v2 FP16 storage][multi-fp16-card].
+Run the command for the model and format you want from the GitHub checkout. These examples pin the `v0.3.1` release and list the selected files explicitly. The [main index](main-assets.json) gives the matching file list for every format. Use the matching client and dependencies in the [project README](../../README.md#download-model-files-and-run-a-client).
 
 ```sh
 weights=../gigaam-weights
 
-hf download ai-babai/gigaam-v4-onnx --revision aff7eef3c9ff064455154363ba96149594d16ac0 \
-  --include 'ctc-e2e/*' --local-dir "$weights/v4-ctc-fp16"
+hf download ai-babai/gigaam-v4-onnx --revision v0.3.1 \
+  ctc-e2e/model.onnx \
+  ctc-e2e/preprocessor.onnx \
+  ctc-e2e/tokens.txt \
+  ctc-e2e/vocab.txt \
+  --local-dir "$weights/v4-ctc-fp32"
 
-hf download ai-babai/gigaam-v4-onnx --revision 9c1f125787db5befcfcd3c8e232a642f9b1531f6 \
-  --include 'rnnt/*' --local-dir "$weights/v4-rnnt-int8"
+hf download ai-babai/gigaam-v4-onnx --revision v0.3.1 \
+  rnnt/manifest.json \
+  rnnt/v4_rnnt_advance.onnx \
+  rnnt/v4_rnnt_e2e_tokenizer.model \
+  rnnt/v4_rnnt_encoder.int8.onnx \
+  rnnt/v4_rnnt_mel.npz \
+  rnnt/v4_rnnt_raw_tokenizer.model \
+  --local-dir "$weights/v4-rnnt-int8"
 
-hf download ai-babai/gigaam-v4-onnx --revision 9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef \
-  --include 'rnnt-streaming-640ms/*' --local-dir "$weights/v4-stream-int4"
+stream=rnnt-streaming-640ms/int4
+hf download ai-babai/gigaam-v4-onnx --revision v0.3.1 \
+  "$stream/streaming.json" \
+  "$stream/tokens.e2e.txt" \
+  "$stream/tokens.raw.txt" \
+  "$stream/v4_rnnt_640ms.streaming.json" \
+  "$stream/v4_rnnt_640ms.yaml" \
+  "$stream/v4_rnnt_640ms_e2e_decoder.onnx" \
+  "$stream/v4_rnnt_640ms_e2e_joint.onnx" \
+  "$stream/v4_rnnt_640ms_e2e_tokenizer.model" \
+  "$stream/v4_rnnt_640ms_raw_decoder.onnx" \
+  "$stream/v4_rnnt_640ms_raw_joint.onnx" \
+  "$stream/v4_rnnt_640ms_raw_tokenizer.model" \
+  "$stream/v4_rnnt_640ms_stream_frontend.onnx" \
+  "$stream/v4_rnnt_640ms_stream_step.int4.onnx" \
+  --local-dir "$weights/v4-stream-int4"
 
-hf download ai-babai/gigaam-multilingual-v2-onnx --revision f641a9a0b82b95062f495696eedb471c2e3515b2 \
-  --include 'multilingual_v2_rnnt*' --include 'config.json' --include 'manifest.json' --include 'multi_client.py' --include 'requirements.txt' --local-dir "$weights/multi-fp32"
+multi=fp16
+hf download ai-babai/gigaam-multilingual-v2-onnx --revision v0.3.1 \
+  "$multi/config.json" \
+  "$multi/manifest.json" \
+  "$multi/multilingual_v2_rnnt_advance.onnx" \
+  "$multi/multilingual_v2_rnnt_e2e_tokenizer.model" \
+  "$multi/multilingual_v2_rnnt_encoder.onnx" \
+  "$multi/multilingual_v2_rnnt_encoder.weights.bin" \
+  "$multi/multilingual_v2_rnnt_mel.npz" \
+  "$multi/multilingual_v2_rnnt_raw_tokenizer.model" \
+  --local-dir "$weights/multi-fp16"
 ```
 
-The v4 INT4 and Multilingual-v2 FP32 commands pin the tested runtime commits. Their [v4 INT4][v4-int4-card] and [Multilingual-v2 FP32][multi-fp32-card] cards retain the same runtime files.
+Pass the selected subdirectory to the client. In the CTC example, pass `--package ../gigaam-weights/v4-ctc-fp32/ctc-e2e` and `--model ../gigaam-weights/v4-ctc-fp32/ctc-e2e/model.onnx`. The CTC file list includes the shared `vocab.txt` for transcribe-rs. Keep the Multilingual-v2 external tensor file next to its encoder.
+
+The graph bytes on `main` match the verified digests in [the historical index](assets.json). The pinned release cards describe the original test packages. [v4 FP32][v4-fp32-card] · [v4 FP16 storage][v4-fp16-card] · [v4 INT4][v4-int4-card] · [Multilingual-v2 FP32][multi-fp32-card] · [Multilingual-v2 FP16 storage][multi-fp16-card]
 
 ## Match the source, client and test
 
 | Model path | Source checkpoint | Bundled CPU client and model files | Sherpa check |
 |---|---|---|---|
-| v4 offline CTC | [v4 CTC `5b81216`][source-ctc] | `ctc_transcribe.py` uses `preprocessor.onnx`, `model.<format>.onnx` and `tokens.txt`. | [Stock NeMo CTC smoke][stock-ctc] |
+| v4 offline CTC | [v4 CTC `5b81216`][source-ctc] | `ctc_transcribe.py` uses `preprocessor.onnx`, the selected model graph and `tokens.txt`. | [Stock NeMo CTC smoke][stock-ctc] |
 | v4 offline RNN-T | [v4 RNN-T `9fe3ebf`][source-rnnt] | `rnnt_transcribe.py` uses log-mel features, the selected encoder, `v4_rnnt_advance.onnx` and both tokenizers. | [Offline CTest][offline-test] |
 | v4 streaming RNN-T | [Same v4 RNN-T checkpoint `9fe3ebf`][source-rnnt] | `stream_transcribe.py` uses the YAML and `streaming.json` to load the frontend, selected step graph and both decoder/joiner pairs and tokenizers. | [Streaming CTest][stream-test] |
 | Multilingual-v2 RNN-T | [Multilingual-v2 `c21483b`][source-multi] | `multi_client.py` uses mel features and the language vector, the selected encoder, the shared advance and both tokenizers. Keep the FP32 or FP16 external weight file beside the encoder. | [Offline preview scenarios][preview-scenarios] |
@@ -59,7 +92,7 @@ Stock sherpa-onnx 2.0.3 loads v4 CTC with `from_nemo_ctc`, the 64-mel built-in f
 
 The CTC preprocessor, the RNN-T advances and the streaming frontend, decoder and joiner graphs are byte-identical across formats for each path. Keep the selected core graph with its own manifest.
 
-The [Sherpa source preview][preview] has separate native offline and streaming RNN-T loaders and tests. All v4 streaming pins in the table include matching native token tables. Select `rnnt-streaming-640ms/*` to get the model and tables in one download.
+The [Sherpa source preview][preview] has separate native offline and streaming RNN-T loaders and tests. All four v4 streaming packages on `main` include the matching native token tables. Use the file list for the selected format to download its graph, companions and token tables together.
 
 ## Quality and speed
 
@@ -104,19 +137,19 @@ The platform report records CPU smoke tests for the ONNX Runtime clients, stock 
 [v4-int4-card]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6/README.md
 [multi-fp32-card]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/685d629e8ecc0839938a5b097b6f91caece6c513/README.md
 [multi-fp16-card]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/2dbc6ad0b9e5ccdeb4d9a8e2e6a5507cc212ecff/README.md
-[ctc-fp32]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/3d26669a200b282be6db065c16d30fed5375183f/ctc-e2e
-[ctc-fp16]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/aff7eef3c9ff064455154363ba96149594d16ac0/ctc-e2e
-[ctc-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/ctc-e2e
-[ctc-int4]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6/ctc-e2e
-[rnnt-fp32]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/3d26669a200b282be6db065c16d30fed5375183f/rnnt
-[rnnt-fp16]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/aff7eef3c9ff064455154363ba96149594d16ac0/rnnt
-[rnnt-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/rnnt
-[rnnt-int4]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6/rnnt
-[stream-fp32]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/3d26669a200b282be6db065c16d30fed5375183f/rnnt-streaming-640ms
-[stream-fp16]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/aff7eef3c9ff064455154363ba96149594d16ac0/rnnt-streaming-640ms
-[stream-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/rnnt-streaming-640ms
-[stream-int4]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6/rnnt-streaming-640ms
-[multi-fp32]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/685d629e8ecc0839938a5b097b6f91caece6c513
-[multi-fp16]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/2dbc6ad0b9e5ccdeb4d9a8e2e6a5507cc212ecff
-[multi-int8]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/b37aa1110317e7ffc6d8ba737b94629a3d63d4cc
-[multi-int4]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/4e0da82538e6fc1fd8f27fe012451f83cc034974/int4
+[ctc-fp32]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/ctc-e2e/model.onnx
+[ctc-fp16]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/ctc-e2e/model.fp16.onnx
+[ctc-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/ctc-e2e/model.int8.onnx
+[ctc-int4]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/ctc-e2e/model.int4.onnx
+[rnnt-fp32]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt/fp32/v4_rnnt_encoder.onnx
+[rnnt-fp16]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt/fp16/v4_rnnt_encoder.onnx
+[rnnt-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt/v4_rnnt_encoder.int8.onnx
+[rnnt-int4]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt/int4/v4_rnnt_encoder.int4.onnx
+[stream-fp32]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt-streaming-640ms/fp32/v4_rnnt_640ms_stream_step.onnx
+[stream-fp16]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt-streaming-640ms/fp16/v4_rnnt_640ms_stream_step.onnx
+[stream-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int8.onnx
+[stream-int4]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/rnnt-streaming-640ms/int4/v4_rnnt_640ms_stream_step.int4.onnx
+[multi-fp32]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/main/fp32/multilingual_v2_rnnt_encoder.onnx
+[multi-fp16]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/main/fp16/multilingual_v2_rnnt_encoder.onnx
+[multi-int8]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/main/multilingual_v2_rnnt_encoder.int8.onnx
+[multi-int4]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/main/int4/multilingual_v2_rnnt_encoder.int4.onnx

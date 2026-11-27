@@ -23,6 +23,19 @@ class GraphSelectionTest(unittest.TestCase):
             default.touch()
             self.assertEqual(select_model(root), default)
 
+    def test_ctc_sherpa_filenames(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fp32 = root / "model.onnx"
+            fp32.touch()
+            self.assertEqual(select_model(root), fp32)
+            (root / "model.fp16.onnx").touch()
+            with self.assertRaisesRegex(ValueError, "--model"):
+                select_model(root)
+            int8 = root / "model.int8.onnx"
+            int8.touch()
+            self.assertEqual(select_model(root), int8)
+
     def test_rnnt_package(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

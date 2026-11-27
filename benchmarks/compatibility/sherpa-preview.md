@@ -2,6 +2,14 @@
 
 The [GigaAM preview fork](https://github.com/ai-babai/sherpa-onnx/tree/411c7c3ed6232348add92537fdfd61f7f5b6588d) loads the published ONNX weights directly. Use the stock sherpa-onnx 2.0.3 release for v4 CTC. Build the preview for RNN-T. [Apple Silicon source install](sherpa-source-install.md) · [Offline RNN-T example](https://github.com/ai-babai/sherpa-onnx/blob/411c7c3ed6232348add92537fdfd61f7f5b6588d/python-api-examples/gigaam-offline-rnnt.md) · [Streaming example](https://github.com/ai-babai/sherpa-onnx/blob/411c7c3ed6232348add92537fdfd61f7f5b6588d/scripts/gigaam-v4-streaming/README.md)
 
+## Selecting weights in v0.3.1
+
+- **Stock CTC.** Pass the chosen [CTC graph](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/v0.3.1/ctc-e2e) to `OfflineRecognizer.from_nemo_ctc` with `tokens.txt` from the same directory. FP32 uses `model.onnx`.
+- **Offline RNN-T preview.** Point `OfflineRecognizer.from_gigaam` to the encoder, advance graph and head-specific tokenizer in the selected [v4](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/v0.3.1/rnnt) or [multilingual](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/v0.3.1) package. Keep a floating-point multilingual encoder beside its `.weights.bin`.
+- **Streaming RNN-T preview.** Pass the encoder, decoder, joiner and token table from one [640 ms package](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/v0.3.1/rnnt-streaming-640ms). Sherpa finds the frontend beside its encoder. The decoder, joiner and tokens must belong to the same head.
+
+The pinned INT8 recipes in the [offline PR](https://github.com/k2-fsa/sherpa-onnx/pull/4328) and [streaming PR](https://github.com/k2-fsa/sherpa-onnx/pull/4329) use the same graph bytes.
+
 ## Verified native preview
 
 All three operating systems ran the same source revision, ONNX Runtime 1.28.2 CPU, and pinned recordings. A check means every case in that column passed. Both streaming heads returned partial text and a final result. A mixed token table or joiner was rejected at construction. [Scenario runner](../../quality/sherpa/README.md) · [Builds and results](sherpa-scenarios.json)
