@@ -3,6 +3,7 @@
 import argparse
 import os
 import subprocess
+import wave
 from itertools import groupby
 from pathlib import Path
 
@@ -14,7 +15,26 @@ SAMPLE_RATE = 16_000
 MAX_SAMPLES = 30 * SAMPLE_RATE
 
 
-def load_audio(path):
+def read_pcm16_wav(path):
+    """Read mono 16 kHz PCM16 directly when the WAV needs no conversion."""
+    if not path.is_file():
+        return None
+    try:
+        with path.open("rb") as source, wave.open(source) as wav:
+            if wav.getparams()[:3] != (1, 2, SAMPLE_RATE):
+                return None
+            frames = wav.getnframes()
+            if frames > MAX_SAMPLES:
+                return None
+            pcm = wav.readframes(frames)
+            if len(pcm) != 2 * frames or source.read(1):
+                return None
+    except (EOFError, OSError, RuntimeError, wave.Error):
+        return None
+    return np.frombuffer(pcm, dtype="<i2").astype(np.float32) * (1 / 32768)
+
+
+def ffmpeg_samples(path):
     pcm = subprocess.run(
         [
             "ffmpeg", "-nostdin", "-v", "error", "-threads", "3",
@@ -23,10 +43,17 @@ def load_audio(path):
         check=True,
         stdout=subprocess.PIPE,
     ).stdout
-    samples = np.frombuffer(pcm, dtype="<f4")
+    return np.frombuffer(pcm, dtype="<f4").copy()
+
+
+def load_audio(path):
+    local = Path(path)
+    samples = read_pcm16_wav(local) if local.suffix.lower() == ".wav" else None
+    if samples is None:
+        samples = ffmpeg_samples(path)
     if not 320 <= samples.size <= MAX_SAMPLES:
         raise ValueError("Expected 20 ms to 30 s of audio. Split long recordings at pauses.")
-    return samples.copy()
+    return samples
 
 
 def cpu_session(path):
