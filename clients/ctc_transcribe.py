@@ -105,15 +105,18 @@ class SherpaCtc:
         import sherpa_onnx
 
         model = model or select_model(package)
-        for path in (model, package / "tokens.txt"):
-            if not path.is_file():
-                raise FileNotFoundError(path)
-        tokens = (package / "tokens.txt").read_text(encoding="utf-8").splitlines()
+        model_exists = model.is_dir() if model.suffix == ".mlmodelc" else model.is_file()
+        if not model_exists:
+            raise FileNotFoundError(model)
+        tokens_path = package / "tokens.txt"
+        if not tokens_path.is_file():
+            raise FileNotFoundError(tokens_path)
+        tokens = tokens_path.read_text(encoding="utf-8").splitlines()
         if not any(line.split()[:1] == ["<blk>"] for line in tokens):
             raise ValueError("tokens.txt must contain the CTC blank token <blk>")
         self.recognizer = sherpa_onnx.OfflineRecognizer.from_nemo_ctc(
             model=str(model),
-            tokens=str(package / "tokens.txt"),
+            tokens=str(tokens_path),
             provider=provider,
             num_threads=3,
             sample_rate=SAMPLE_RATE,
@@ -138,13 +141,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("audio", type=Path)
     parser.add_argument("--package", type=Path, default=Path(__file__).resolve().parent)
-    parser.add_argument("--model", type=Path, help="Path to the CTC ONNX graph")
+    parser.add_argument(
+        "--model", type=Path,
+        help="CTC ONNX graph or a compiled .mlmodelc directory for Sherpa CoreML. "
+             "The T=1600 CoreML package supports about 16 seconds per clip.",
+    )
     parser.add_argument("--sherpa", action="store_true")
     parser.add_argument(
         "--sherpa-provider", type=parse_sherpa_provider, metavar="PROVIDER[:CONFIG]",
         help="Sherpa execution provider: cpu (default), coreml or cuda. Requires --sherpa.",
     )
     args = parser.parse_args()
+    if args.model is not None and args.model.suffix == ".mlmodelc":
+        if not args.sherpa or args.sherpa_provider != "coreml":
+            parser.error(".mlmodelc directories require --sherpa --sherpa-provider coreml")
     if args.sherpa:
         decoder = SherpaCtc(args.package, args.model, provider=args.sherpa_provider or "cpu")
     else:
