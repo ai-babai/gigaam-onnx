@@ -4,7 +4,7 @@ Local speech recognition on CPU. Use GigaAM-v4 for Russian–English dictation o
 
 [GigaAM-v4 on Hugging Face](https://huggingface.co/ai-babai/gigaam-v4-onnx) · [Multilingual-v2 on Hugging Face](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx) · [Benchmarks](benchmarks/README.md) · [Hugging Face collection](https://huggingface.co/collections/ai-babai/gigaam-onnx-offline-and-streaming-speech-recognition-6b0973ce369990a8a4c53c43)
 
-[Release quality checks](quality/README.md)
+[Release quality checks](quality/README.md) · [Agent guide and command map](AGENTS.md)
 
 ## Tested compatibility
 
@@ -36,7 +36,7 @@ The optional [Multilingual-v2 INT4](#lower-memory-multilingual-v2-int4) package 
 Reference setup: Python 3.12.11 and FFmpeg 8.1 on macOS. Linux validation used Python 3.12.16 and FFmpeg n9.0.2 (build 17-g2a571b6068). Clone the clients, then run the commands for one model below. Each download selects just its runtime data. Offline clients take speech clips up to 30 seconds.
 
 ```sh
-git clone --branch v0.2.1 https://github.com/ai-babai/gigaam-onnx.git
+git clone --branch v0.2.2 https://github.com/ai-babai/gigaam-onnx.git
 cd gigaam-onnx
 python -m pip install huggingface_hub==1.3.5
 weights=../gigaam-weights
@@ -49,7 +49,7 @@ hf download ai-babai/gigaam-v4-onnx --revision v0.2.0 \
   --include 'ctc-e2e/*.onnx' --include 'ctc-e2e/tokens.txt' --include 'ctc-e2e/vocab.txt' \
   --local-dir "$weights/v4"
 python -m pip install numpy==2.5.1 onnxruntime==1.23.2
-python ctc_transcribe.py clip.wav --package "$weights/v4/ctc-e2e"
+python clients/ctc_transcribe.py clip.wav --package "$weights/v4/ctc-e2e"
 ```
 
 This package also supports the sherpa-onnx offline NeMo CTC loader. Install `sherpa-onnx==1.13.2` and add `--sherpa` to the same command. The `transcribe-rs` GigaAM loader uses the included `vocab.txt`. Both integrations use their own audio frontends. [CTC input and output contract](https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/ctc-e2e/USAGE.md)
@@ -61,7 +61,7 @@ hf download ai-babai/gigaam-v4-onnx --revision v0.2.0 \
   --include 'rnnt/*.onnx' --include 'rnnt/*.model' --include 'rnnt/*.npz' --include 'rnnt/manifest.json' \
   --local-dir "$weights/v4"
 python -m pip install numpy==2.5.1 onnxruntime==1.23.2 sentencepiece==0.2.2
-python rnnt_transcribe.py clip.wav --package "$weights/v4/rnnt"
+python clients/rnnt_transcribe.py clip.wav --package "$weights/v4/rnnt"
 ```
 
 ### GigaAM-v4 streaming RNN-T
@@ -76,7 +76,7 @@ hf download ai-babai/gigaam-v4-onnx --revision v0.2.0 \
 python -m pip install onnxruntime==1.23.2 torch==2.10.0 torchaudio==2.10.0 soundfile==0.14.0 \
   'gigaam @ git+https://github.com/salute-developers/GigaAM.git@e9bbf2e773eedd217c6f0d3b89b9728c41332b7d'
 ffmpeg -i clip.wav -ac 1 -ar 16000 "$weights/clip-16k.wav"
-python stream_transcribe.py "$weights/v4/rnnt-streaming-640ms" "$weights/clip-16k.wav"
+python clients/stream_transcribe.py "$weights/v4/rnnt-streaming-640ms" "$weights/clip-16k.wav"
 ```
 
 ### GigaAM Multilingual-v2 offline RNN-T
@@ -89,7 +89,7 @@ hf download ai-babai/gigaam-multilingual-v2-onnx --revision v0.2.0 \
   --include 'multilingual_v2_rnnt_mel.npz' --include config.json --include manifest.json \
   --local-dir "$weights/multilingual-v2"
 python -m pip install numpy==2.5.1 onnxruntime==1.23.2 sentencepiece==0.2.2
-python multi_client.py clip.wav --package "$weights/multilingual-v2" --language kk
+python clients/multi_client.py clip.wav --package "$weights/multilingual-v2" --language kk
 ```
 
 Supported codes are `ru`, `en`, `kk`, `ky`, `uz`, `be`, `fr`, `es`, `ba`, `ka`, `hy`, `ro`, `tk`, `az`, `tg`, `de`, `it`, `nl`, `pl`, `pt`, and `tt`.
@@ -100,16 +100,16 @@ Use the 519.4 MB INT4 package when memory or download size matters. In a paired 
 
 ```sh
 hf download ai-babai/gigaam-multilingual-v2-onnx --revision v0.2.1 --include 'int4/*' --local-dir "$weights/multilingual-v2"
-python multi_client.py clip.wav --package "$weights/multilingual-v2/int4" --language kk
+python clients/multi_client.py clip.wav --package "$weights/multilingual-v2/int4" --language kk
 ```
 
 If you prefer a single download, each [GitHub Release archive](https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.2.0) bundles one model with its matching client.
 
 ## Benchmarks and conversion
 
-The [benchmark report](benchmarks/README.md) includes sample selection, per-language WER, paired bootstrap intervals and CPU timings. The [runtime matrix](benchmarks/compatibility/README.md) records which third-party loaders actually opened each model.
+The [benchmark tools](benchmarks/tools/) run from the repository root, for example `python -m benchmarks.tools.score_release --help`. The [benchmark report](benchmarks/README.md) includes sample selection, per-language WER, paired bootstrap intervals and CPU timings. The [runtime matrix](benchmarks/compatibility/README.md) records which third-party loaders actually opened each model.
 
-To rebuild the models, follow the matching recipe from a Hugging Face snapshot. The converter sources are also in this checkout. [GigaAM-v4 conversion](https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/conversion/README.md) · [Multilingual-v2 conversion](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/main/conversion/README.md)
+To rebuild the models, follow the matching recipe from a Hugging Face snapshot. The [conversion tools](conversion/) run from the repository root as Python modules, for example `python -m conversion.multi_quantize_int4 --help`. [GigaAM-v4 conversion](https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/conversion/README.md) · [Multilingual-v2 conversion](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/main/conversion/README.md)
 
 The original models and this port are MIT-licensed. The encoder includes Apache-2.0 components. [License](LICENSE) · [Third-party notices](NOTICE)
 
@@ -148,9 +148,9 @@ Please cite the model papers and this ONNX release. [GigaAM, Interspeech 2025](h
 @software{popkov2026gigaamonnx,
   author = {Maksim Popkov},
   title = {{GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU}},
-  version = {0.2.1},
+  version = {0.2.2},
   year = {2026},
-  url = {https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.2.1}
+  url = {https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.2.2}
 }
 ```
 

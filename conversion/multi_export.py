@@ -1,6 +1,6 @@
 """Export the pinned GigaAM Multilingual-v2 checkpoints via upstream GigaAM.
 
-Usage: PYTHONPATH=/path/to/upstream python multi_export.py /path/to/multi
+Usage: PYTHONPATH=/path/to/upstream python -m conversion.multi_export /path/to/multi
 """
 
 import argparse

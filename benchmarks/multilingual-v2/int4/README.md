@@ -25,7 +25,7 @@ The overall WER difference was −0.35 percentage points (paired 95% bootstrap i
 The FP32 export contains external weight files. With those files present, run the following command from the code checkout to reproduce the 496,211,213-byte encoder. It contains 238 symmetric 4-bit MatMulNBits operators, block size 32, ORT accuracy level 4.
 
 ```sh
-python multi_quantize_int4.py work/fp/multilingual_v2_rnnt_encoder.onnx int4/multilingual_v2_rnnt_encoder.int4.onnx
+python -m conversion.multi_quantize_int4 work/fp/multilingual_v2_rnnt_encoder.onnx int4/multilingual_v2_rnnt_encoder.int4.onnx
 ```
 
 Encoder SHA-256: `6d6bac76de138ec8af2c76652ddabc9b41c9c515f298a3bf236c54a27e75192a`.

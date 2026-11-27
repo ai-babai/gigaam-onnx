@@ -122,15 +122,15 @@ def build_package(fp, package, upstream_license, apache_license):
     copyfile(upstream_license, package / "LICENSE")
     copyfile(apache_license, package / "LICENSE-APACHE-2.0")
     copyfile(
-        Path(__file__).with_name("rnnt_transcribe.py"), package / "rnnt_transcribe.py"
+        Path(__file__).resolve().parents[1] / "clients" / "rnnt_transcribe.py", package / "rnnt_transcribe.py"
     )
     (package / "requirements.txt").write_text(
-        "numpy>=2,<3\nonnxruntime==1.23.2\nsentencepiece>=0.2,<0.3\n"
+        "numpy==2.5.1\nonnxruntime==1.23.2\nsentencepiece==0.2.2\n"
     )
     (package / "README.md").write_text(
         "# GigaAM-v4 RNN-T ONNX INT8 (full context)\n\n"
         "CPU speech recognition in Russian and English, with formatted `e2e` and plain `raw` output. "
-        "Use Python 3.10+ and FFmpeg. Keep the package files together.\n\n"
+        "Tested with Python 3.12.11 and FFmpeg 8.1 on macOS. Keep the package files together.\n\n"
         "```sh\n"
         "python -m pip install -r requirements.txt\n"
         "python rnnt_transcribe.py /path/to/clip.wav\n"

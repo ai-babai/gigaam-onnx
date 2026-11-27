@@ -8,7 +8,7 @@ import gigaam
 import torch
 from gigaam.streaming import GigaAMStreaming
 
-from stream_transcribe import decode, load_stream, read_wave
+from clients.stream_transcribe import decode, load_stream, read_wave
 
 
 def main():

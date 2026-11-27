@@ -8,13 +8,13 @@ from pathlib import Path
 from time import perf_counter
 import unicodedata
 
-from multi_client import MultilingualRNNT, read_audio
+from clients.multi_client import MultilingualRNNT, read_audio
 
 import numpy as np
 import torch
 
 from gigaam.utils import normalize_raw_text
-from multi_export import load_reference
+from conversion.multi_export import load_reference
 
 REQUIRED_LANGUAGES = {"ru", "en", "kk", "ky", "uz"}
 

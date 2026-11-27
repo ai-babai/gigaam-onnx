@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from time import perf_counter
 
-from ctc_benchmark import LANGUAGES, manifest_rows
-from ctc_transcribe import SherpaCtc, load_audio
+from benchmarks.tools.ctc_benchmark import LANGUAGES, manifest_rows
+from clients.ctc_transcribe import SherpaCtc, load_audio
 
 
 def main():

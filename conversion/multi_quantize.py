@@ -13,7 +13,7 @@ import onnx
 from onnx import AttributeProto, TensorProto, helper, numpy_helper
 from omegaconf import OmegaConf
 
-from multi_export import MODEL_REVISION, PREFIX, SOURCE_DIGESTS, UPSTREAM_REVISION
+from conversion.multi_export import MODEL_REVISION, PREFIX, SOURCE_DIGESTS, UPSTREAM_REVISION
 
 
 def promote_fp16(graph, base):
@@ -200,14 +200,14 @@ def main():
     copyfile(fp / f"{PREFIX}.yaml", package / f"{PREFIX}.yaml")
     for name in ("config.json", "LICENSE", "LICENSE-APACHE-2.0"):
         copyfile(source / name, package / name)
-    copyfile(Path(__file__).with_name("multi_client.py"), package / "multi_client.py")
+    copyfile(Path(__file__).resolve().parents[1] / "clients" / "multi_client.py", package / "multi_client.py")
     (package / "requirements.txt").write_text(
-        "numpy>=2,<3\nonnxruntime==1.23.2\nsentencepiece>=0.2,<0.3\n"
+        "numpy==2.5.1\nonnxruntime==1.23.2\nsentencepiece==0.2.2\n"
     )
     (package / "README.md").write_text(
         "# GigaAM Multilingual-v2 RNN-T ONNX INT8\n\n"
         "This package runs full-context ASR on CPU and returns formatted `e2e` and plain `raw` text. "
-        "It requires Python 3.10+, FFmpeg on PATH, and the packages in requirements.txt.\n\n"
+        "Tested with Python 3.12.11 and FFmpeg 8.1 on macOS.\n\n"
         "```sh\n"
         "python -m pip install -r requirements.txt\n"
         "python multi_client.py /path/to/clip.wav --language kk\n"

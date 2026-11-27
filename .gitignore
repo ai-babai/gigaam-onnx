@@ -1,5 +1,4 @@
 # Local workspace and credentials
-AGENTS.md
 /.agents/
 /.codex/
 .env

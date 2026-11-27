@@ -12,16 +12,16 @@ import torch
 
 def get_decoders(base, name):
     if name == "v4":
-        from ctc_transcribe import OrtCtc
+        from clients.ctc_transcribe import OrtCtc
         package = base / "package"
         return (OrtCtc(package, base / "work/model.fp32.onnx").recognize,
                 OrtCtc(package).recognize)
     if name == "rnnt":
-        from rnnt_transcribe import GigaAMRNNT
+        from clients.rnnt_transcribe import GigaAMRNNT
         package = base / "package"
         return (GigaAMRNNT(package, encoder=base / "fp/v4_rnnt_encoder.onnx").transcribe,
                 GigaAMRNNT(package).transcribe)
-    from stream_transcribe import decode, load_stream
+    from clients.stream_transcribe import decode, load_stream
     fp = load_stream(base / "fp")
     quantized = load_stream(base / "package")
     return (lambda audio: decode(fp, torch.from_numpy(audio)),

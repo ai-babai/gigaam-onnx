@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from time import perf_counter
 
-from ctc_transcribe import OrtCtc, load_audio
+from clients.ctc_transcribe import OrtCtc, load_audio
 
 LANGUAGES = ("ru", "en")
 
@@ -23,7 +23,7 @@ def manifest_rows(manifest):
 def benchmark(source, package, manifest, output):
     import torch
 
-    from ctc_export import load_source
+    from conversion.ctc_export import load_source
 
     torch.set_num_threads(3)
     torch.set_num_interop_threads(1)

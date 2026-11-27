@@ -6,12 +6,12 @@ import json
 from pathlib import Path
 from time import perf_counter
 
-from rnnt_transcribe import GigaAMRNNT, read_audio
+from clients.rnnt_transcribe import GigaAMRNNT, read_audio
 
 import numpy as np
 import torch
 
-from rnnt_export import PREFIX, load_torch
+from conversion.rnnt_export import PREFIX, load_torch
 
 LANGUAGES = ("ru", "en")
 
