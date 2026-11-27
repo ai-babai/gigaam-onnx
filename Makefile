@@ -8,7 +8,7 @@ help:
 		'See AGENTS.md for inference, conversion and validation commands.'
 
 check:
-	$(PYTHON) -m compileall -q clients conversion benchmarks/tools
+	$(PYTHON) -m compileall -q clients conversion benchmarks/tools quality/sherpa
 	git diff --check HEAD
 
 verify-scores:

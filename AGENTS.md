@@ -29,7 +29,7 @@ git ls-files 'clients/*.py' 'conversion/*.py' 'benchmarks/tools/*.py'
 make check
 ```
 
-On a minimal Linux image without Make, run `python3 -m compileall -q clients conversion benchmarks/tools` and `git diff --check HEAD` directly.
+On a minimal Linux image without Make, run `python3 -m compileall -q clients conversion benchmarks/tools quality/sherpa` and `git diff --check HEAD` directly.
 
 **Inference.** Run the matching client on a known speech clip, using the pinned dependencies. For offline models use a single utterance between 20 ms and 30 s. The following command uses the v4 CTC package from the quickstart.
 
