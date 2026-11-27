@@ -1,6 +1,8 @@
 # GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU
 
-Local speech recognition on CPU. Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multilingual-v2 for offline transcription in 21 languages.
+The [GigaAM team](https://github.com/salute-developers/GigaAM) developed and trained both models. This repository provides quantized ONNX weights for CPU inference.
+
+Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multilingual-v2 for offline transcription in 21 languages.
 
 [GigaAM-v4 on Hugging Face](https://huggingface.co/ai-babai/gigaam-v4-onnx) · [Multilingual-v2 on Hugging Face](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx) · [Benchmarks](benchmarks/README.md) · [Hugging Face collection](https://huggingface.co/collections/ai-babai/gigaam-onnx-offline-and-streaming-speech-recognition-6b0973ce369990a8a4c53c43)
 
