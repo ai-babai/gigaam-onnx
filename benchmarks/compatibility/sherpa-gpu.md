@@ -96,6 +96,10 @@ Each Multilingual-v2 run used 16 recordings per language in Russian, English, Ka
 
 For exact transcript agreement on this sample, choose FP32 or FP16 storage with CUDA for CTC and streaming. The offline v4 INT4 pair also agreed on every clip. Keep CPU as the starting point for INT8 CTC, INT8 streaming and Multilingual-v2 INT8 auto on this host.
 
+### CPU thread count for streaming
+
+On a separate Linux VM with three AMD EPYC 7763 vCPUs, one INT8 streaming recognizer ran fastest with `provider="cpu", num_threads=1`. Across six paired runs on 128.52 seconds of audio, median decode time was 19.24 seconds with one thread, 21.64 with two and 34.56 with three. All 220 transcript, timestamp and lifecycle events agreed across the three settings. The profiled build spent 99.47% of decode time in ORT at one thread. Choose the thread count on the deployment host.
+
 ## macOS CoreML
 
 All four published v4 CTC graphs failed in native Sherpa at `88b59ec6` with ORT 1.23.2. Both bare `coreml` and explicit `ModelFormat=MLProgram`, `MLComputeUnits=CPUAndGPU` failed on the first Russian decode. The Sherpa preview at `b898c1b6` also failed on stock CTC FP32 with ORT 1.28.2. With MLProgram on that preview, the published v4 offline and Multilingual-v2 INT8 encoders failed at the attention reshape and the v4 streaming INT8 encoder failed CoreML execution-plan creation. The CPU scenario suite passed all 12 cases on that host. [CPU scenario suite](../../quality/sherpa/README.md)
