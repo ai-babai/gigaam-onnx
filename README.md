@@ -71,6 +71,8 @@ To try FP32, replace `ctc-e2e/model.int8.onnx` in the download command with `ctc
 
 This package also supports the sherpa-onnx offline NeMo CTC loader. Install `sherpa-onnx==1.13.2` and add `--sherpa` to the same command. On macOS arm64, the GigaAM loader in `transcribe-rs` 0.3.11 and 0.3.12 loaded all four CTC graphs by filename and decoded a Russian test clip with the shared `vocab.txt`. Both integrations use their own audio frontends. [CTC input and output contract](https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/ctc-e2e/USAGE.md)
 
+The CTC client uses CPU by default. With `--sherpa`, `--sherpa-provider` selects a native execution provider. See the [Sherpa GPU setup and compatibility table](benchmarks/compatibility/sherpa-gpu.md) for verified combinations of model, runtime and hardware.
+
 ### GigaAM-v4 offline RNN-T
 
 ```sh

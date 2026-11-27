@@ -9,7 +9,6 @@ from pathlib import Path
 os.environ["OMP_NUM_THREADS"] = "3"
 
 import numpy as np
-import onnxruntime as ort
 
 SAMPLE_RATE = 16_000
 MAX_SAMPLES = 30 * SAMPLE_RATE
@@ -31,6 +30,8 @@ def load_audio(path):
 
 
 def cpu_session(path):
+    import onnxruntime as ort
+
     options = ort.SessionOptions()
     options.intra_op_num_threads = 3
     options.inter_op_num_threads = 1
@@ -73,7 +74,7 @@ class OrtCtc:
 
 
 class SherpaCtc:
-    def __init__(self, package, model=None):
+    def __init__(self, package, model=None, *, provider="cpu"):
         import sherpa_onnx
 
         model = model or select_model(package)
@@ -86,7 +87,7 @@ class SherpaCtc:
         self.recognizer = sherpa_onnx.OfflineRecognizer.from_nemo_ctc(
             model=str(model),
             tokens=str(package / "tokens.txt"),
-            provider="cpu",
+            provider=provider,
             num_threads=3,
             sample_rate=SAMPLE_RATE,
             feature_dim=64,
@@ -99,15 +100,30 @@ class SherpaCtc:
         return stream.result.text
 
 
+def parse_sherpa_provider(value):
+    provider, separator, config = value.partition(":")
+    if provider not in ("cpu", "coreml", "cuda") or (separator and not config.strip()):
+        raise argparse.ArgumentTypeError("expected cpu, coreml or cuda, optionally followed by :CONFIG")
+    return value
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("audio", type=Path)
     parser.add_argument("--package", type=Path, default=Path(__file__).resolve().parent)
     parser.add_argument("--model", type=Path, help="Path to the CTC ONNX graph")
     parser.add_argument("--sherpa", action="store_true")
+    parser.add_argument(
+        "--sherpa-provider", type=parse_sherpa_provider, metavar="PROVIDER[:CONFIG]",
+        help="Sherpa execution provider: cpu (default), coreml or cuda. Requires --sherpa.",
+    )
     args = parser.parse_args()
-    decoder_type = SherpaCtc if args.sherpa else OrtCtc
-    decoder = decoder_type(args.package, args.model)
+    if args.sherpa:
+        decoder = SherpaCtc(args.package, args.model, provider=args.sherpa_provider or "cpu")
+    else:
+        if args.sherpa_provider is not None:
+            parser.error("--sherpa-provider requires --sherpa")
+        decoder = OrtCtc(args.package, args.model)
     print(decoder.recognize(load_audio(args.audio)))
 
 
