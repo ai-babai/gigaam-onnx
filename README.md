@@ -51,7 +51,7 @@ The optional [Multilingual-v2 INT4](#lower-memory-multilingual-v2-int4) package 
 Reference setup: Python 3.12.11 and FFmpeg 8.1 on macOS. Linux validation used Python 3.12.16 and FFmpeg n9.0.2 (build 17-g2a571b6068). Clone the clients, then run the commands for one model below. Each download selects just its runtime data. Offline clients take speech clips up to 30 seconds.
 
 ```sh
-git clone --branch v0.3.1 https://github.com/ai-babai/gigaam-onnx.git
+git clone --branch v0.4.0 https://github.com/ai-babai/gigaam-onnx.git
 cd gigaam-onnx
 python -m pip install huggingface_hub==1.3.5 hf-xet==1.8.0 typer-slim==0.21.1 click==8.2.1
 weights=../gigaam-weights
@@ -71,7 +71,7 @@ To try FP32, replace `ctc-e2e/model.int8.onnx` in the download command with `ctc
 
 This package also supports the sherpa-onnx offline NeMo CTC loader. Install `sherpa-onnx==1.13.2` and add `--sherpa` to the same command. On macOS arm64, the GigaAM loader in `transcribe-rs` 0.3.11 and 0.3.12 loaded all four CTC graphs by filename and decoded a Russian test clip with the shared `vocab.txt`. Both integrations use their own audio frontends. [CTC input and output contract](https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/main/ctc-e2e/USAGE.md)
 
-The CTC client uses CPU by default. With `--sherpa`, `--sherpa-provider` selects a native execution provider. See the [Sherpa GPU setup and compatibility table](benchmarks/compatibility/sherpa-gpu.md) for verified combinations of model, runtime and hardware.
+The CTC client reads standard 16 kHz mono PCM16 WAV files directly and uses FFmpeg for other audio. It uses CPU by default. With `--sherpa`, `--sherpa-provider` selects a native execution provider. See the [Sherpa GPU setup and compatibility table](benchmarks/compatibility/sherpa-gpu.md) for verified combinations of model, runtime and hardware.
 
 ### GigaAM-v4 offline RNN-T
 
@@ -167,9 +167,9 @@ Please cite the model papers and this ONNX release. [GigaAM, Interspeech 2025](h
 @software{popkov2026gigaamonnx,
   author = {Maksim Popkov},
   title = {{GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU}},
-  version = {0.3.1},
+  version = {0.4.0},
   year = {2026},
-  url = {https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.3.1}
+  url = {https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.4.0}
 }
 ```
 

@@ -11,7 +11,7 @@ Run `make help` from the repository root to list the checks. The repository cont
 
 | Task | Edit or run | Contract |
 |---|---|---|
-| Transcribe RU/EN offline with CTC | [clients/ctc_transcribe.py](clients/ctc_transcribe.py) | Plain text on stdout. Pass WAV and `--package DIR`. Add `--sherpa` for the native loader. |
+| Transcribe RU/EN offline with CTC | [clients/ctc_transcribe.py](clients/ctc_transcribe.py) | Plain text on stdout. Pass WAV and `--package DIR`. Add `--sherpa` for the native loader and `--sherpa-provider` to select a provider. |
 | Transcribe RU/EN offline with RNN-T | [clients/rnnt_transcribe.py](clients/rnnt_transcribe.py) | JSON with `raw` and `e2e`. Pass WAV and `--package DIR`. |
 | Stream RU/EN | [clients/stream_transcribe.py](clients/stream_transcribe.py) | Pass model directory, then 16 kHz mono WAV. CLI prints final text. The streaming API also provides partial results. |
 | Transcribe with Multilingual-v2 | [clients/multi_client.py](clients/multi_client.py) | JSON with `raw` and `e2e`. Select the precision via `--package DIR` and pass `--language kk` or `auto`. |
@@ -38,6 +38,8 @@ python clients/ctc_transcribe.py clip.wav --package ../gigaam-weights/v4/ctc-e2e
 ```
 
 Compare formatted text with the saved output for the same clip and runtime. For RNN-T also compare the raw output where a baseline exists. A multilingual test should pass the same language hint as the reference. Use the [platform matrix](benchmarks/compatibility/README.md) to choose the relevant native loader.
+
+**CTC audio.** The client reads standard 16 kHz mono PCM16 WAV files with Python’s `wave` module and uses FFmpeg for other inputs. Run `python -m unittest quality.test_ctc_audio` when changing audio loading. Use the [Sherpa GPU guide](benchmarks/compatibility/sherpa-gpu.md) for validated provider and runtime combinations.
 
 **Sherpa integration.** Use the [native scenario runner](quality/sherpa/README.md) for changes to offline or streaming recognition. It checks pinned WAVs, tokenizers and graphs, exercises both heads, and writes a JSON report.
 
