@@ -7,6 +7,7 @@
 | Scenario | Target | Observed | Status | Note |
 |---|---|---:|:---:|---|
 | Native CPU clients, macOS and Linux | Every prescribed smoke case completes | 16/16 per OS, INT8 | 🟢 | 28/30 compared outputs matched verbatim. |
+| Fresh public INT4 download | All manifest hashes match and Kazakh output reproduces | 9/9 hashes, raw + formatted match | 🟢 | Anonymous Hugging Face download and pinned GitHub client. |
 | INT4 multilingual, Linux | Nonempty raw and formatted text | 20/20 | 🟢 | Five clips, each with a language hint and in auto mode. |
 | Mac file and native loader contracts | All defined expectations pass | 108/108 | 🟢 | Seven entry points, with another 14 exploratory cases. |
 | Streaming v4 | Partial text, packet boundaries, reset and flush | 14/14 API checks | 🟢 | Tested 100, 400 and 640 ms input packets. |
@@ -15,7 +16,7 @@
 | English in transcribe-rs 0.3.11 | Decode English and advertise it | Decodes EN, metadata lists RU | 🟡 | Language-filtered applications may hide English. |
 | LM Studio 0.4.25+1 stock importer | Catalog recognizes the ONNX file | Model not found | 🟡 | Use an ONNX speech runtime for these weights. |
 
-[Mac cases, fixtures, transcripts and errors](mac-cpu-runtime.json) · [INT8 Linux and Mac results](../benchmarks/compatibility/README.md) · [INT4 Linux checks](../benchmarks/multilingual-v2/int4/linux.json) · [Recognition quality by language](../benchmarks/README.md)
+[Public INT4 download and exact commands](public-linux-int4.json) · [Mac cases, fixtures, transcripts and errors](mac-cpu-runtime.json) · [INT8 Linux and Mac results](../benchmarks/compatibility/README.md) · [INT4 Linux checks](../benchmarks/multilingual-v2/int4/linux.json) · [Recognition quality by language](../benchmarks/README.md)
 
 ## Code quality
 
