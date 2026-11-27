@@ -1,0 +1,49 @@
+{
+  "preview": "411c7c3ed6232348add92537fdfd61f7f5b6588d",
+  "native_ort": "1.28.2",
+  "runner_sha256": "31258f08065e7a80b94e7150a172d635831875bafcccc4faea1642d62c1399aa",
+  "fixture_lock_sha256": "0a223c3213dd68cfdb8bdecddb02ed25034da316ce47b4638e6adcd39745c943",
+  "streaming_int4_sha256": "4f4453af2721f0868df2deb9e5675d2982d71258bf609af4db179b540cfc190a",
+  "runs": [
+    {
+      "platform": "macOS 15.8.1 arm64",
+      "python": "3.12.11",
+      "native_module_sha256": "9a50db6e0bac862d83e7fc189ffcb9465c10d68c879180468e0349eabcdc5a7a",
+      "passed": {
+        "shared_runner": 12,
+        "offline_int8": 2,
+        "streaming_int8": 2,
+        "streaming_int4": 2
+      },
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "platform": "Ubuntu 26.04.1 x86_64",
+      "python": "3.12.16",
+      "native_module_sha256": "ee3ff82f7efce1f96100e7a00636f348c71988f8e18a0e89bdd6355acbfa4489",
+      "passed": {
+        "shared_runner": 12,
+        "offline_int8": 2,
+        "streaming_int8": 2,
+        "streaming_int4": 2
+      },
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "platform": "Windows 11 x64",
+      "python": "3.12.10",
+      "native_module_sha256": "663a2d43f318d848bb97998a791216ba75231103ce8c1d2deb4c95aa16f58c07",
+      "passed": {
+        "shared_runner": 12,
+        "offline_int8": 2,
+        "streaming_int8": 2,
+        "streaming_int4": 2
+      },
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "windows_build": "https://github.com/ai-babai/sherpa-onnx/actions/runs/46017272361"
+}

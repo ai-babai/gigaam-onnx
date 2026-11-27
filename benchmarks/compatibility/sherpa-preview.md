@@ -2,6 +2,16 @@
 
 The [GigaAM preview fork](https://github.com/ai-babai/sherpa-onnx/tree/411c7c3ed6232348add92537fdfd61f7f5b6588d) loads the published ONNX weights directly. Use the stock sherpa-onnx 2.0.3 release for v4 CTC. Build the preview for RNN-T. [Apple Silicon source install](sherpa-source-install.md) · [Offline RNN-T example](https://github.com/ai-babai/sherpa-onnx/blob/411c7c3ed6232348add92537fdfd61f7f5b6588d/python-api-examples/gigaam-offline-rnnt.md) · [Streaming example](https://github.com/ai-babai/sherpa-onnx/blob/411c7c3ed6232348add92537fdfd61f7f5b6588d/scripts/gigaam-v4-streaming/README.md)
 
+## Verified native preview
+
+All three operating systems ran the same source revision, ONNX Runtime 1.28.2 CPU, and pinned recordings. A check means every case in that column passed. Both streaming heads returned partial text and a final result. A mixed token table or joiner was rejected at construction. [Scenario runner](../../quality/sherpa/README.md) · [Builds and results](sherpa-scenarios.json)
+
+| Platform | Shared scenarios (12) | Offline INT8 (2) | Streaming INT8 (2) | Streaming INT4 (2) | Note |
+|---|:---:|:---:|:---:|:---:|---|
+| macOS 15.8.1 arm64 | ✓ | ✓ | ✓ | ✓ | Source-built Python wheel |
+| Ubuntu 26.04.1 x64 | ✓ | ✓ | ✓ | ✓ | Native Python module |
+| Windows 11 x64 | ✓ | ✓ | ✓ | ✓ | MSVC build, both native CLIs also decoded WAV files |
+
 ## Formatted-text accuracy
 
 We measured formatted-text WER on 16 FLEURS test clips per language using the earlier inference builds recorded in the [benchmark data](sherpa-preview.json). Both runtimes used the same quantized weights and recordings. The released client used ONNX Runtime 1.23.2 and the Sherpa source build used native ONNX Runtime 1.28.2. Multilingual rows use an explicit language hint. [All languages, raw outputs, auto mode and paired bootstrap intervals](sherpa-preview.json)
