@@ -1,14 +1,16 @@
 # GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU
 
-The [GigaAM team](https://github.com/salute-developers/GigaAM) developed and trained both models. This repository provides quantized ONNX weights for CPU inference.
+The [GigaAM team](https://github.com/salute-developers/GigaAM) developed and trained both models. The ONNX releases provide CPU inference for both models in FP32, FP16 storage, INT8 and INT4.
 
 Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multilingual-v2 for offline transcription in 21 languages.
 
 [GigaAM-v4 on Hugging Face](https://huggingface.co/ai-babai/gigaam-v4-onnx) · [Multilingual-v2 on Hugging Face](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx) · [Benchmarks](benchmarks/README.md) · [Hugging Face collection](https://huggingface.co/collections/ai-babai/gigaam-onnx-offline-and-streaming-speech-recognition-6b0973ce369990a8a4c53c43)
 
-[Release quality checks](quality/README.md) · [Agent guide and command map](AGENTS.md)
+[Compare weight formats, sizes and accuracy](benchmarks/precision/README.md) · [Release quality checks](quality/README.md) · [Agent guide and command map](AGENTS.md)
 
 ## Tested compatibility
+
+The table covers the original INT8 packages and Multilingual-v2 INT4. For results by precision and operating system, see the [16-package platform matrix](benchmarks/compatibility/precision-platforms.md).
 
 | Weights | ONNX Runtime | Sherpa release | [Sherpa preview](benchmarks/compatibility/sherpa-preview.md) | transcribe-rs | onnx-asr | GigaAM API | Note |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|---|
@@ -20,13 +22,13 @@ Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multiling
 
 ✓ = verified with the released weights. Empty cells have no verified integration. Checks cover macOS arm64 and Linux x86-64 unless the note specifies one platform. ONNX Runtime 1.23.2, sherpa-onnx 1.13.2 and 2.0.3 and transcribe-rs 0.3.11 were tested. onnx-asr 0.12.0 has no compatible built-in loader. Windows 11 x64 passed all five weight variants with the inference engines listed in the platform matrix. [Platform versions and test results](benchmarks/compatibility/README.md)
 
-## Choose a model package
+## Choose an INT8 model package
 
 | Download model files | Use case | Output | Package | CPU speed¹ |
 |---|---|---|---:|---:|
-| [v4 CTC E2E](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/v0.2.0/ctc-e2e) | Offline transcription with sherpa-onnx, transcribe-rs or ONNX Runtime | Formatted text | 242.5 MB | 79.8× |
-| [v4 RNN-T](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/v0.2.0/rnnt) | Offline Russian and English | Raw and formatted text | 255.4 MB | 70.9× |
-| [v4 streaming RNN-T](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/v0.2.0/rnnt-streaming-640ms) | Incremental dictation with 640 ms future context | Partial and final text | 259.0 MB | 32.1× |
+| [v4 CTC E2E](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/ctc-e2e) | Offline transcription with sherpa-onnx, transcribe-rs or ONNX Runtime | Formatted text | 242.5 MB | 79.8× |
+| [v4 RNN-T](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/rnnt) | Offline Russian and English | Raw and formatted text | 255.4 MB | 70.9× |
+| [v4 streaming RNN-T](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/rnnt-streaming-640ms) | Incremental dictation with 640 ms future context | Partial and final text | 259.0 MB | 32.1× |
 | [Multilingual-v2 RNN-T](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/v0.2.0) | Offline transcription in 21 languages | Raw and formatted text | 811.0 MB | 15.5× |
 
 The optional [Multilingual-v2 INT4](#lower-memory-multilingual-v2-int4) package is 519.4 MB.
@@ -38,16 +40,16 @@ The optional [Multilingual-v2 INT4](#lower-memory-multilingual-v2-int4) package 
 Reference setup: Python 3.12.11 and FFmpeg 8.1 on macOS. Linux validation used Python 3.12.16 and FFmpeg n9.0.2 (build 17-g2a571b6068). Clone the clients, then run the commands for one model below. Each download selects just its runtime data. Offline clients take speech clips up to 30 seconds.
 
 ```sh
-git clone --branch v0.2.2 https://github.com/ai-babai/gigaam-onnx.git
+git clone --branch v0.3.0 https://github.com/ai-babai/gigaam-onnx.git
 cd gigaam-onnx
-python -m pip install huggingface_hub==1.3.5
+python -m pip install huggingface_hub==1.3.5 hf-xet==1.8.0 typer-slim==0.21.1 click==8.2.1
 weights=../gigaam-weights
 ```
 
 ### GigaAM-v4 CTC E2E
 
 ```sh
-hf download ai-babai/gigaam-v4-onnx --revision v0.2.0 \
+hf download ai-babai/gigaam-v4-onnx --revision 9c1f125787db5befcfcd3c8e232a642f9b1531f6 \
   --include 'ctc-e2e/*.onnx' --include 'ctc-e2e/tokens.txt' --include 'ctc-e2e/vocab.txt' \
   --local-dir "$weights/v4"
 python -m pip install numpy==2.5.1 onnxruntime==1.23.2
@@ -59,7 +61,7 @@ This package also supports the sherpa-onnx offline NeMo CTC loader. Install `she
 ### GigaAM-v4 offline RNN-T
 
 ```sh
-hf download ai-babai/gigaam-v4-onnx --revision v0.2.0 \
+hf download ai-babai/gigaam-v4-onnx --revision 9c1f125787db5befcfcd3c8e232a642f9b1531f6 \
   --include 'rnnt/*.onnx' --include 'rnnt/*.model' --include 'rnnt/*.npz' --include 'rnnt/manifest.json' \
   --local-dir "$weights/v4"
 python -m pip install numpy==2.5.1 onnxruntime==1.23.2 sentencepiece==0.2.2
@@ -71,7 +73,7 @@ python clients/rnnt_transcribe.py clip.wav --package "$weights/v4/rnnt"
 The example feeds 640 ms packets and flushes the decoder at the end. The 640 ms figure is the model's future context. Application latency includes buffering and decoding. Word start and end times are available through the upstream streaming API with `word_timestamps=True`. The example CLI prints the final transcript.
 
 ```sh
-hf download ai-babai/gigaam-v4-onnx --revision v0.2.0 \
+hf download ai-babai/gigaam-v4-onnx --revision 9c1f125787db5befcfcd3c8e232a642f9b1531f6 \
   --include 'rnnt-streaming-640ms/*.onnx' --include 'rnnt-streaming-640ms/*.model' --include 'rnnt-streaming-640ms/*.json' --include 'rnnt-streaming-640ms/*.yaml' \
   --include LICENSE --include LICENSE-APACHE-2.0 --include NOTICE \
   --local-dir "$weights/v4"
@@ -150,9 +152,9 @@ Please cite the model papers and this ONNX release. [GigaAM, Interspeech 2025](h
 @software{popkov2026gigaamonnx,
   author = {Maksim Popkov},
   title = {{GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU}},
-  version = {0.2.2},
+  version = {0.3.0},
   year = {2026},
-  url = {https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.2.2}
+  url = {https://github.com/ai-babai/gigaam-onnx/releases/tag/v0.3.0}
 }
 ```
 

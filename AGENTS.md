@@ -14,11 +14,11 @@ Run `make help` from the repository root to list the checks. The repository cont
 | Transcribe RU/EN offline with CTC | [clients/ctc_transcribe.py](clients/ctc_transcribe.py) | Plain text on stdout. Pass WAV and `--package DIR`. Add `--sherpa` for the native loader. |
 | Transcribe RU/EN offline with RNN-T | [clients/rnnt_transcribe.py](clients/rnnt_transcribe.py) | JSON with `raw` and `e2e`. Pass WAV and `--package DIR`. |
 | Stream RU/EN | [clients/stream_transcribe.py](clients/stream_transcribe.py) | Pass model directory, then 16 kHz mono WAV. CLI prints final text. The streaming API also provides partial results. |
-| Transcribe with Multilingual-v2 | [clients/multi_client.py](clients/multi_client.py) | JSON with `raw` and `e2e`. Select INT8 or INT4 via `--package DIR` and pass `--language kk` or `auto`. |
+| Transcribe with Multilingual-v2 | [clients/multi_client.py](clients/multi_client.py) | JSON with `raw` and `e2e`. Select the precision via `--package DIR` and pass `--language kk` or `auto`. |
 | Export or quantize | [conversion/](conversion/) | Run `python -m conversion.<module>`. Use a separate output directory. Keep FP32 external tensor files beside their graph. |
 | Sample, score or time a run | [benchmarks/tools/](benchmarks/tools/) | Run `python -m benchmarks.tools.<module>`. Write outputs outside the checkout. |
 
-Start with the dependency block for your model in the [README](README.md#download-model-files-and-run-a-client). Each CLI lists its arguments with `--help` after its dependencies are installed. The four clients can also be downloaded and run as standalone files. Keep their sibling weights discoverable through the existing CLI arguments.
+Start with the dependency block for your model in the [README](README.md#download-model-files-and-run-a-client). Each CLI lists its arguments with `--help` after its dependencies are installed. Use the [precision guide](benchmarks/precision/README.md) to select a pinned snapshot. Keep the external tensor file beside the Multilingual-v2 FP32 or FP16 encoder. The four clients can also be downloaded and run as standalone files. Keep their sibling weights discoverable through the existing CLI arguments.
 
 ## Verify a change
 

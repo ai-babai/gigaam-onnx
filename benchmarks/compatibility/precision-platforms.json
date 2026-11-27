@@ -100,6 +100,22 @@
       "arena": false,
       "prepacking": false
     },
+    "linux-sherpa-stock-precision": {
+      "platform": "Ubuntu 26.04.1 x64",
+      "python": "3.12.16",
+      "sherpa": "2.0.3",
+      "ort": "1.28.2",
+      "threads": 1
+    },
+    "linux-sherpa-preview-precision": {
+      "platform": "Ubuntu 26.04.1 x64",
+      "python": "3.12.16",
+      "sherpa": "2.0.3",
+      "ort": "1.28.2",
+      "threads": 1,
+      "source_revision": "411c7c3ed6232348add92537fdfd61f7f5b6588d",
+      "binding_sha256": "ee3ff82f7efce1f96100e7a00636f348c71988f8e18a0e89bdd6355acbfa4489"
+    },
     "windows-sherpa-preview": {
       "platform": "Windows 11 x64 build 26300",
       "python": "3.12.10",
@@ -108,6 +124,16 @@
       "threads": 1,
       "source_revision": "411c7c3ed6232348add92537fdfd61f7f5b6588d",
       "build": "https://github.com/ai-babai/sherpa-onnx/actions/runs/46017272361"
+    },
+    "windows-ort-multilingual": {
+      "platform": "Windows Server 2022 x64",
+      "python": "3.12.10",
+      "ort": "1.23.2",
+      "numpy": "2.5.1",
+      "sentencepiece": "0.2.2",
+      "soundfile": "0.13.1",
+      "threads": 3,
+      "client_revision": "dc0f2d32385502b3ed8347a8dcf6a32d4b676a0b"
     },
     "windows-sherpa-earlier-preview": {
       "platform": "Windows 11 x64 build 26300",
@@ -160,7 +186,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-stock-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "e2e"
+        },
         "windows": null
       }
     },
@@ -204,7 +236,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-stock-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "e2e"
+        },
         "windows": null
       }
     },
@@ -283,7 +321,18 @@
           "runtime": "linux-ort-precision",
           "cases": 2
         },
-        "windows": null
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "c5cd288070050be787c200ff9fd2416fb705c0155d1c40109ee0916895d47d0a",
+          "tested_revision": "9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {},
+          "mark": "✓†"
+        }
       },
       "notes": "Packaged waveform frontend.",
       "final_card_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
@@ -293,7 +342,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-stock-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "e2e"
+        },
         "windows": null
       }
     },
@@ -339,7 +394,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "raw and e2e"
+        },
         "windows": null
       }
     },
@@ -363,7 +424,20 @@
           "runtime": "linux-ort-precision",
           "cases": 2
         },
-        "windows": null
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "3e3a29b18acd772dca223ba9a69db40ade9202003c96a4f6a2465f10488bbbd6",
+          "tested_revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {
+            "sentencepiece": "0.2.2"
+          },
+          "mark": "✓†"
+        }
       },
       "notes": "Raw and formatted text.",
       "preview_sherpa": {
@@ -372,7 +446,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "raw and e2e"
+        },
         "windows": null
       }
     },
@@ -442,7 +522,20 @@
           "runtime": "linux-ort-precision",
           "cases": 2
         },
-        "windows": null
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "78661a7864f33f9dfd3259548c052e63e52e67385566af33a0b18a5aa6e682ed",
+          "tested_revision": "9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {
+            "sentencepiece": "0.2.2"
+          },
+          "mark": "✓†"
+        }
       },
       "notes": "Raw and formatted text.",
       "final_card_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
@@ -452,7 +545,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "raw and e2e"
+        },
         "windows": null
       }
     },
@@ -505,7 +604,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "raw and e2e"
+        },
         "windows": null
       }
     },
@@ -533,7 +638,23 @@
           "runtime": "linux-ort-precision",
           "cases": 2
         },
-        "windows": null
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "c5ef4fb8b8bab662dc5a0bff465d9065d9f579bcb8ac24415badf70267a5048b",
+          "tested_revision": "aff7eef3c9ff064455154363ba96149594d16ac0",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {
+            "sentencepiece": "0.2.2",
+            "torch": "2.10.0+cpu",
+            "torchaudio": "2.10.0+cpu",
+            "soundfile": "0.14.0"
+          },
+          "mark": "✓†"
+        }
       },
       "notes": "640 ms future context.",
       "preview_sherpa": {
@@ -542,7 +663,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "raw and e2e"
+        },
         "windows": null
       }
     },
@@ -620,7 +747,23 @@
           "runtime": "linux-ort-precision",
           "cases": 2
         },
-        "windows": null
+        "windows": {
+          "runtime": "windows-ort-v4-precision",
+          "cases": 2,
+          "client_sha256": "9d6a3b0b630a71e2e7cc248e6830e60b54cffdab9a7c007eed875e89ca2fc0a1",
+          "tested_revision": "9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef",
+          "wav_sha256": [
+            "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+            "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7"
+          ],
+          "dependencies": {
+            "sentencepiece": "0.2.2",
+            "torch": "2.10.0+cpu",
+            "torchaudio": "2.10.0+cpu",
+            "soundfile": "0.14.0"
+          },
+          "mark": "✓†"
+        }
       },
       "notes": "640 ms future context.",
       "final_card_revision": "d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6",
@@ -630,7 +773,13 @@
           "cases": 2,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "ru_ru:7721997118013656128",
+          "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+          "output": "raw and e2e"
+        },
         "windows": {
           "runtime": "windows-sherpa-preview",
           "output": "native streaming regression"
@@ -658,7 +807,14 @@
           "runtime": "linux-ort-precision",
           "cases": 10
         },
-        "windows": null
+        "windows": {
+          "runtime": "windows-ort-multilingual",
+          "cases": 2,
+          "client_sha256": "b50c0f4ddd7ab166e2cd063884401ede98f77895a6436435e0b9a9ad8e75e3d2",
+          "sample": "kk_kz:10521119105984172730",
+          "evidence": "https://github.com/ai-babai/gigaam-onnx/actions/runs/46025144581",
+          "mark": "✓†"
+        }
       },
       "notes": "Keep the external tensor file beside the encoder.",
       "final_card_revision": "685d629e8ecc0839938a5b097b6f91caece6c513",
@@ -668,7 +824,13 @@
           "cases": 6,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "kk_kz:9835764151564761301",
+          "wav_sha256": "61ecd0c5848da6acd0d1a39ec66abc141b27f733a9a8f585b3b963b47f340546",
+          "output": "raw and e2e"
+        },
         "windows": null
       }
     },
@@ -689,8 +851,18 @@
           "sample": "kk_kz:9835764151564761301",
           "client_sha256": "a403bbeaa8f32c05cd0813f7a18626acea8f2dc248d31bb10ff9e1c5155dd1ef"
         },
-        "linux": null,
-        "windows": null
+        "linux": {
+          "runtime": "linux-ort-precision",
+          "cases": 10
+        },
+        "windows": {
+          "runtime": "windows-ort-multilingual",
+          "cases": 2,
+          "client_sha256": "b50c0f4ddd7ab166e2cd063884401ede98f77895a6436435e0b9a9ad8e75e3d2",
+          "sample": "kk_kz:10521119105984172730",
+          "evidence": "https://github.com/ai-babai/gigaam-onnx/actions/runs/46025144581",
+          "mark": "✓†"
+        }
       },
       "notes": "Keep the external tensor file beside the encoder.",
       "preview_sherpa": {
@@ -699,7 +871,13 @@
           "cases": 6,
           "output": "e2e"
         },
-        "linux": null,
+        "linux": {
+          "runtime": "linux-sherpa-preview-precision",
+          "cases": 1,
+          "sample": "kk_kz:9835764151564761301",
+          "wav_sha256": "61ecd0c5848da6acd0d1a39ec66abc141b27f733a9a8f585b3b963b47f340546",
+          "output": "raw and e2e"
+        },
         "windows": null
       }
     },

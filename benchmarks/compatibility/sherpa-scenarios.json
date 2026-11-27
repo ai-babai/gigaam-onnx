@@ -16,7 +16,12 @@
         "streaming_int4": 2
       },
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "existing_models": {
+        "gigaam_v3_nemo_ctc_exact": 1,
+        "zh_en_zipformer_exact": 5,
+        "includes_8khz": true
+      }
     },
     {
       "platform": "Ubuntu 26.04.1 x86_64",
@@ -29,7 +34,12 @@
         "streaming_int4": 2
       },
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "existing_models": {
+        "gigaam_v3_nemo_ctc_exact": 1,
+        "zh_en_zipformer_exact": 5,
+        "includes_8khz": true
+      }
     },
     {
       "platform": "Windows 11 x64",
@@ -42,7 +52,12 @@
         "streaming_int4": 2
       },
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "existing_models": {
+        "gigaam_v3_nemo_ctc_exact": 1,
+        "zh_en_zipformer_exact": 5,
+        "includes_8khz": true
+      }
     }
   ],
   "windows_build": "https://github.com/ai-babai/sherpa-onnx/actions/runs/46017272361"

@@ -18,6 +18,8 @@ The optional Hub branches are `float`, `fp16` and v4 `int4`. The current v4 INT8
 
 **FP32 ONNX** stores and computes floating-point tensors in FP32. **FP16 storage** stores selected weights in FP16 and casts them to FP32 for inference. **INT8** stores selected weights as INT8 and dynamically quantizes activations for those matrix products. **INT4** packs selected matrix weights for ONNX Runtime `MatMulNBits` (symmetric blocks of 32, `accuracy_level=4`). Eligible CPU kernels can quantize activations to INT8 inside that operator. Floating-point graph I/O stays FP32 in all four formats. [ONNX Runtime quantization](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#quantize-to-int4uint4)
 
+[Machine-readable index of weights, companion files and SHA-256 hashes](assets.json)
+
 ## Download one path
 
 Run the matching command from the GitHub checkout. Use the client and dependencies listed in the pinned model card. The sibling directories keep separate copies of formats that use the same filenames.

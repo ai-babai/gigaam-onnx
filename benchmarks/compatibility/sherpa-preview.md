@@ -12,6 +12,8 @@ All three operating systems ran the same source revision, ONNX Runtime 1.28.2 CP
 | Ubuntu 26.04.1 x64 | ✓ | ✓ | ✓ | ✓ | Native Python module |
 | Windows 11 x64 | ✓ | ✓ | ✓ | ✓ | MSVC build, both native CLIs also decoded WAV files |
 
+The preview also reproduced the upstream transcripts for one GigaAM-v3 NeMo CTC recording and all five Chinese–English Zipformer recordings on each OS, including the 8 kHz sample. These six recordings exercise existing recognizers. [GigaAM-v3 example](https://github.com/k2-fsa/sherpa-onnx/pull/2901) · [Upstream Zipformer test](https://github.com/k2-fsa/sherpa-onnx/blob/935e5ded3d949a8b557ac44ef4dad03a7d2038e7/.github/scripts/test-python-asr-streaming.sh#L172-L181)
+
 ## Formatted-text accuracy
 
 We measured formatted-text WER on 16 FLEURS test clips per language using the earlier inference builds recorded in the [benchmark data](sherpa-preview.json). Both runtimes used the same quantized weights and recordings. The released client used ONNX Runtime 1.23.2 and the Sherpa source build used native ONNX Runtime 1.28.2. Multilingual rows use an explicit language hint. [All languages, raw outputs, auto mode and paired bootstrap intervals](sherpa-preview.json)
