@@ -7,6 +7,7 @@
 | Scenario | Target | Observed | Status | Note |
 |---|---|---:|:---:|---|
 | Native CPU clients, macOS and Linux | Every prescribed smoke case completes | 16/16 per OS, INT8 | 🟢 | 28/30 compared outputs matched verbatim. |
+| Fresh macOS Python environment | Dependency check and transcription | 2/2 model runs | 🟢 | Python 3.12.11, Sherpa CTC and multilingual INT4. |
 | Fresh public INT4 download | All manifest hashes match and Kazakh output reproduces | 9/9 hashes, raw + formatted match | 🟢 | Anonymous Hugging Face download and pinned GitHub client. |
 | INT4 multilingual, Linux | Nonempty raw and formatted text | 20/20 | 🟢 | Five clips, each with a language hint and in auto mode. |
 | Mac file and native loader contracts | All defined expectations pass | 108/108 | 🟢 | Seven entry points, with another 14 exploratory cases. |
