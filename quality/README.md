@@ -2,6 +2,8 @@
 
 **Model release v0.2.1, code layout v0.2.2.** 🟢 met the stated target · 🟡 observed limit or partial coverage · 🔴 missed the stated target. Each result applies to the named model, tool version and sample. [Model × runtime matrix](../benchmarks/compatibility/README.md) · [Tested dependencies](../benchmarks/compatibility/README.md#tested-dependency-versions)
 
+[Sherpa preview regression suite](sherpa/README.md) · [Preview accuracy and platform checks](../benchmarks/compatibility/sherpa-preview.md)
+
 ## Application scenarios
 
 | Scenario | Target | Observed | Status | Note |

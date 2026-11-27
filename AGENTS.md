@@ -39,6 +39,8 @@ python clients/ctc_transcribe.py clip.wav --package ../gigaam-weights/v4/ctc-e2e
 
 Compare formatted text with the saved output for the same clip and runtime. For RNN-T also compare the raw output where a baseline exists. A multilingual test should pass the same language hint as the reference. Use the [platform matrix](benchmarks/compatibility/README.md) to choose the relevant native loader.
 
+**Sherpa integration.** Use the [native scenario runner](quality/sherpa/README.md) for changes to offline or streaming recognition. It checks pinned WAVs, tokenizers and graphs, exercises both heads, and writes a JSON report.
+
 **Scoring.** Use the [pinned evaluation environment](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/v0.2.1/conversion/README.md). Recompute all four published INT8 score reports, including the paired bootstrap intervals, from the tracked references and predictions. This check needs no weights or audio and exits with a nonzero status on a mismatch.
 
 ```sh

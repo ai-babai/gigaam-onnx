@@ -1,0 +1,47 @@
+{
+  "audio": {
+    "ru": {
+      "id": "ru_ru:7721997118013656128",
+      "wav_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+      "reference_sha256": "174d1a6fe24bc21239694d44748b6447571ae5ec1d9fd4b2bd7b4f3a61beea0b"
+    },
+    "en": {
+      "id": "en_us:11200231708585274851",
+      "wav_sha256": "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7",
+      "reference_sha256": "601c797a46e92534fd066f7a683534bb133ac178e96a48f0dcb421dc6562f908"
+    },
+    "kk": {
+      "id": "kk_kz:9835764151564761301",
+      "wav_sha256": "61ecd0c5848da6acd0d1a39ec66abc141b27f733a9a8f585b3b963b47f340546",
+      "reference_sha256": "997afb218b604c2ce1e1fefac30596d2ab4da07d3792b5eebfc37d9f33e6072c"
+    }
+  },
+  "models": {
+    "v4": {
+      "v4_rnnt_encoder.int8.onnx": "4cc7dd3e2a5f1503239df920976d419287f67df87f1849fff0c34ce4b3d58e20",
+      "v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+      "v4_rnnt_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc",
+      "v4_rnnt_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39"
+    },
+    "multi": {
+      "multilingual_v2_rnnt_encoder.int8.onnx": "0c460231ed0d57e2f6251601d5459dd05cf55ab6a50b55ae2de9333f5bf58d3d",
+      "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+      "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423",
+      "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a"
+    },
+    "stream": {
+      "v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+      "v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+      "v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+      "v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+      "v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+      "v4_rnnt_640ms_stream_step.int8.onnx": "c0eb2185b884ceaef5f0ab79d01f6032591577f1aabbf04b85e7e157436ed69c",
+      "v4_rnnt_640ms_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+      "v4_rnnt_640ms_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc"
+    }
+  },
+  "stream_token_tables": {
+    "raw": "531ead751cc5929eb9dc5876de762c6a428139218ccd13f6eb8e2cc5be362a5e",
+    "e2e": "4af4f59269ff664ea6a55838b12fa0cb5e07bd5e019202b4d38b3fbc9275e923"
+  }
+}
