@@ -1,8 +1,8 @@
-# GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU
+# GigaAM-v4 and GigaAM Multilingual-v2 ONNX
 
 The [GigaAM team](https://github.com/salute-developers/GigaAM) developed and trained both models. The ONNX releases provide CPU inference for both models in FP32, FP16 storage, INT8 and INT4.
 
-Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multilingual-v2 for offline transcription in 21 languages.
+Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multilingual-v2 for offline transcription in 21 languages. Sherpa also supports NVIDIA CUDA on Linux and experimental native Core ML for v4 CTC and streaming on Apple Silicon. [GPU setup and benchmarks](benchmarks/compatibility/sherpa-gpu.md)
 
 [GigaAM-v4 on Hugging Face](https://huggingface.co/ai-babai/gigaam-v4-onnx) · [Multilingual-v2 on Hugging Face](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx) · [Benchmarks](benchmarks/README.md) · [Hugging Face collection](https://huggingface.co/collections/ai-babai/gigaam-onnx-offline-and-streaming-speech-recognition-6b0973ce369990a8a4c53c43)
 

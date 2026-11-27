@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "Cite this ONNX release together with the original GigaAM work listed in the README."
 type: software
-title: "GigaAM-v4 and GigaAM Multilingual-v2 ONNX for CPU"
+title: "GigaAM-v4 and GigaAM Multilingual-v2 ONNX"
 authors:
   - given-names: Maksim
     family-names: Popkov

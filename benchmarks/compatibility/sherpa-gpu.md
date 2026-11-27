@@ -89,7 +89,10 @@ Both providers ran with three threads on the same Linux host. These formatted FL
 | v4 CTC | 4.70× · 32/32 | 5.90× · 32/32 | 1.03× · 28/32 | 7.29× · 31/32 |
 | v4 offline RNN-T | 6.65× · 32/32 | 7.04× · 32/32 | 1.38× · 28/32 | 8.22× · 32/32 |
 | v4 streaming RNN-T | 2.99× · 32/32 | 2.96× · 32/32 | 0.82× · 29/32 | 2.23× · 29/32 |
-| Multilingual-v2 offline RNN-T, auto | | | 0.95× · 77/80 | |
+| Multilingual-v2 offline RNN-T, auto | 10.53× · 80/80 | 12.23× · 80/80 | 0.95× · 77/80 | 11.86× · 79/80 |
+| Multilingual-v2 offline RNN-T, explicit language | 11.37× · 80/80 | 14.10× · 80/80 | 1.09× · 72/80 | 10.40× · 76/80 |
+
+Each Multilingual-v2 run used 16 recordings per language in Russian, English, Kazakh, Uzbek and Kyrgyz. With an explicit hint, FP16 storage produced 71 word errors out of 1,422 reference words on both CPU and CUDA. [Error counts and timings for all 20 paired runs](sherpa-cuda-a40.json)
 
 For exact transcript agreement on this sample, choose FP32 or FP16 storage with CUDA for CTC and streaming. The offline v4 INT4 pair also agreed on every clip. Keep CPU as the starting point for INT8 CTC, INT8 streaming and Multilingual-v2 INT8 auto on this host.
 
