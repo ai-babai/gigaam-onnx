@@ -382,7 +382,8 @@
       },
       "requirements_file": {
         "requirements.txt": "f99f3c4ce457698805ab4402bf8fc953296b8f5d0052a1e01e8edae3c5bc332e"
-      }
+      },
+      "model_card_revision": "2dbc6ad0b9e5ccdeb4d9a8e2e6a5507cc212ecff"
     },
     {
       "model": "multilingual-v2",

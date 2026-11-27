@@ -18,7 +18,7 @@ The optional Hub branches are `float`, `fp16` and v4 `int4`. The current v4 INT8
 
 **FP32 ONNX** stores and computes floating-point tensors in FP32. **FP16 storage** stores selected weights in FP16 and casts them to FP32 for inference. **INT8** stores selected weights as INT8 and dynamically quantizes activations for those matrix products. **INT4** packs selected matrix weights for ONNX Runtime `MatMulNBits` (symmetric blocks of 32, `accuracy_level=4`). Eligible CPU kernels can quantize activations to INT8 inside that operator. Floating-point graph I/O stays FP32 in all four formats. [ONNX Runtime quantization](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html#quantize-to-int4uint4)
 
-[Machine-readable index of weights, companion files and SHA-256 hashes](assets.json)
+[Choosing a model by size and accuracy](accuracy-and-size.md) · [Machine-readable index of weights, companion files and SHA-256 hashes](assets.json)
 
 ## Download one path
 
@@ -71,9 +71,9 @@ These paired runs use a fixed [FLEURS test sample][fleurs] with 16 clips per lan
 | v4 CTC, RU/EN (32 clips) | 4.86% | 4.86% | 4.26% | 4.71% |
 | v4 offline RNN-T, RU/EN (32 clips) | 4.86% | 4.86% | 4.86% | 4.71% |
 | v4 streaming RNN-T, RU/EN (32 clips) | 5.32% | 5.32% | 5.02% | 6.38% |
-| Multilingual-v2, RU/KK/UZ/KY/EN (80 clips) | 4.99% | 4.99% | 5.20% | 4.92% |
+| Multilingual-v2, RU/KK/UZ/KY/EN (80 clips) | 4.99% | 4.99% | 5.20% | 4.85% |
 
-The Multilingual-v2 WER row uses explicit language hints and the four-format run. The separate INT8/INT4 release run reported 4.85% for INT4. FP16 storage matched all FP32 formatted transcripts in the four model paths.
+The Multilingual-v2 row uses explicit language hints. The shipped INT4 encoder (SHA-256 `6d6bac76…`, accuracy level 4) made 69 word errors in 1,422 words. The v0.3.0 table used an experimental level-1 encoder for this cell (70 errors, 4.92%). FP16 storage matched all FP32 formatted transcripts in the four model paths.
 
 Warm throughput on Apple M4 Pro (macOS 15.8.1 arm64), ONNX Runtime 1.23.2 CPU, three intra-op threads, 2026-11-27. Each pair comes from one campaign. The Multilingual-v2 INT8/INT4 pair is from the release comparison linked above. Timing excludes model load and file I/O. Streaming measures compute on prerecorded clips with 640 ms future context.
 
@@ -103,7 +103,7 @@ The platform report records CPU smoke tests for the ONNX Runtime clients, stock 
 [v4-fp16-card]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/aff7eef3c9ff064455154363ba96149594d16ac0/README.md
 [v4-int4-card]: https://huggingface.co/ai-babai/gigaam-v4-onnx/blob/d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6/README.md
 [multi-fp32-card]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/685d629e8ecc0839938a5b097b6f91caece6c513/README.md
-[multi-fp16-card]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/4e29c392dd7b9fb22b9950703ba8794a4be09bbd/README.md
+[multi-fp16-card]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/blob/2dbc6ad0b9e5ccdeb4d9a8e2e6a5507cc212ecff/README.md
 [ctc-fp32]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/3d26669a200b282be6db065c16d30fed5375183f/ctc-e2e
 [ctc-fp16]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/aff7eef3c9ff064455154363ba96149594d16ac0/ctc-e2e
 [ctc-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/ctc-e2e
@@ -117,6 +117,6 @@ The platform report records CPU smoke tests for the ONNX Runtime clients, stock 
 [stream-int8]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9c1f125787db5befcfcd3c8e232a642f9b1531f6/rnnt-streaming-640ms
 [stream-int4]: https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/d72ef81e7dfb6a8d9d3ddbe0ad8d0f93dd53cdf6/rnnt-streaming-640ms
 [multi-fp32]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/685d629e8ecc0839938a5b097b6f91caece6c513
-[multi-fp16]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/4e29c392dd7b9fb22b9950703ba8794a4be09bbd
+[multi-fp16]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/2dbc6ad0b9e5ccdeb4d9a8e2e6a5507cc212ecff
 [multi-int8]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/b37aa1110317e7ffc6d8ba737b94629a3d63d4cc
 [multi-int4]: https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/4e0da82538e6fc1fd8f27fe012451f83cc034974/int4

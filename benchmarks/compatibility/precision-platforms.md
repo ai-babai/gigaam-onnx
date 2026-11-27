@@ -26,7 +26,7 @@ All checks used ONNX Runtime 1.23.2 on CPU. **✓†** marks Windows tests throu
 | v4 streaming RNN-T | [INT8](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/d39e2a200f596315acef7003d246b65a73e9a327/rnnt-streaming-640ms) | ✓ | ✓ | ✓† | 640 ms future context. |
 | v4 streaming RNN-T | [INT4](https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/9ff6f9147dd394f239c5a23fc4b0d7d1cb0312ef/rnnt-streaming-640ms) | ✓ | ✓ | ✓† | 640 ms future context. |
 | Multilingual-v2 offline RNN-T | [FP32](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/f641a9a0b82b95062f495696eedb471c2e3515b2) | ✓ | ✓ | ✓† | Keep the external tensor file beside the encoder. |
-| Multilingual-v2 offline RNN-T | [FP16 storage](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/4e29c392dd7b9fb22b9950703ba8794a4be09bbd) | ✓ | ✓ | ✓† | Keep the external tensor file beside the encoder. |
+| Multilingual-v2 offline RNN-T | [FP16 storage](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/2dbc6ad0b9e5ccdeb4d9a8e2e6a5507cc212ecff) | ✓ | ✓ | ✓† | Keep the external tensor file beside the encoder. |
 | Multilingual-v2 offline RNN-T | [INT8](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/b37aa1110317e7ffc6d8ba737b94629a3d63d4cc) | ✓ | ✓ | ✓† | Explicit language hints and auto mode. |
 | Multilingual-v2 offline RNN-T | [INT4](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/4e0da82538e6fc1fd8f27fe012451f83cc034974/int4) | ✓ | ✓ | ✓† | Explicit language hints and auto mode. |
 
