@@ -1,0 +1,305 @@
+{
+  "sherpa_onnx": "2.0.3",
+  "sherpa_onnx_core": "2.0.3",
+  "numpy": "2.4.6",
+  "provider": "cpu",
+  "threads": 3,
+  "model_revision": "d39e2a200f596315acef7003d246b65a73e9a327",
+  "model_hashes": {
+    "model.int8.onnx": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+    "tokens.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e"
+  },
+  "cli_commit": "7a9243056d334c73b6d1f8890cf257ba94f0f328",
+  "mac": {
+    "os": "macOS-15.8.1-arm64-arm-64bit",
+    "python": "3.11.15"
+  },
+  "linux": {
+    "os": "Ubuntu 26.04.1 LTS",
+    "architecture": "x86_64",
+    "python": "3.12.16"
+  },
+  "mode": "One 16 kHz mono PCM16 FLEURS test recording per invocation.",
+  "by_language": {
+    "ru": {
+      "clips": 16,
+      "reference_words": 277,
+      "word_errors": {
+        "linux": 8,
+        "mac": 7
+      },
+      "wer_pct": {
+        "linux": 2.888086642599278,
+        "mac": 2.527075812274368
+      },
+      "linux_single_exact_vs_mac_single": 15,
+      "linux_single_minus_mac_single_paired_clip_bootstrap95": [
+        {
+          "seed": 20261127,
+          "resamples": 2000,
+          "lower_pp": 0.0,
+          "upper_pp": 1.1494252873563218
+        },
+        {
+          "seed": 20261128,
+          "resamples": 2000,
+          "lower_pp": 0.0,
+          "upper_pp": 1.123701106699332
+        }
+      ]
+    },
+    "en": {
+      "clips": 16,
+      "reference_words": 381,
+      "word_errors": {
+        "linux": 22,
+        "mac": 24
+      },
+      "wer_pct": {
+        "linux": 5.774278215223097,
+        "mac": 6.299212598425197
+      },
+      "linux_single_exact_vs_mac_single": 11,
+      "linux_single_minus_mac_single_paired_clip_bootstrap95": [
+        {
+          "seed": 20261127,
+          "resamples": 2000,
+          "lower_pp": -1.6172506738544474,
+          "upper_pp": 0.0
+        },
+        {
+          "seed": 20261128,
+          "resamples": 2000,
+          "lower_pp": -1.6,
+          "upper_pp": 0.0
+        }
+      ]
+    }
+  },
+  "clips": [
+    {
+      "id": "ru_ru:7721997118013656128",
+      "language": "ru",
+      "audio_sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+      "mac": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "linux": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории."
+    },
+    {
+      "id": "ru_ru:13551361006884342562",
+      "language": "ru",
+      "audio_sha256": "05c4656e672ba9b299374f77d6ebab575d9077c113eca92115f77677827f843b",
+      "mac": "К региональным и сезонным опасным явлениям погоды относятся метели, снежные бури, ледяные и пыльные бури.",
+      "linux": "К региональным и сезонным опасным явлениям погоды относятся метели, снежные бури, ледяные и пыльные бури."
+    },
+    {
+      "id": "ru_ru:10536195230190303304",
+      "language": "ru",
+      "audio_sha256": "2ca81f91f0ff6f7c9c494268f55c063fec5e9f51a07ef31cc9f33a463c941947",
+      "mac": "Сердцем тибетской медитации считается йога божеств. Посредством визуализации разнообразных божеств чистятся энергетические каналы, запускаются чакры и достигается просветлённость сознания.",
+      "linux": "Сердцем тибетской медитации считается йога божеств. Посредством визуализации разнообразных божеств чистятся энергетические каналы, запускаются чакры и достигается просветлённость сознания."
+    },
+    {
+      "id": "ru_ru:17412031616178787194",
+      "language": "ru",
+      "audio_sha256": "fb723dd4a9d07fc6b63e2665718d50b5fa83750b64206b338cb76024dd27d8a7",
+      "mac": "Заявление было сделано после того, как Трамп провёл телефонный разговор с Президентом Турции Реджипом Таипом Эрдоганом.",
+      "linux": "Заявление было сделано после того, как Трамп провёл телефонный разговор с Президентом Турции Реджипом Таипом Эрдоганом."
+    },
+    {
+      "id": "ru_ru:925957722491074475",
+      "language": "ru",
+      "audio_sha256": "70eff97d709a628bff3bcde92317b2093063deadfda5e03272382104ffc4de28",
+      "mac": "Представьте, что лыжный маршрут — это пешеходный маршрут.",
+      "linux": "Представьте, что лыжный маршрут — это пешеходный маршрут."
+    },
+    {
+      "id": "ru_ru:17101861436898240405",
+      "language": "ru",
+      "audio_sha256": "30971a87c8daf3add423c1dda6e4205cffb166be2ede2dcc0599e3da67bf0ea7",
+      "mac": "Изучение движения отдельных водителей и автомобилей между двумя точками и их взаимодействия друг с другом осуществляется в рамках исследования транспортных потоков.",
+      "linux": "Изучение движения отдельных водителей и автомобилей между двумя точками их взаимодействия друг с другом осуществляется в рамках исследования транспортных потоков."
+    },
+    {
+      "id": "ru_ru:10188941853627582181",
+      "language": "ru",
+      "audio_sha256": "f8ad037f53a1f8b28ad16b5e3583c45839542f68265bac665b9aea7a31acaac6",
+      "mac": "Султан Марокко перестроил город под названием Эдар-Эль-Бейда, а испанские торговцы, создавшие тут торговые базы, назвали его Касабланка.",
+      "linux": "Султан Марокко перестроил город под названием Эдар-Эль-Бейда, а испанские торговцы, создавшие тут торговые базы, назвали его Касабланка."
+    },
+    {
+      "id": "ru_ru:14558427421757237056",
+      "language": "ru",
+      "audio_sha256": "71b93e27e6974d0baaf7a7742b20768aa41536986824d83c715ecf5f044c8241",
+      "mac": "Одна из бомб взорвалась возле офиса генерал-губернатора.",
+      "linux": "Одна из бомб взорвалась возле офиса генерал-губернатора."
+    },
+    {
+      "id": "ru_ru:9187482218587468018",
+      "language": "ru",
+      "audio_sha256": "ad6dafd08b0e1d16d37b5fc4e5b2561936a198952233db87f968a44e400b8407",
+      "mac": "Спутник был доставлен в космос ракетой. Учёные используют телескопы в космосе, потому что атмосфера Земли в некоторой степени искажает наш свет и обзор.",
+      "linux": "Спутник был доставлен в космос ракетой. Учёные используют телескопы в космосе, потому что атмосфера Земли в некоторой степени искажает наш свет и обзор."
+    },
+    {
+      "id": "ru_ru:14542918879386065585",
+      "language": "ru",
+      "audio_sha256": "a0ad06a65b98d86ef021e9e817ac40a72a64b99e6863ebc172c465cbd63ab559",
+      "mac": "На видимой стороне может быть больше лунных морей, потому что там кора тоньше, Лаве было легче подняться на поверхность.",
+      "linux": "На видимой стороне может быть больше лунных морей, потому что там кора тоньше, Лаве было легче подняться на поверхность."
+    },
+    {
+      "id": "ru_ru:9971848678587381228",
+      "language": "ru",
+      "audio_sha256": "5a39df30d7c590cd3f04e54e2c4c80bd31d216958e7b5e3af163d39fd15ae993",
+      "mac": "Это представляет хорошую возможность увидеть северное сияние, потому что небо будет более или менее тёмным круглые сутки.",
+      "linux": "Это представляет хорошую возможность увидеть северное сияние, потому что небо будет более или менее тёмным круглые сутки."
+    },
+    {
+      "id": "ru_ru:7042513928754660331",
+      "language": "ru",
+      "audio_sha256": "4f9aa09f704b767affeb91d34979599f2e18938a635e9b5712a28230a36e3e13",
+      "mac": "Мухаммед очень интересовался темами, не связанными с мирской жизнью. Он часто посещал пещеру, которая стала известна как Хира на горе Нур Свет для размышлений.",
+      "linux": "Мухаммед очень интересовался темами, не связанными с мирской жизнью. Он часто посещал пещеру, которая стала известна как Хира на горе Нур Свет для размышлений."
+    },
+    {
+      "id": "ru_ru:11980727414566966201",
+      "language": "ru",
+      "audio_sha256": "0043e4e3101b37326613826c05435d661dd63878a9a14fae2c9555c28d850391",
+      "mac": "Мадагаскар намного больше других и является самобытным континентом в том, что касается дикой природы.",
+      "linux": "Мадагаскар намного больше других и является самобытным континентом в том, что касается дикой природы."
+    },
+    {
+      "id": "ru_ru:10042408394614123272",
+      "language": "ru",
+      "audio_sha256": "a6deb6ef697739271162d372376c9cbe0086937ae8071dda8f17564382a02a28",
+      "mac": "Не оскверняйте это место, нанося или выцарапывая граффити на объекты вокруг",
+      "linux": "Не оскверняйте это место, нанося или выцарапывая граффити на объекты вокруг"
+    },
+    {
+      "id": "ru_ru:1210124946774637042",
+      "language": "ru",
+      "audio_sha256": "eec1763d033029f1614907249c7744791bfe4858457affab8ffcab4cd4517744",
+      "mac": "Территория Гонконга была названа в честь острова Гонконг — место, которое многие туристы считают главным объектом своего внимания.",
+      "linux": "Территория Гонконга была названа в честь острова Гонконг — место, которое многие туристы считают главным объектом своего внимания."
+    },
+    {
+      "id": "ru_ru:10582851702303651044",
+      "language": "ru",
+      "audio_sha256": "ea71c29b950b588574b5d7d54452c37d535301b599c8e51e9478c3836680514d",
+      "mac": "Если вы хотите находиться рядом со сценой, вам нужно приехать заранее, чтобы найти место для кемпинга вблизи от музыки.",
+      "linux": "Если вы хотите находиться рядом со сценой, вам нужно приехать заранее, чтобы найти место для кемпинга вблизи от музыки."
+    },
+    {
+      "id": "en_us:11200231708585274851",
+      "language": "en",
+      "audio_sha256": "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7",
+      "mac": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "linux": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots."
+    },
+    {
+      "id": "en_us:3491234462595391279",
+      "language": "en",
+      "audio_sha256": "2869e662f8d79b8d0199768a4ba88d880e47adac50112a4a703643ce263f0514",
+      "mac": "We don't know for sure, but it may have had a fork tongue i might include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+      "linux": "We don't know for sure, but it may have had a fork tongue sit mhight include turtles, large fish, other mososaurus, and it may even have been a cannibal."
+    },
+    {
+      "id": "en_us:10471564175308895403",
+      "language": "en",
+      "audio_sha256": "8d62d7036cd8d0a2ef85e290ffd91ecbf285b02665eb78b78916da3bb27fd845",
+      "mac": "But there are a lot of things about birds that still look like a dinosaur.",
+      "linux": "But there are a lot of things about birds that still look like a dinosaur."
+    },
+    {
+      "id": "en_us:10536763405165824117",
+      "language": "en",
+      "audio_sha256": "c78f185c0ee876a1cb94191486b4c8fb320d2d85b1130175a2eba910bec35fb1",
+      "mac": "As a result, 2 fish species have become extinct and 2 others have become endangered, including the humpback chub.",
+      "linux": "As a result, 2 fish species have become extinct, and 2 others have become endangered, including the humpback chub."
+    },
+    {
+      "id": "en_us:4168260504174612795",
+      "language": "en",
+      "audio_sha256": "b622f73a98051f44a5235dc6970fd61f9af7d4f2cdb8290fe5e8b8f9ee45df35",
+      "mac": "In many other cities of Italy and in the rest of the world, particularly in Poland, similar setups were made, which were viewed by a great number of people.",
+      "linux": "In many other cities of Italy and in the rest of the world, particularly in Poland, similar setups were made, which were viewed by a great number of people."
+    },
+    {
+      "id": "en_us:1803816418609037922",
+      "language": "en",
+      "audio_sha256": "fb2a5ed5d81e9647bee4dd46690dcb83ec1cc5f4ea9dab892f8f9bc838a6e77f",
+      "mac": "Many German baked goods are feature almonds, hazelnuts, and other treenuts. Popular cakes often pair particularly well with a cup of strong coffee.",
+      "linux": "Many German baked goods are feature almonds, hazelnuts, and other treenuts. Popular cakes often pair particularly well with a cup of strong coffee."
+    },
+    {
+      "id": "en_us:68300966899801601",
+      "language": "en",
+      "audio_sha256": "4d1060e7f2c34b01918987869070ecf7f5a6fa38c71915922bd69d6cf53b3887",
+      "mac": "On the other hand, icy and snowy conditions are normal in many countries, and traffic goes on mostly uninterrupted all year round.",
+      "linux": "On the other hand, icy and snowy conditions are normal in many countries, and traffic goes on mostly uninterrupted all year round."
+    },
+    {
+      "id": "en_us:14076834086577911298",
+      "language": "en",
+      "audio_sha256": "9f9bd290b867f9a174e899667abeae5113c492252324607d95d99b6243f354d1",
+      "mac": "When all available resources are effectively used across the functional departments of an organization, creativity and ingenuity can transpire.",
+      "linux": "When all available resources are effectively used across the functional departments of an organization, creativity and ingenuity can transpire."
+    },
+    {
+      "id": "en_us:7366992441583559574",
+      "language": "en",
+      "audio_sha256": "19bd04c2f70b177be7bd7c2d4324d59503b068cba037d0a7238f98db354084af",
+      "mac": "Ancient China had a unique way of showing different periods, each stage of China, or each family that was in power was a distinctive dynasty.",
+      "linux": "Ancient China had a unique way of showing different periods, each stage of China, or each family that was in power was a distinctive dynasty."
+    },
+    {
+      "id": "en_us:17858903836434412568",
+      "language": "en",
+      "audio_sha256": "e1bcc243b2a3262c3d4e735a5ad2ca39311edd22fb31ac3c945c2f6a2aa3f90b",
+      "mac": "More traditional churches often hold an Easter vigil on Saturday night during the Easter weekend, with the congregations often breaking into celebration at the stroke of midnight to celebrate Christ's resurrection.",
+      "linux": "More traditional churches often hold an Easter vigil on Saturday night during the Easter weekend, with the congregations often breaking into celebration at the stroke of midnight to celebrate Christ's resurrection."
+    },
+    {
+      "id": "en_us:17720519199437095973",
+      "language": "en",
+      "audio_sha256": "a38f390d9313aeb0fe0cd90accf0dd79b37e3e5e6514140ca3fa12326fcb3ad4",
+      "mac": "Hoon has resigned and he will be replaced in the cabinet by Ed Davy M.P. Norman Lamb M.P is expected to take the business ministry job Daviy is vacating.",
+      "linux": "Hoon has resigned and he will be replaced in the cabinet by Ed Davy M.P. Norman Lamb MP is expected to take the business ministry job Daviy is vacating."
+    },
+    {
+      "id": "en_us:8837680402159291933",
+      "language": "en",
+      "audio_sha256": "d0fac8d6d4bd9665d3c992cf3a284817133148027d9f9cbab7d76f4f8f013bed",
+      "mac": "We make our houses from plants and make clothes from plants. Most foods that we eat are plants. without plants, animals could not survive.",
+      "linux": "We make our houses from plants and make clothes from plants. Most foods that we eat are plants. without plants, animals could not survive."
+    },
+    {
+      "id": "en_us:8281638920677065102",
+      "language": "en",
+      "audio_sha256": "98700737633052cebfb7b9db48cd3d1a518d10a2f486e94fe455634e0df2f703",
+      "mac": "The official Falkland currency is the Falkland pound, whose value is set equivalent to that of 1ne British pound.",
+      "linux": "The official Falkland currency is the Falkland pound, whose value is set equivalent to that of 1e British pound."
+    },
+    {
+      "id": "en_us:3208417939957005389",
+      "language": "en",
+      "audio_sha256": "cd5377077049bec59eb9c069991a3e6c8156a707e1db8a7faa05cd1123218d64",
+      "mac": "There are, of course, Christian theological explanations for this tradition, but it may well be a pre-Christian spring and fertility ritual.",
+      "linux": "There are, of course, Christian theological explanations for this tradition, but it may well be a pre-Christian spring and fertility ritual."
+    },
+    {
+      "id": "en_us:1618638950277648344",
+      "language": "en",
+      "audio_sha256": "e7cf0e5ef9db5197571b8590cad1803854ed9ed0ba9ffe299c3b27913536ca5d",
+      "mac": "However, that is not true, although there is something written on the back of the document, it is not a treasure map.",
+      "linux": "However, that is not true, although there is something written on the back of the document, it is not a treasure map."
+    },
+    {
+      "id": "en_us:5198402243598272340",
+      "language": "en",
+      "audio_sha256": "7597aead0ffaa081e7f49ea317b830d28900f8671f3279dd422a3d62a1575ba8",
+      "mac": "It may also be beneficial for one to buy a wild card, which provides entrys to either selections of parks in South Africa or all of the South African National Parks.",
+      "linux": "It may also be beneficial for one to buy a wild card, which provides entrys to either selections of parks in South Africa or all of the South African national parks."
+    }
+  ]
+}
