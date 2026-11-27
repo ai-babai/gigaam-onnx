@@ -4,6 +4,8 @@ Paired speech recognition quality and CPU performance for the v0.2.0 release. We
 
 [Multilingual-v2 INT4: memory, speed and WER](multilingual-v2/int4/README.md)
 
+[Release quality checks](../quality/README.md)
+
 ## CPU throughput
 
 | CPU package | Package size | Audio seconds per wall second | Speedup over FP32 ONNX |

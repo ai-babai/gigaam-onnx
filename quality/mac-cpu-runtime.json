@@ -1,0 +1,2210 @@
+{
+  "schema_version": 1,
+  "run_date": "2026-11-27",
+  "scope": {
+    "platform": "macOS arm64 CPU",
+    "tested": [
+      "Published CPU CLI entry points",
+      "Native CTC example and library API",
+      "Streaming lifecycle API",
+      "Local INT4 candidate client",
+      "Local Sherpa preflight fix"
+    ],
+    "gui_application_smoke": "outside scope"
+  },
+  "environment": {
+    "os": "macOS",
+    "os_version": "15.8.1",
+    "architecture": "arm64",
+    "python": "3.12.11",
+    "cpu": "Apple M4 Pro",
+    "threads": 3,
+    "provider": "CPUExecutionProvider",
+    "packages": {
+      "onnxruntime": "1.23.2",
+      "torch": "2.10.0",
+      "torchaudio": "2.10.0",
+      "numpy": "2.5.1",
+      "sentencepiece": "0.2.2",
+      "soundfile": "0.14.0",
+      "sherpa-onnx": "1.13.2"
+    },
+    "sherpa_native_onnxruntime": "1.24.4",
+    "transcribe_rs": {
+      "version": "0.3.11",
+      "onnxruntime": "1.24.4"
+    },
+    "streaming_wrapper_revision": "e9bbf2e773eedd217c6f0d3b89b9728c41332b7d",
+    "ffmpeg": "8.1"
+  },
+  "artifact_verification": {
+    "v4": {
+      "source": "https://huggingface.co/ai-babai/gigaam-v4-onnx/tree/v0.2.0",
+      "verification": "Matched the public SHA256SUMS",
+      "manifest_sha256": "e0aa27994056f4074818e2105ab66e27797ea068b0b7a5318089dac05ff57cd9",
+      "files_sha256": {
+        "ctc-e2e/ctc_transcribe.py": "1f09173ce2240a17bde008e7a20c957e0f331d1e025853177d0623e41473ca0b",
+        "ctc-e2e/model.int8.onnx": "0f61ec8ca69517cb68e24531c5000053b80ab84cf7071cc294571edfae493462",
+        "ctc-e2e/preprocessor.onnx": "16766f24ee0b35f680854a1798e65dfc011fe818094b3e29c9fc3a86871d3a7b",
+        "ctc-e2e/tokens.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e",
+        "ctc-e2e/vocab.txt": "c6a37fab667d53c37e66835c90083808daa116c3993c5e93ce518b5a3896de6e",
+        "rnnt/manifest.json": "c4d6e520e41537a42ca07a89f076d0a9db717f352fdaff4df043c0b0296e3477",
+        "rnnt/requirements.txt": "5ae13217ea7824ca49ce7606af6ae2ca61dd4d12d09e0eb7739ed73451901bf4",
+        "rnnt/rnnt_transcribe.py": "47941b218ffb4ee3d77507ff9ae20d69f9606b287891b2601708f33a7fc870c3",
+        "rnnt/v4_rnnt.yaml": "2358c44445f99054119b26f7e5360a136fa71c5e012597b950fd507525e1d02e",
+        "rnnt/v4_rnnt_advance.onnx": "d992302d83f03367202d4200cbdf2f74e65cb36d1e553f5ce330e73f26949b45",
+        "rnnt/v4_rnnt_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt/v4_rnnt_encoder.int8.onnx": "4cc7dd3e2a5f1503239df920976d419287f67df87f1849fff0c34ce4b3d58e20",
+        "rnnt/v4_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "rnnt/v4_rnnt_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc",
+        "rnnt-streaming-640ms/stream_transcribe.py": "315c9a08c1e26c3d7713b00818b11cdcf08d8d781d503d84c3ba11fc2bef84bb",
+        "rnnt-streaming-640ms/streaming.json": "f2f4f3013a96a30064a6d784ef9dff72769c578f6818565c090c3f712ba96204",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.streaming.json": "f2f4f3013a96a30064a6d784ef9dff72769c578f6818565c090c3f712ba96204",
+        "rnnt-streaming-640ms/v4_rnnt_640ms.yaml": "a53cfea81f2ea74975e60dee9b1431107e1d78611d5355e69618014997b40cb6",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_decoder.onnx": "9d670e5d65660991c9b4bc634ebbbb1833b7ae2e591bcdf02b64087742fc9012",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_joint.onnx": "2562c6928dddd340910e8fec75094417d7cbadea7dcea7d4df99892397a19cff",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_e2e_tokenizer.model": "f547bcb38e071694ef1ddb25d9d40c86b4ab88cd0b16ab9fd52f27dd52c48e39",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_decoder.onnx": "685a5f1e96cd53046f23c2f50352585e812666256f0fd60718fa445701f32b88",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_joint.onnx": "81d2a57352fcdfb55a02e31b92c71814204d35a2897aabab227a7e46f8dc8eba",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_raw_tokenizer.model": "dcbe2598d1b374065091832970593a06065d498a43fbb1787de73e180d0556bc",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_frontend.onnx": "ace0f495c4f57cf8c09e1c961e7b811693b26066627bd7e2dddb46548fe2a570",
+        "rnnt-streaming-640ms/v4_rnnt_640ms_stream_step.int8.onnx": "c0eb2185b884ceaef5f0ab79d01f6032591577f1aabbf04b85e7e157436ed69c"
+      },
+      "snapshot_commit": "d39e2a200f596315acef7003d246b65a73e9a327"
+    },
+    "multi_int8": {
+      "source": "https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx/tree/v0.2.0",
+      "verification": "Matched the public SHA256SUMS",
+      "manifest_sha256": "209de77a89ff6b1fa5e4150cc14681365a168c5a228319f06b97e39f7faf69ea",
+      "files_sha256": {
+        "config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "manifest.json": "171af4edd3e28375439fb413c9675f0b551901a6b4f0170fd50d6faf0bc2a78d",
+        "multi_client.py": "8bd49f36e33bd53b9c89ffa8e96e833c8be7c63a20df8a312399c284ac4bc014",
+        "multilingual_v2_rnnt.yaml": "7480fcd3e6706900c2039dd65c613e88539dd9a04fef456af85531abe975b8f7",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "multilingual_v2_rnnt_encoder.int8.onnx": "0c460231ed0d57e2f6251601d5459dd05cf55ab6a50b55ae2de9333f5bf58d3d",
+        "multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423",
+        "requirements.txt": "5ae13217ea7824ca49ce7606af6ae2ca61dd4d12d09e0eb7739ed73451901bf4"
+      },
+      "snapshot_commit": "b37aa1110317e7ffc6d8ba737b94629a3d63d4cc"
+    },
+    "multi_int4": {
+      "source": "Local editorial candidate",
+      "release_status": "candidate under QA",
+      "verification": "Matched the candidate manifest",
+      "files_sha256": {
+        "multilingual_v2_rnnt_encoder.int4.onnx": "6d6bac76de138ec8af2c76652ddabc9b41c9c515f298a3bf236c54a27e75192a",
+        "config.json": "a5d0b02874ba2956558a43a230b74faa71ae4dc491c26b68caf4f6c3cc862dda",
+        "LICENSE": "d02ed0afc408cb4ed5eb34b233096ad8c3db8b6751cd9385276a6725dbf92925",
+        "LICENSE-APACHE-2.0": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "multilingual_v2_rnnt_advance.onnx": "7cba5f1245f9c14d2b9ec70c33d49b83babd864bb6753e8b6031dd4d7f1e80cc",
+        "multilingual_v2_rnnt_mel.npz": "8c6fe983296b38324dc41bff809d65dd9199d064f7873936d0b9e71f2e53784d",
+        "multilingual_v2_rnnt_e2e_tokenizer.model": "3b049685e51a893350452f31613b47f4bd7640857f53facdf32266de82df3c0a",
+        "multilingual_v2_rnnt_raw_tokenizer.model": "c51fe228b747218891e3facdaeda12957065f4238452c377f38f76d3c2d4c423",
+        "NOTICE": "3c8a3a8477970a4306a9af076b85fd2f0064a3bb59466a3fe7f9114fbba7f412"
+      },
+      "client_source": "main working tree snapshot",
+      "client_sha256": "a403bbeaa8f32c05cd0813f7a18626acea8f2dc248d31bb10ff9e1c5155dd1ef"
+    },
+    "transcribe_rs": {
+      "crate_version": "0.3.11",
+      "crate_sha256": "fb9d5cfb8e68a2a8fc27fb548987473221d3cc3776a331ccde46c8bd8b2eda0f",
+      "native_harness_sha256": "532bf01ae15a8421f0195372b519ecdcbf011be3ea56937606aa08be1d8aa691",
+      "modifications": "Only set the ORT session thread count to three"
+    },
+    "fleurs": {
+      "release": "https://huggingface.co/datasets/google/fleurs/tree/70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+      "license": "CC BY 4.0"
+    }
+  },
+  "fixtures": {
+    "ru": {
+      "source": "Google FLEURS test",
+      "clip_id": "ru_ru:7721997118013656128",
+      "reference": "Блоги также могут улучшить навыки письма у учащихся. Хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию, это как правило меняется из-за присутствия аудитории.",
+      "sha256": "4f4a007980d2fef6823b4ab0e137a88b96334a3cb23528ddef481dae1637abb3",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 220800
+    },
+    "en": {
+      "source": "Google FLEURS test",
+      "clip_id": "en_us:11200231708585274851",
+      "reference": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "sha256": "427b435d7615f9229f18f90533f32e4ab0ecd372fab4281ec22e97564ad890e7",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 162880
+    },
+    "kk": {
+      "source": "Google FLEURS test",
+      "clip_id": "kk_kz:9835764151564761301",
+      "reference": "Виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады, дегенмен мұнда кішігірім айырмашылықтар бар.",
+      "sha256": "61ecd0c5848da6acd0d1a39ec66abc141b27f733a9a8f585b3b963b47f340546",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 189120
+    },
+    "stereo": {
+      "derived_from": "en",
+      "transformation": "dual-mono duplicated channels",
+      "sha256": "daf781617a57fcd6b86e11c064d375b45df6b0ed65751b3eddb9a038689b8bda",
+      "channels": 2,
+      "sample_rate_hz": 16000,
+      "frames": 162880
+    },
+    "rate48": {
+      "derived_from": "en",
+      "transformation": "FFmpeg resampling to 48 kHz",
+      "sha256": "24df8add88b92e62fea072401d6fcb8d0e891f79e5cdbbbc4427ab33e572724a",
+      "channels": 1,
+      "sample_rate_hz": 48000,
+      "frames": 488640
+    },
+    "below20": {
+      "description": "319 zero PCM frames",
+      "sha256": "81c59d01a8fe54de9eff1d6e2b916be58d958c7fe0528d056a34f342bfcce7e5",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 319
+    },
+    "at20": {
+      "description": "320 zero PCM frames",
+      "sha256": "6d5a57285af5ab10fd11ee5fb4f564281eac95b3131bcadad5812952a39558e1",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 320
+    },
+    "silence": {
+      "description": "2 s zero PCM",
+      "sha256": "20eaebffe1816e0ffa6f7f854f5ef4ea80d5349faaf0ce1fec1b713e7fde58fa",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 32000
+    },
+    "pause": {
+      "description": "English speech, 3 s digital silence, Russian speech",
+      "sha256": "ca692ab24530a66c41f8c0d14ad1f0586a0dbec9e91844ab2dba5a44bb319a29",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 431680
+    },
+    "at30": {
+      "description": "English and Russian speech separated and followed by zero PCM",
+      "sha256": "0457aaa5ffd6cdf4d7649c40917943380c60c23f66436538827e88389d4e81bd",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 480000
+    },
+    "above30": {
+      "description": "at30 plus one zero PCM frame",
+      "sha256": "d776ecb04b9fe7a2b7bcf5ef0e30e92ce5aa8b7892e4c45d4131f8d06dc6bbca",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 480001
+    },
+    "empty": {
+      "description": "valid WAV header with no PCM",
+      "sha256": "ba584a378b11d9e9c98736fd8c256fe1453a84ee4139416d24b07acff424f0fb",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 0
+    },
+    "zero_file": {
+      "description": "zero bytes",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "pause_en": {
+      "description": "The same English utterance on each side of a 3 s zero PCM pause",
+      "sha256": "b6f40af66759f41dfd10e0a87496cd6fe6190f4c7b204af29a4c8e14d4ca3e10",
+      "channels": 1,
+      "sample_rate_hz": 16000,
+      "frames": 373760
+    },
+    "en_b": {
+      "sha256": "2869e662f8d79b8d0199768a4ba88d880e47adac50112a4a703643ce263f0514",
+      "frames": 133440,
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "clip_id": "en_us:3491234462595391279",
+      "reference": "We don't know for sure, but it may have had a forked tongue. Its diet included turtles, large fish, other mosasaurs, and it may even have been a cannibal.",
+      "source": "Google FLEURS test"
+    },
+    "pause_en_distinct": {
+      "sha256": "b62a6109d3880dab46ddc1bc0724f6d380dca1d137890e9a1eb5b1a79318545f",
+      "frames": 344320,
+      "sample_rate_hz": 16000,
+      "channels": 1,
+      "description": "English fixtures en and en_b separated by 3 s digital silence."
+    }
+  },
+  "cli_case_count": 122,
+  "cli_case_results": {
+    "pass": 108,
+    "observed": 14
+  },
+  "cli_cases": [
+    {
+      "backend": "ctc_ort",
+      "case": "at20",
+      "fixture": "at20",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": ".",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "at20",
+      "fixture": "at20",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": "",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "at20",
+      "fixture": "at20",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": ".",
+      "result": "observed"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "at20",
+      "fixture": "at20",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "at20",
+      "fixture": "at20",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "",
+      "result": "observed"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "ru",
+      "fixture": "ru",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "ru",
+      "fixture": "ru",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "ru",
+      "fixture": "ru",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "ru",
+      "fixture": "ru",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "ru",
+      "fixture": "ru",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "en",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "en",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "en",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "en",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "en",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "above30",
+      "fixture": "above30",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected 20 ms to 30 s of audio. Split long recordings at pauses."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "above30",
+      "fixture": "above30",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected 20 ms to 30 s of audio. Split long recordings at pauses."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "above30",
+      "fixture": "above30",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "observed"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "above30",
+      "fixture": "above30",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single audio clip of at most 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "above30",
+      "fixture": "above30",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots. Bloggy mugged улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "observed"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "empty",
+      "fixture": "empty",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected 20 ms to 30 s of audio. Split long recordings at pauses."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "empty",
+      "fixture": "empty",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected 20 ms to 30 s of audio. Split long recordings at pauses."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "empty",
+      "fixture": "empty",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "",
+      "result": "observed"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "empty",
+      "fixture": "empty",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single audio clip of at most 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "empty",
+      "fixture": "empty",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "",
+      "result": "observed"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "stereo",
+      "fixture": "stereo",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "rate48",
+      "fixture": "rate48",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "zero_file",
+      "fixture": "zero_file",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "subprocess.CalledProcessError: Command '['ffmpeg', '-nostdin', '-v', 'error', '-threads', '3', '-i', '<path>/zero_file.wav', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-']' returned non-zero exit status 183."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "below20",
+      "fixture": "below20",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected 20 ms to 30 s of audio. Split long recordings at pauses."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "silence",
+      "fixture": "silence",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": "Д.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "pause",
+      "fixture": "pause",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "at30",
+      "fixture": "at30",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": "As knowledge of Greek decline, the West found itself cut off from its Greek philosophical and scientific roots. Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "missing",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 1,
+      "omitted_file": "preprocessor.onnx",
+      "diagnostic": [
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from <path>/preprocessor.onnx failed:Load model <path>/preprocessor.onnx failed. File doesn't exist"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "stereo",
+      "fixture": "stereo",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "rate48",
+      "fixture": "rate48",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "zero_file",
+      "fixture": "zero_file",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "subprocess.CalledProcessError: Command '['ffmpeg', '-nostdin', '-v', 'error', '-threads', '3', '-i', '<path>/zero_file.wav', '-ac', '1', '-ar', '16000', '-f', 'f32le', '-']' returned non-zero exit status 183."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "below20",
+      "fixture": "below20",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected 20 ms to 30 s of audio. Split long recordings at pauses."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "silence",
+      "fixture": "silence",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": "Н.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "pause",
+      "fixture": "pause",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "at30",
+      "fixture": "at30",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. Бло также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "missing",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 255,
+      "omitted_file": "tokens.txt",
+      "diagnostic": [
+        "<path>/offline-recognizer-ctc-impl.h:Init:190 We expect that tokens.txt contains the symbol <blk> or <eps> or <blank> and its ID."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "stereo",
+      "fixture": "stereo",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "Error: Audio(\"Expected 1 channels, found 2\")"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "rate48",
+      "fixture": "rate48",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "Error: Audio(\"Expected 16000 Hz sample rate, found 48000 Hz\")"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "zero_file",
+      "fixture": "zero_file",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "Error: IoError(Custom { kind: Other, error: \"Failed to read enough bytes.\" })"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "below20",
+      "fixture": "below20",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "",
+      "result": "observed"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "silence",
+      "fixture": "silence",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "Д.",
+      "result": "observed"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "pause",
+      "fixture": "pause",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "As knowledge of Greek decline, the West found itself cut off from its Greek philosophical and scientific roots. Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "observed"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "at30",
+      "fixture": "at30",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "observed"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "missing",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 1,
+      "omitted_file": "vocab.txt",
+      "diagnostic": [
+        "Error: ModelNotFound(\"<path>/vocab.txt\")"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "stereo",
+      "fixture": "stereo",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "rate48",
+      "fixture": "rate48",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "zero_file",
+      "fixture": "zero_file",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "Error opening input file <path>/zero_file.wav.",
+        "Error opening input files: Invalid data found when processing input"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "below20",
+      "fixture": "below20",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single audio clip of at most 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "silence",
+      "fixture": "silence",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "pause",
+      "fixture": "pause",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "at30",
+      "fixture": "at30",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "as knowledge of greek declined found itself cut off from its greek philosophical and scientific roots блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "missing",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 1,
+      "omitted_file": "v4_rnnt_advance.onnx",
+      "diagnostic": [
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from <path>/v4_rnnt_advance.onnx failed:Load model <path>/v4_rnnt_advance.onnx failed. File doesn't exist"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "stereo",
+      "fixture": "stereo",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a 16 kHz mono audio file"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "rate48",
+      "fixture": "rate48",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a 16 kHz mono audio file"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "zero_file",
+      "fixture": "zero_file",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "soundfile.LibsndfileError: Error opening '<path>/zero_file.wav': Format not recognised."
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "below20",
+      "fixture": "below20",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "",
+      "result": "observed"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "silence",
+      "fixture": "silence",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "",
+      "result": "observed"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "pause",
+      "fixture": "pause",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots. Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "observed"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "at30",
+      "fixture": "at30",
+      "expected": "observe",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots. Bloggy mugged улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+      "result": "observed"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "missing",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 1,
+      "omitted_file": "v4_rnnt_640ms_e2e_joint.onnx",
+      "diagnostic": [
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from <path>/v4_rnnt_640ms_e2e_joint.onnx failed:Load model <path>/v4_rnnt_640ms_e2e_joint.onnx failed. File doesn't exist"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "at20",
+      "fixture": "at20",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "at20",
+      "fixture": "at20",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "ru",
+      "fixture": "ru",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "ru",
+      "output": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "ru",
+      "fixture": "ru",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "ru",
+      "output": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "en",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "en",
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "en",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "en",
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "above30",
+      "fixture": "above30",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single clip from 20 ms to 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "above30",
+      "fixture": "above30",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single clip from 20 ms to 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "empty",
+      "fixture": "empty",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single clip from 20 ms to 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "empty",
+      "fixture": "empty",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single clip from 20 ms to 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "stereo",
+      "fixture": "stereo",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "rate48",
+      "fixture": "rate48",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "zero_file",
+      "fixture": "zero_file",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "Error opening input file <path>/zero_file.wav.",
+        "Error opening input files: Invalid data found when processing input"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "below20",
+      "fixture": "below20",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single clip from 20 ms to 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "silence",
+      "fixture": "silence",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "pause",
+      "fixture": "pause",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя нерячливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "at30",
+      "fixture": "at30",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "missing",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 1,
+      "omitted_file": "multilingual_v2_rnnt_advance.onnx",
+      "diagnostic": [
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from <path>/multilingual_v2_rnnt_advance.onnx failed:Load model <path>/multilingual_v2_rnnt_advance.onnx failed. File doesn't exist"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "kk",
+      "fixture": "kk",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "kk",
+      "output": {
+        "e2e": "Виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады, дегенмен мұнда кішігірім айырмашылықтар бар.",
+        "raw": "виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады дегенмен мұнда кішігірім айырмашылықтар бар"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "kz_alias",
+      "fixture": "kk",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "kz",
+      "output": {
+        "e2e": "Виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады, дегенмен мұнда кішігірім айырмашылықтар бар.",
+        "raw": "виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады дегенмен мұнда кішігірім айырмашылықтар бар"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "auto",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "auto",
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "bad_hint",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 2,
+      "language_hint": "zz",
+      "diagnostic": [
+        "multi_client.py: error: unknown language 'zz'; choose from auto, ru, en, kk, ky, uz, be, fr, es, ba, ka, hy, ro, tk, az, tg, de, it, nl, pl, pt, tt"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "stereo",
+      "fixture": "stereo",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "rate48",
+      "fixture": "rate48",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "zero_file",
+      "fixture": "zero_file",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "Error opening input file <path>/zero_file.wav.",
+        "Error opening input files: Invalid data found when processing input"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "below20",
+      "fixture": "below20",
+      "expected": "reject",
+      "exit_code": 1,
+      "diagnostic": [
+        "ValueError: Expected a single clip from 20 ms to 30 s"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "silence",
+      "fixture": "silence",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "pause",
+      "fixture": "pause",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "at30",
+      "fixture": "at30",
+      "expected": "accept_any_text",
+      "exit_code": 0,
+      "output": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "missing",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 1,
+      "omitted_file": "multilingual_v2_rnnt_advance.onnx",
+      "diagnostic": [
+        "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from <path>/multilingual_v2_rnnt_advance.onnx failed:Load model <path>/multilingual_v2_rnnt_advance.onnx failed. File doesn't exist"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "kk",
+      "fixture": "kk",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "kk",
+      "output": {
+        "e2e": "Виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады, дегенмен мұнда кішігірім айырмашылықтар бар.",
+        "raw": "виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады дегенмен мұнда кішігірім айырмашылықтар бар"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "kz_alias",
+      "fixture": "kk",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "kz",
+      "output": {
+        "e2e": "Виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады, дегенмен мұнда кішігірім айырмашылықтар бар.",
+        "raw": "виртуалды топтар кәдімгі топтар сияқты бірдей жоғары сапа стандарттарын ұстанады дегенмен мұнда кішігірім айырмашылықтар бар"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "auto",
+      "fixture": "en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "auto",
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "bad_hint",
+      "fixture": "en",
+      "expected": "reject",
+      "exit_code": 2,
+      "language_hint": "zz",
+      "diagnostic": [
+        "multi_client.py: error: unknown language 'zz'; choose from auto, ru, en, kk, ky, uz, be, fr, es, ba, ka, hy, ro, tk, az, tg, de, it, nl, pl, pt, tt"
+      ],
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "pause_en",
+      "fixture": "pause_en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "Asee,nowdecline, Wes found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "pause_en",
+      "fixture": "pause_en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "Asedgofeke,knowdecline,Wesfounditself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "pause_en",
+      "fixture": "pause_en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "Asegeke,now decline, Wesfound itself cut off from its Greek philosophical and scientific routs.",
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "pause_en",
+      "fixture": "pause_en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek decline, the West found itself cut off from its Greek philosophical and as knowledge of Greek decline, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and as knowledge of greek decline the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "pause_en",
+      "fixture": "pause_en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots as knowledge of Greek decline the West found itself cut off from its Greek philosophical and scientific roots.",
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "pause_en",
+      "fixture": "pause_en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "pause_en",
+      "fixture": "pause_en",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots of Greek decline, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "en_b",
+      "fixture": "en_b",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "We don't know for sure, but it may have had a fork tongue that include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_ort",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. e dont know for sure but it may have had a fork tongue  that include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "en_b",
+      "fixture": "en_b",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "We don't know for sure, but it may have had a fork tongue i might include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_sherpa",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. Ie dont know for sure, but it may have had a forth tongue  that include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "en_b",
+      "fixture": "en_b",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "We don't know for sure, but it may have had a fork tongue that include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "ctc_rust",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots. e dont know for sure, but it may have had a fork tongue tha include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "en_b",
+      "fixture": "en_b",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "We don't know for sure, but it may have had a four tongue does that include turtles, large fish, other mosasaurus, and it may even have been a cannibal.",
+        "raw": "we don't know for sure but it may have had a four tongue that includes turtles large fish other motosaurus and it may have been a cannibal"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "offline_rnnt",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots, but it may have had a fourth tongue include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots may have had a fourth tongue it might include turtles large fish other motosaurus and it may even have been a cannibal"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "en_b",
+      "fixture": "en_b",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "We don't know for sure, but it may have had a fourth tongue does not include turtles, large fish, other mostosaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "streaming_rnnt",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots. We don't know for sure, but it may have had a fork tongue if that include turtles, large fish, other mossosaurus, and it may even have been a cannibal.",
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "en_b",
+      "fixture": "en_b",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "We don't know for sure, but it may have had a fork-tongue that include turtles, large fish, other mososaurs, and it may even have been a cannibal.",
+        "raw": "we don't know for sure but it may have had a forked tongue light include turtles large fish other mososaurs and it may even have been a cannibal"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots and it may even have been a cannibal.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "en_b",
+      "fixture": "en_b",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "We don't know for sure, but it may have had a fork tongue light include turtles, large fish, other mososaurus, and it may even have been a cannibal.",
+        "raw": "we don't know for sure but it may have had a fork tongue light include turtles large fish other mososaurs and it may even have been a cannibal"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots and it may even have been a cannibal.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int8",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "en",
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots and it may even have been a cannibal.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "backend": "multi_int4",
+      "case": "pause_en_distinct",
+      "fixture": "pause_en_distinct",
+      "expected": "recognize",
+      "exit_code": 0,
+      "language_hint": "en",
+      "output": {
+        "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots and it may even have been a cannibal.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    }
+  ],
+  "transcript_comparisons": {
+    "english_input_format_matches": {
+      "ctc_ort": {
+        "stereo": true,
+        "rate48": true
+      },
+      "ctc_sherpa": {
+        "stereo": true,
+        "rate48": true
+      },
+      "offline_rnnt": {
+        "stereo": true,
+        "rate48": true
+      },
+      "multi_int8": {
+        "stereo": true,
+        "rate48": true
+      },
+      "multi_int4": {
+        "stereo": true,
+        "rate48": true
+      }
+    },
+    "multilingual_hint_matches": {
+      "multi_int8": {
+        "en_vs_auto_on_english": true,
+        "kk_vs_kz_on_kazakh": true,
+        "distinct_english_pause_auto_vs_en": true
+      },
+      "multi_int4": {
+        "en_vs_auto_on_english": true,
+        "kk_vs_kz_on_kazakh": true,
+        "distinct_english_pause_auto_vs_en": true
+      }
+    }
+  },
+  "streaming_api_cases": [
+    {
+      "case": "en_100ms_final_text",
+      "actual": {
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots",
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots."
+      },
+      "expected": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass",
+      "packet_evidence": {
+        "flush": {
+          "raw": "",
+          "e2e": "."
+        },
+        "combined": {
+          "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots",
+          "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots."
+        },
+        "packet_ms": 100,
+        "nonempty_partial_packets": {
+          "raw": 13,
+          "e2e": 13
+        }
+      }
+    },
+    {
+      "case": "en_400ms_final_text",
+      "actual": {
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots",
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots."
+      },
+      "expected": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass",
+      "packet_evidence": {
+        "flush": {
+          "raw": "",
+          "e2e": "."
+        },
+        "combined": {
+          "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots",
+          "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots."
+        },
+        "packet_ms": 400,
+        "nonempty_partial_packets": {
+          "raw": 13,
+          "e2e": 13
+        }
+      }
+    },
+    {
+      "case": "en_640ms_final_text",
+      "actual": {
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots",
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots."
+      },
+      "expected": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass",
+      "packet_evidence": {
+        "flush": {
+          "raw": "",
+          "e2e": "."
+        },
+        "combined": {
+          "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots",
+          "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots."
+        },
+        "packet_ms": 640,
+        "nonempty_partial_packets": {
+          "raw": 13,
+          "e2e": 13
+        }
+      }
+    },
+    {
+      "case": "ru_100ms_final_text",
+      "actual": {
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории",
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории."
+      },
+      "expected": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass",
+      "packet_evidence": {
+        "flush": {
+          "raw": "",
+          "e2e": ""
+        },
+        "combined": {
+          "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории",
+          "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории."
+        },
+        "packet_ms": 100,
+        "nonempty_partial_packets": {
+          "raw": 18,
+          "e2e": 19
+        }
+      }
+    },
+    {
+      "case": "ru_400ms_final_text",
+      "actual": {
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории",
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории."
+      },
+      "expected": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass",
+      "packet_evidence": {
+        "flush": {
+          "raw": "",
+          "e2e": ""
+        },
+        "combined": {
+          "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории",
+          "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории."
+        },
+        "packet_ms": 400,
+        "nonempty_partial_packets": {
+          "raw": 18,
+          "e2e": 19
+        }
+      }
+    },
+    {
+      "case": "ru_640ms_final_text",
+      "actual": {
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории",
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории."
+      },
+      "expected": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass",
+      "packet_evidence": {
+        "flush": {
+          "raw": "",
+          "e2e": ""
+        },
+        "combined": {
+          "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории",
+          "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории."
+        },
+        "packet_ms": 640,
+        "nonempty_partial_packets": {
+          "raw": 18,
+          "e2e": 19
+        }
+      }
+    },
+    {
+      "case": "second_flush_after_final",
+      "actual": {
+        "raw": "",
+        "e2e": ""
+      },
+      "expected": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "case": "another_packet_after_flush_without_reset",
+      "actual": {
+        "raw": "",
+        "e2e": ""
+      },
+      "expected": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "case": "en_after_final_and_automatic_client_reset",
+      "actual": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "expected": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "case": "ru_after_en_and_automatic_client_reset",
+      "actual": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "expected": {
+        "e2e": "Блоги также могут улучшить навыки письма учащихся, хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+      },
+      "result": "pass"
+    },
+    {
+      "case": "en_after_ru_in_same_model",
+      "actual": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "expected": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "case": "en_after_discarding_unflushed_ru",
+      "actual": {
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots",
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots."
+      },
+      "expected": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    },
+    {
+      "case": "flush_fresh_stream",
+      "actual": {
+        "raw": "",
+        "e2e": ""
+      },
+      "expected": {
+        "e2e": "",
+        "raw": ""
+      },
+      "result": "pass"
+    },
+    {
+      "case": "reuse_after_empty_flush",
+      "actual": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "expected": {
+        "e2e": "As knowledge of Greek declined the West found itself cut off from its Greek philosophical and scientific roots.",
+        "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+      },
+      "result": "pass"
+    }
+  ],
+  "native_ctc_capabilities": {
+    "sample_rate_hz": 16000,
+    "reported_language_codes": [
+      "ru"
+    ],
+    "transcribe_file_english": {
+      "default": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "en": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+      "zz": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots."
+    }
+  },
+  "released_sherpa_missing_tokens_embedding": {
+    "case": "missing_sherpa_tokens_in_embedding_process",
+    "omitted_file": "tokens.txt",
+    "exit_code": 255,
+    "stdout": [
+      "before init"
+    ],
+    "diagnostic": [
+      "<path>/offline-recognizer-ctc-impl.h:Init:190 We expect that tokens.txt contains the symbol <blk> or <eps> or <blank> and its ID."
+    ],
+    "wrapper_exception_caught": false
+  },
+  "working_tree_sherpa_fix_retest": {
+    "client_status": "Earlier working-tree missing-file preflight retest",
+    "client_sha256": "5d5635e5bf7493a40c3e7c7a2f66cdbca63a7ba49794d0dd705d9077139ce693",
+    "cases": [
+      {
+        "case": "missing_tokens.txt",
+        "route": "embedded constructor",
+        "exit_code": 0,
+        "catchable": true,
+        "reached_after_init": true,
+        "message": [
+          "caught FileNotFoundError: <path>/tokens.txt"
+        ],
+        "result": "pass"
+      },
+      {
+        "case": "missing_model.int8.onnx",
+        "route": "embedded constructor",
+        "exit_code": 0,
+        "catchable": true,
+        "reached_after_init": true,
+        "message": [
+          "caught FileNotFoundError: <path>/model.int8.onnx"
+        ],
+        "result": "pass"
+      },
+      {
+        "case": "missing_tokens.txt",
+        "route": "working-tree CLI",
+        "exit_code": 1,
+        "diagnostic": [
+          "FileNotFoundError: <path>/tokens.txt"
+        ],
+        "result": "pass"
+      },
+      {
+        "case": "missing_model.int8.onnx",
+        "route": "working-tree CLI",
+        "exit_code": 1,
+        "diagnostic": [
+          "FileNotFoundError: <path>/model.int8.onnx"
+        ],
+        "result": "pass"
+      },
+      {
+        "case": "ru",
+        "route": "working-tree CLI",
+        "exit_code": 0,
+        "text": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "matches_public_cli": true,
+        "result": "pass"
+      },
+      {
+        "case": "en",
+        "route": "working-tree CLI",
+        "exit_code": 0,
+        "text": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "matches_public_cli": true,
+        "result": "pass"
+      }
+    ]
+  },
+  "working_tree_sherpa_zero_byte_component_probes": [
+    {
+      "case": "zero-byte tokens.txt",
+      "exit_code": 255,
+      "catchable": false,
+      "reached_after_init": false,
+      "diagnostic": [
+        "<path>/offline-recognizer-ctc-impl.h:Init:190 We expect that tokens.txt contains the symbol <blk> or <eps> or <blank> and its ID."
+      ],
+      "revision_scope": "Earlier working-tree missing-file preflight, before the blank-token check"
+    },
+    {
+      "case": "zero-byte model.int8.onnx",
+      "exit_code": 0,
+      "catchable": true,
+      "reached_after_init": true,
+      "diagnostic": [
+        "caught RuntimeError: Load model from <path>/model.int8.onnx failed:<path>/model.cc:166 onnxruntime::Model::Model(ModelProto &&, const PathString &, const IOnnxRuntimeOpSchemaRegistryList *, const logging::Logger &, const ModelOptions &) ModelProto does not have a graph."
+      ],
+      "revision_scope": "Earlier working-tree missing-file preflight, before the blank-token check"
+    }
+  ],
+  "candidate_with_published_int8_client": {
+    "expected": "reject. The v0.2.0 client uses the fixed INT8 encoder filename.",
+    "exit_code": 1,
+    "diagnostic": [
+      "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+      "onnxruntime.capi.onnxruntime_pybind11_state.NoSuchFile: [ONNXRuntimeError] : 3 : NO_SUCHFILE : Load model from <path>/multilingual_v2_rnnt_encoder.int8.onnx failed:Load model <path>/multilingual_v2_rnnt_encoder.int8.onnx failed. File doesn't exist"
+    ]
+  },
+  "findings": [
+    {
+      "id": "sherpa_missing_tokens",
+      "status": "passed on the earlier working-tree missing-file fix",
+      "detail": "Published v0.2.0 terminates the embedding process on missing tokens.txt (255). The working-tree build with missing-file preflight raises catchable FileNotFoundError for both missing tokens and missing model, with identical normal RU/EN outputs."
+    },
+    {
+      "id": "sherpa_empty_tokens",
+      "status": "fixed on the final tested working tree",
+      "detail": "Both an empty vocab and the published vocab with only its <blk> row removed now raise a catchable ValueError before native init. The CLI exits 1. Each invalid fixture was repeated twice on both routes. The RU and EN transcripts match the published client."
+    },
+    {
+      "id": "native_languages",
+      "status": "observed integration limitation",
+      "detail": "transcribe-rs 0.3.11 advertises ru only, produces English using v4 and ignores language hints in this loader."
+    },
+    {
+      "id": "long_pause_omission",
+      "status": "observed on these fixtures",
+      "detail": "For a 21.52 s two-utterance English fixture separated by 3 s of silence, each Multilingual quantization omitted most of the second utterance (raw omitted it entirely). Explicit en gave the same result as auto. All seven paths recognized both utterances in separate runs."
+    },
+    {
+      "id": "duplicate_with_pause",
+      "status": "observed on this fixture",
+      "detail": "All CTC paths compressed two identical English utterances separated by 3 s of silence to one degraded result. They preserved content from both utterances on the distinct English fixture."
+    },
+    {
+      "id": "offline_rnnt_short_input_message",
+      "status": "fixed on the final tested working tree",
+      "detail": "The exact 319-sample WAV was rejected twice with exit 1 and a 20 ms to 30 s diagnostic. The 320-sample fixture and the normal RU/EN outputs matched the published client."
+    }
+  ],
+  "final_working_tree_regression_retest": {
+    "source": "Working-tree client snapshots tested against published v0.2.0 model files",
+    "client_sha256": {
+      "ctc_transcribe.py": "bb030f053648dcafeab19d77ac33eea2559ff031e5a98cacf5f31a27a1b9da2b",
+      "rnnt_transcribe.py": "5128c5dc96d0829425803a9f67d80d5414da5d9000a084470d4920002ea2f1c3"
+    },
+    "negative_repetitions_per_route": 2,
+    "cases": [
+      {
+        "backend": "ctc_sherpa",
+        "case": "empty_tokens",
+        "route": "embedded constructor",
+        "attempt": 1,
+        "tokens_bytes": 0,
+        "tokens_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entered_native_init": false,
+        "exception": "ValueError",
+        "message": "tokens.txt must contain the CTC blank token <blk>",
+        "process_continued": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "empty_tokens",
+        "route": "embedded constructor",
+        "attempt": 2,
+        "tokens_bytes": 0,
+        "tokens_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entered_native_init": false,
+        "exception": "ValueError",
+        "message": "tokens.txt must contain the CTC blank token <blk>",
+        "process_continued": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "empty_tokens",
+        "route": "CLI",
+        "attempt": 1,
+        "tokens_bytes": 0,
+        "tokens_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "diagnostic": [
+          "ValueError: tokens.txt must contain the CTC blank token <blk>"
+        ],
+        "exit_code": 1,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "empty_tokens",
+        "route": "CLI",
+        "attempt": 2,
+        "tokens_bytes": 0,
+        "tokens_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "diagnostic": [
+          "ValueError: tokens.txt must contain the CTC blank token <blk>"
+        ],
+        "exit_code": 1,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "missing_blank",
+        "route": "embedded constructor",
+        "attempt": 1,
+        "tokens_bytes": 833,
+        "tokens_sha256": "0e340e322ff0d41ef7a6acb21331028323bef5ad8e2e01b5801f5f741bbf62e9",
+        "entered_native_init": false,
+        "exception": "ValueError",
+        "message": "tokens.txt must contain the CTC blank token <blk>",
+        "process_continued": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "missing_blank",
+        "route": "embedded constructor",
+        "attempt": 2,
+        "tokens_bytes": 833,
+        "tokens_sha256": "0e340e322ff0d41ef7a6acb21331028323bef5ad8e2e01b5801f5f741bbf62e9",
+        "entered_native_init": false,
+        "exception": "ValueError",
+        "message": "tokens.txt must contain the CTC blank token <blk>",
+        "process_continued": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "missing_blank",
+        "route": "CLI",
+        "attempt": 1,
+        "tokens_bytes": 833,
+        "tokens_sha256": "0e340e322ff0d41ef7a6acb21331028323bef5ad8e2e01b5801f5f741bbf62e9",
+        "diagnostic": [
+          "ValueError: tokens.txt must contain the CTC blank token <blk>"
+        ],
+        "exit_code": 1,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "missing_blank",
+        "route": "CLI",
+        "attempt": 2,
+        "tokens_bytes": 833,
+        "tokens_sha256": "0e340e322ff0d41ef7a6acb21331028323bef5ad8e2e01b5801f5f741bbf62e9",
+        "diagnostic": [
+          "ValueError: tokens.txt must contain the CTC blank token <blk>"
+        ],
+        "exit_code": 1,
+        "result": "pass"
+      },
+      {
+        "backend": "offline_rnnt",
+        "case": "below20",
+        "route": "CLI",
+        "attempt": 1,
+        "input_frames": 319,
+        "diagnostic": [
+          "ValueError: Expected a single clip from 20 ms to 30 s"
+        ],
+        "exit_code": 1,
+        "result": "pass"
+      },
+      {
+        "backend": "offline_rnnt",
+        "case": "below20",
+        "route": "CLI",
+        "attempt": 2,
+        "input_frames": 319,
+        "diagnostic": [
+          "ValueError: Expected a single clip from 20 ms to 30 s"
+        ],
+        "exit_code": 1,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "ru",
+        "route": "CLI",
+        "output": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+        "matches_published_output": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "ctc_sherpa",
+        "case": "en",
+        "route": "CLI",
+        "output": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+        "matches_published_output": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "offline_rnnt",
+        "case": "ru",
+        "route": "CLI",
+        "output": {
+          "e2e": "Блоги также могут улучшить навыки письма учащихся. Хотя учащиеся часто начинают свой блог, используя неряшливую грамматику и орфографию, это, как правило, меняется из-за присутствия аудитории.",
+          "raw": "блоги также могут улучшить навыки письма учащихся хотя учащиеся часто начинают свой блог используя неряшливую грамматику и орфографию это как правило меняется из за присутствия аудитории"
+        },
+        "matches_published_output": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "offline_rnnt",
+        "case": "en",
+        "route": "CLI",
+        "output": {
+          "e2e": "As knowledge of Greek declined, the West found itself cut off from its Greek philosophical and scientific roots.",
+          "raw": "as knowledge of greek declined the west found itself cut off from its greek philosophical and scientific roots"
+        },
+        "matches_published_output": true,
+        "exit_code": 0,
+        "result": "pass"
+      },
+      {
+        "backend": "offline_rnnt",
+        "case": "at20",
+        "route": "CLI",
+        "output": {
+          "e2e": "",
+          "raw": ""
+        },
+        "matches_published_output": true,
+        "exit_code": 0,
+        "result": "pass"
+      }
+    ],
+    "passed": 15
+  }
+}

@@ -1,0 +1,1544 @@
+{
+  "tools": {
+    "coverage": "7.17.5",
+    "radon": "6.0.1",
+    "complexipy": "9.0.0",
+    "pytest": "9.2.0",
+    "hypothesis": "6.170.17",
+    "onnx": "1.19.1",
+    "onnxruntime": "1.23.2",
+    "torch": "2.10.0"
+  },
+  "methods": {
+    "coverage": "Observed frozen code via coverage.py, with 22 entry-point runs and scratch pytest; change denominator is statements on added/replaced lines in zero-context diff against tag, including new files.",
+    "crap": "Per named function/method CC\u00b2 \u00d7 (1 \u2212 observed statement coverage)^3 + CC; function body excludes definition header and nested bodies. Unweighted mean. Basis-path coverage was not measured.",
+    "cyclomatic": "Radon McCabe per named function or method including nested defs, excluding class averages and module pseudo-blocks.",
+    "cognitive": "Complexipy per named function or method with ignores disabled. Named nested defs omitted by the file-level API are also measured on their dedented definition.",
+    "cycles": "Strongly connected components with cycles in static local Python imports, including function-scope imports. Dynamic or external imports outside graph.",
+    "mutation": "Hand-selected, compiler-valid changes individually exercised in isolated copies under coverage; mutants classified by selected test and observed execution of changed line."
+  },
+  "aggregate": {
+    "all": {
+      "files": 18,
+      "functions": 74,
+      "statement_total": 1275,
+      "statement_covered": 1221,
+      "changed_total": 50,
+      "changed_covered": 50,
+      "changed_percent": 100.0,
+      "crap_average": 5.052294194019298,
+      "local_cycle_components": [],
+      "cyclomatic_max": 26,
+      "cyclomatic_max_at": [
+        "multi_quantize.py:46 quantize_encoder"
+      ],
+      "cognitive_max": 31,
+      "cognitive_max_at": [
+        "multi_quantize.py:19 promote_fp16"
+      ],
+      "crap_max": 34.125,
+      "crap_max_at": [
+        "multi_quantize.py:19 promote_fp16"
+      ]
+    },
+    "runtime": {
+      "files": 4,
+      "functions": 24,
+      "statement_total": 246,
+      "statement_covered": 238,
+      "changed_total": 9,
+      "changed_covered": 9,
+      "changed_percent": 100.0,
+      "crap_average": 2.6004319815736783,
+      "local_cycle_components": [],
+      "cyclomatic_max": 10,
+      "cyclomatic_max_at": [
+        "multi_client.py:59 MultilingualRNNT.__init__"
+      ],
+      "cognitive_max": 6,
+      "cognitive_max_at": [
+        "multi_client.py:59 MultilingualRNNT.__init__"
+      ],
+      "crap_max": 10.0,
+      "crap_max_at": [
+        "multi_client.py:59 MultilingualRNNT.__init__"
+      ]
+    },
+    "conversion": {
+      "files": 6,
+      "functions": 20,
+      "statement_total": 450,
+      "statement_covered": 427,
+      "changed_total": 41,
+      "changed_covered": 41,
+      "changed_percent": 100.0,
+      "crap_average": 7.2508307236957785,
+      "local_cycle_components": [],
+      "cyclomatic_max": 26,
+      "cyclomatic_max_at": [
+        "multi_quantize.py:46 quantize_encoder"
+      ],
+      "cognitive_max": 31,
+      "cognitive_max_at": [
+        "multi_quantize.py:19 promote_fp16"
+      ],
+      "crap_max": 34.125,
+      "crap_max_at": [
+        "multi_quantize.py:19 promote_fp16"
+      ]
+    },
+    "benchmark_qa": {
+      "files": 8,
+      "functions": 30,
+      "statement_total": 579,
+      "statement_covered": 556,
+      "changed_total": 0,
+      "changed_covered": 0,
+      "changed_percent": null,
+      "crap_average": 5.548092944191475,
+      "local_cycle_components": [],
+      "cyclomatic_max": 22,
+      "cyclomatic_max_at": [
+        "data_fleurs.py:81 sample_language"
+      ],
+      "cognitive_max": 22,
+      "cognitive_max_at": [
+        "data_fleurs.py:81 sample_language"
+      ],
+      "crap_max": 22.063628705953384,
+      "crap_max_at": [
+        "data_fleurs.py:81 sample_language"
+      ]
+    }
+  },
+  "files": {
+    "benchmark_ort_speed.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 66,
+      "statement_covered": 65,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "benchmark_ort_speed.py",
+          "name": "get_decoders",
+          "line": 13,
+          "end_line": 28,
+          "cyclomatic": 3,
+          "cognitive": 2,
+          "statement_covered": 12,
+          "statement_total": 12,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "benchmark_ort_speed.py",
+          "name": "main",
+          "line": 31,
+          "end_line": 75,
+          "cyclomatic": 17,
+          "cognitive": 18,
+          "statement_covered": 41,
+          "statement_total": 42,
+          "statement_missing": [
+            44
+          ],
+          "crap": 17.003900766655867
+        }
+      ]
+    },
+    "ctc_benchmark.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 56,
+      "statement_covered": 54,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "ctc_benchmark.py",
+          "name": "manifest_rows",
+          "line": 13,
+          "end_line": 20,
+          "cyclomatic": 4,
+          "cognitive": 5,
+          "statement_covered": 6,
+          "statement_total": 7,
+          "statement_missing": [
+            16
+          ],
+          "crap": 4.0466472303206995
+        },
+        {
+          "file": "ctc_benchmark.py",
+          "name": "benchmark",
+          "line": 23,
+          "end_line": 66,
+          "cyclomatic": 3,
+          "cognitive": 2,
+          "statement_covered": 28,
+          "statement_total": 29,
+          "statement_missing": [
+            34
+          ],
+          "crap": 3.00036901881996
+        },
+        {
+          "file": "ctc_benchmark.py",
+          "name": "source_transcript",
+          "line": 37,
+          "end_line": 41,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 2,
+          "statement_total": 2,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "ctc_benchmark.py",
+          "name": "main",
+          "line": 69,
+          "end_line": 76,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 7,
+          "statement_total": 7,
+          "statement_missing": [],
+          "crap": 1.0
+        }
+      ]
+    },
+    "ctc_export.py": {
+      "scope": "conversion",
+      "statement_total": 96,
+      "statement_covered": 96,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "ctc_export.py",
+          "name": "load_source",
+          "line": 22,
+          "end_line": 27,
+          "cyclomatic": 2,
+          "cognitive": 0,
+          "statement_covered": 5,
+          "statement_total": 5,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "ctc_export.py",
+          "name": "CtcGraph.__init__",
+          "line": 31,
+          "end_line": 34,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 3,
+          "statement_total": 3,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "ctc_export.py",
+          "name": "CtcGraph.forward",
+          "line": 36,
+          "end_line": 38,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 2,
+          "statement_total": 2,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "ctc_export.py",
+          "name": "OnnxFrontend.__init__",
+          "line": 44,
+          "end_line": 57,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 13,
+          "statement_total": 13,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "ctc_export.py",
+          "name": "OnnxFrontend.forward",
+          "line": 59,
+          "end_line": 64,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 5,
+          "statement_total": 5,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "ctc_export.py",
+          "name": "export_frontend",
+          "line": 67,
+          "end_line": 88,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 7,
+          "statement_total": 7,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "ctc_export.py",
+          "name": "export_ctc",
+          "line": 91,
+          "end_line": 126,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 6,
+          "statement_total": 6,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "ctc_export.py",
+          "name": "main",
+          "line": 129,
+          "end_line": 167,
+          "cyclomatic": 4,
+          "cognitive": 1,
+          "statement_covered": 29,
+          "statement_total": 29,
+          "statement_missing": [],
+          "crap": 4.0
+        }
+      ]
+    },
+    "ctc_sherpa_check.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 38,
+      "statement_covered": 37,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "ctc_sherpa_check.py",
+          "name": "main",
+          "line": 12,
+          "end_line": 44,
+          "cyclomatic": 7,
+          "cognitive": 6,
+          "statement_covered": 28,
+          "statement_total": 29,
+          "statement_missing": [
+            27
+          ],
+          "crap": 7.002009102464226
+        }
+      ]
+    },
+    "ctc_transcribe.py": {
+      "scope": "runtime",
+      "statement_total": 61,
+      "statement_covered": 60,
+      "changed_executable": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "changed_covered": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "ctc_transcribe.py",
+          "name": "load_audio",
+          "line": 18,
+          "end_line": 30,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 4,
+          "statement_total": 5,
+          "statement_missing": [
+            29
+          ],
+          "crap": 2.032
+        },
+        {
+          "file": "ctc_transcribe.py",
+          "name": "cpu_session",
+          "line": 33,
+          "end_line": 37,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 4,
+          "statement_total": 4,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "ctc_transcribe.py",
+          "name": "OrtCtc.__init__",
+          "line": 41,
+          "end_line": 48,
+          "cyclomatic": 3,
+          "cognitive": 2,
+          "statement_covered": 7,
+          "statement_total": 7,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "ctc_transcribe.py",
+          "name": "OrtCtc.recognize",
+          "line": 50,
+          "end_line": 59,
+          "cyclomatic": 3,
+          "cognitive": 0,
+          "statement_covered": 4,
+          "statement_total": 4,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "ctc_transcribe.py",
+          "name": "SherpaCtc.__init__",
+          "line": 63,
+          "end_line": 80,
+          "cyclomatic": 5,
+          "cognitive": 4,
+          "statement_covered": 9,
+          "statement_total": 9,
+          "statement_missing": [],
+          "crap": 5.0
+        },
+        {
+          "file": "ctc_transcribe.py",
+          "name": "SherpaCtc.recognize",
+          "line": 82,
+          "end_line": 86,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 4,
+          "statement_total": 4,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "ctc_transcribe.py",
+          "name": "main",
+          "line": 89,
+          "end_line": 96,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 7,
+          "statement_total": 7,
+          "statement_missing": [],
+          "crap": 2.0
+        }
+      ]
+    },
+    "data_fleurs.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 110,
+      "statement_covered": 104,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "data_fleurs.py",
+          "name": "fetch",
+          "line": 48,
+          "end_line": 61,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 2,
+          "statement_total": 5,
+          "statement_missing": [
+            51,
+            52,
+            61
+          ],
+          "crap": 2.864
+        },
+        {
+          "file": "data_fleurs.py",
+          "name": "random_order",
+          "line": 64,
+          "end_line": 65,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 1,
+          "statement_total": 1,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "data_fleurs.py",
+          "name": "decode_pcm",
+          "line": 68,
+          "end_line": 78,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 1,
+          "statement_total": 1,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "data_fleurs.py",
+          "name": "sample_language",
+          "line": 81,
+          "end_line": 162,
+          "cyclomatic": 22,
+          "cognitive": 22,
+          "statement_covered": 56,
+          "statement_total": 59,
+          "statement_missing": [
+            95,
+            97,
+            131
+          ],
+          "crap": 22.063628705953384
+        },
+        {
+          "file": "data_fleurs.py",
+          "name": "write_atomic",
+          "line": 165,
+          "end_line": 168,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 3,
+          "statement_total": 3,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "data_fleurs.py",
+          "name": "main",
+          "line": 171,
+          "end_line": 205,
+          "cyclomatic": 3,
+          "cognitive": 1,
+          "statement_covered": 14,
+          "statement_total": 14,
+          "statement_missing": [],
+          "crap": 3.0
+        }
+      ]
+    },
+    "multi_bench.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 122,
+      "statement_covered": 118,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "multi_bench.py",
+          "name": "distance",
+          "line": 22,
+          "end_line": 31,
+          "cyclomatic": 3,
+          "cognitive": 3,
+          "statement_covered": 7,
+          "statement_total": 7,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "multi_bench.py",
+          "name": "words",
+          "line": 34,
+          "end_line": 35,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 1,
+          "statement_total": 1,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "multi_bench.py",
+          "name": "summarize",
+          "line": 38,
+          "end_line": 69,
+          "cyclomatic": 6,
+          "cognitive": 7,
+          "statement_covered": 18,
+          "statement_total": 18,
+          "statement_missing": [],
+          "crap": 6.0
+        },
+        {
+          "file": "multi_bench.py",
+          "name": "pytorch_text",
+          "line": 73,
+          "end_line": 80,
+          "cyclomatic": 2,
+          "cognitive": 0,
+          "statement_covered": 4,
+          "statement_total": 4,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "multi_bench.py",
+          "name": "timed",
+          "line": 83,
+          "end_line": 86,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 3,
+          "statement_total": 3,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "multi_bench.py",
+          "name": "main",
+          "line": 89,
+          "end_line": 204,
+          "cyclomatic": 18,
+          "cognitive": 11,
+          "statement_covered": 63,
+          "statement_total": 67,
+          "statement_missing": [
+            106,
+            110,
+            139,
+            151
+          ],
+          "crap": 18.068944650771538
+        }
+      ]
+    },
+    "multi_client.py": {
+      "scope": "runtime",
+      "statement_total": 86,
+      "statement_covered": 83,
+      "changed_executable": [
+        81
+      ],
+      "changed_covered": [
+        81
+      ],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "multi_client.py",
+          "name": "read_audio",
+          "line": 18,
+          "end_line": 42,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 2,
+          "statement_total": 2,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "multi_client.py",
+          "name": "onnx_session",
+          "line": 45,
+          "end_line": 55,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 8,
+          "statement_total": 8,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "multi_client.py",
+          "name": "MultilingualRNNT.__init__",
+          "line": 59,
+          "end_line": 99,
+          "cyclomatic": 10,
+          "cognitive": 6,
+          "statement_covered": 23,
+          "statement_total": 23,
+          "statement_missing": [],
+          "crap": 10.0
+        },
+        {
+          "file": "multi_client.py",
+          "name": "MultilingualRNNT.sample_rate",
+          "line": 102,
+          "end_line": 103,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 1,
+          "statement_total": 1,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "multi_client.py",
+          "name": "MultilingualRNNT.features",
+          "line": 105,
+          "end_line": 115,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 8,
+          "statement_total": 8,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "multi_client.py",
+          "name": "MultilingualRNNT.transcribe",
+          "line": 117,
+          "end_line": 132,
+          "cyclomatic": 3,
+          "cognitive": 1,
+          "statement_covered": 9,
+          "statement_total": 9,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "multi_client.py",
+          "name": "main",
+          "line": 135,
+          "end_line": 154,
+          "cyclomatic": 4,
+          "cognitive": 3,
+          "statement_covered": 10,
+          "statement_total": 13,
+          "statement_missing": [
+            145,
+            152,
+            153
+          ],
+          "crap": 4.196631770596268
+        }
+      ]
+    },
+    "multi_export.py": {
+      "scope": "conversion",
+      "statement_total": 49,
+      "statement_covered": 47,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "multi_export.py",
+          "name": "load_reference",
+          "line": 21,
+          "end_line": 39,
+          "cyclomatic": 3,
+          "cognitive": 1,
+          "statement_covered": 12,
+          "statement_total": 12,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "multi_export.py",
+          "name": "main",
+          "line": 42,
+          "end_line": 75,
+          "cyclomatic": 6,
+          "cognitive": 6,
+          "statement_covered": 23,
+          "statement_total": 25,
+          "statement_missing": [
+            61,
+            72
+          ],
+          "crap": 6.018432
+        }
+      ]
+    },
+    "multi_quantize.py": {
+      "scope": "conversion",
+      "statement_total": 133,
+      "statement_covered": 119,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "multi_quantize.py",
+          "name": "promote_fp16",
+          "line": 19,
+          "end_line": 43,
+          "cyclomatic": 13,
+          "cognitive": 31,
+          "statement_covered": 9,
+          "statement_total": 18,
+          "statement_missing": [
+            24,
+            29,
+            34,
+            35,
+            37,
+            38,
+            39,
+            42,
+            43
+          ],
+          "crap": 34.125
+        },
+        {
+          "file": "multi_quantize.py",
+          "name": "quantize_encoder",
+          "line": 46,
+          "end_line": 162,
+          "cyclomatic": 26,
+          "cognitive": 24,
+          "statement_covered": 57,
+          "statement_total": 60,
+          "statement_missing": [
+            50,
+            135,
+            142
+          ],
+          "crap": 26.0845
+        },
+        {
+          "file": "multi_quantize.py",
+          "name": "main",
+          "line": 165,
+          "end_line": 243,
+          "cyclomatic": 11,
+          "cognitive": 10,
+          "statement_covered": 36,
+          "statement_total": 38,
+          "statement_missing": [
+            190,
+            223
+          ],
+          "crap": 11.017641055547456
+        }
+      ]
+    },
+    "multi_quantize_int4.py": {
+      "scope": "conversion",
+      "statement_total": 41,
+      "statement_covered": 41,
+      "changed_executable": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        37,
+        38,
+        39,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        58,
+        59
+      ],
+      "changed_covered": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        37,
+        38,
+        39,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        58,
+        59
+      ],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "multi_quantize_int4.py",
+          "name": "main",
+          "line": 14,
+          "end_line": 55,
+          "cyclomatic": 15,
+          "cognitive": 13,
+          "statement_covered": 33,
+          "statement_total": 33,
+          "statement_missing": [],
+          "crap": 15.0
+        }
+      ]
+    },
+    "rnnt_bench.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 76,
+      "statement_covered": 72,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "rnnt_bench.py",
+          "name": "torch_text",
+          "line": 20,
+          "end_line": 24,
+          "cyclomatic": 2,
+          "cognitive": 0,
+          "statement_covered": 4,
+          "statement_total": 4,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "rnnt_bench.py",
+          "name": "timed",
+          "line": 27,
+          "end_line": 30,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 3,
+          "statement_total": 3,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "rnnt_bench.py",
+          "name": "check_parity",
+          "line": 33,
+          "end_line": 72,
+          "cyclomatic": 8,
+          "cognitive": 3,
+          "statement_covered": 15,
+          "statement_total": 16,
+          "statement_missing": [
+            70
+          ],
+          "crap": 8.015625
+        },
+        {
+          "file": "rnnt_bench.py",
+          "name": "main",
+          "line": 75,
+          "end_line": 136,
+          "cyclomatic": 11,
+          "cognitive": 9,
+          "statement_covered": 33,
+          "statement_total": 36,
+          "statement_missing": [
+            87,
+            89,
+            113
+          ],
+          "crap": 11.070023148148149
+        }
+      ]
+    },
+    "rnnt_export.py": {
+      "scope": "conversion",
+      "statement_total": 97,
+      "statement_covered": 90,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "rnnt_export.py",
+          "name": "digest",
+          "line": 26,
+          "end_line": 28,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 2,
+          "statement_total": 2,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "rnnt_export.py",
+          "name": "load_torch",
+          "line": 31,
+          "end_line": 47,
+          "cyclomatic": 4,
+          "cognitive": 4,
+          "statement_covered": 9,
+          "statement_total": 11,
+          "statement_missing": [
+            40,
+            42
+          ],
+          "crap": 4.096168294515402
+        },
+        {
+          "file": "rnnt_export.py",
+          "name": "export_fp",
+          "line": 50,
+          "end_line": 63,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 8,
+          "statement_total": 8,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "rnnt_export.py",
+          "name": "build_package",
+          "line": 66,
+          "end_line": 169,
+          "cyclomatic": 20,
+          "cognitive": 9,
+          "statement_covered": 37,
+          "statement_total": 42,
+          "statement_missing": [
+            74,
+            95,
+            99,
+            108,
+            113
+          ],
+          "crap": 20.674873123852716
+        },
+        {
+          "file": "rnnt_export.py",
+          "name": "main",
+          "line": 172,
+          "end_line": 183,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 11,
+          "statement_total": 11,
+          "statement_missing": [],
+          "crap": 2.0
+        }
+      ]
+    },
+    "rnnt_transcribe.py": {
+      "scope": "runtime",
+      "statement_total": 69,
+      "statement_covered": 66,
+      "changed_executable": [
+        87
+      ],
+      "changed_covered": [
+        87
+      ],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "rnnt_transcribe.py",
+          "name": "read_audio",
+          "line": 18,
+          "end_line": 42,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 2,
+          "statement_total": 2,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "rnnt_transcribe.py",
+          "name": "cpu_session",
+          "line": 45,
+          "end_line": 53,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 6,
+          "statement_total": 6,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "rnnt_transcribe.py",
+          "name": "GigaAMRNNT.__init__",
+          "line": 57,
+          "end_line": 78,
+          "cyclomatic": 5,
+          "cognitive": 2,
+          "statement_covered": 13,
+          "statement_total": 14,
+          "statement_missing": [
+            76
+          ],
+          "crap": 5.009110787172012
+        },
+        {
+          "file": "rnnt_transcribe.py",
+          "name": "GigaAMRNNT.sample_rate",
+          "line": 81,
+          "end_line": 82,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 1,
+          "statement_total": 1,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "rnnt_transcribe.py",
+          "name": "GigaAMRNNT.features",
+          "line": 84,
+          "end_line": 94,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 8,
+          "statement_total": 8,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "rnnt_transcribe.py",
+          "name": "GigaAMRNNT.transcribe",
+          "line": 96,
+          "end_line": 107,
+          "cyclomatic": 2,
+          "cognitive": 0,
+          "statement_covered": 6,
+          "statement_total": 6,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "rnnt_transcribe.py",
+          "name": "main",
+          "line": 110,
+          "end_line": 120,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 8,
+          "statement_total": 10,
+          "statement_missing": [
+            118,
+            119
+          ],
+          "crap": 2.032
+        }
+      ]
+    },
+    "score_release.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 76,
+      "statement_covered": 72,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "score_release.py",
+          "name": "read_jsonl",
+          "line": 16,
+          "end_line": 17,
+          "cyclomatic": 3,
+          "cognitive": 0,
+          "statement_covered": 1,
+          "statement_total": 1,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "score_release.py",
+          "name": "cleaned",
+          "line": 20,
+          "end_line": 23,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 2,
+          "statement_total": 2,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "score_release.py",
+          "name": "word_errors",
+          "line": 26,
+          "end_line": 34,
+          "cyclomatic": 3,
+          "cognitive": 3,
+          "statement_covered": 7,
+          "statement_total": 7,
+          "statement_missing": [],
+          "crap": 3.0
+        },
+        {
+          "file": "score_release.py",
+          "name": "bootstrap",
+          "line": 37,
+          "end_line": 45,
+          "cyclomatic": 2,
+          "cognitive": 1,
+          "statement_covered": 8,
+          "statement_total": 8,
+          "statement_missing": [],
+          "crap": 2.0
+        },
+        {
+          "file": "score_release.py",
+          "name": "score_language",
+          "line": 48,
+          "end_line": 77,
+          "cyclomatic": 15,
+          "cognitive": 5,
+          "statement_covered": 19,
+          "statement_total": 21,
+          "statement_missing": [
+            52,
+            61
+          ],
+          "crap": 15.194363459669582
+        },
+        {
+          "file": "score_release.py",
+          "name": "main",
+          "line": 80,
+          "end_line": 102,
+          "cyclomatic": 11,
+          "cognitive": 6,
+          "statement_covered": 19,
+          "statement_total": 21,
+          "statement_missing": [
+            94,
+            98
+          ],
+          "crap": 11.10452434942231
+        }
+      ]
+    },
+    "stream_benchmark.py": {
+      "scope": "benchmark_qa",
+      "statement_total": 35,
+      "statement_covered": 34,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "stream_benchmark.py",
+          "name": "main",
+          "line": 14,
+          "end_line": 40,
+          "cyclomatic": 11,
+          "cognitive": 9,
+          "statement_covered": 23,
+          "statement_total": 24,
+          "statement_missing": [
+            26
+          ],
+          "crap": 11.008752893518519
+        }
+      ]
+    },
+    "stream_export.py": {
+      "scope": "conversion",
+      "statement_total": 34,
+      "statement_covered": 34,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "stream_export.py",
+          "name": "main",
+          "line": 12,
+          "end_line": 40,
+          "cyclomatic": 7,
+          "cognitive": 7,
+          "statement_covered": 24,
+          "statement_total": 24,
+          "statement_missing": [],
+          "crap": 7.0
+        }
+      ]
+    },
+    "stream_transcribe.py": {
+      "scope": "runtime",
+      "statement_total": 30,
+      "statement_covered": 29,
+      "changed_executable": [],
+      "changed_covered": [],
+      "changed_missing": [],
+      "functions": [
+        {
+          "file": "stream_transcribe.py",
+          "name": "read_wave",
+          "line": 10,
+          "end_line": 14,
+          "cyclomatic": 3,
+          "cognitive": 2,
+          "statement_covered": 3,
+          "statement_total": 4,
+          "statement_missing": [
+            13
+          ],
+          "crap": 3.140625
+        },
+        {
+          "file": "stream_transcribe.py",
+          "name": "load_stream",
+          "line": 17,
+          "end_line": 20,
+          "cyclomatic": 1,
+          "cognitive": 0,
+          "statement_covered": 3,
+          "statement_total": 3,
+          "statement_missing": [],
+          "crap": 1.0
+        },
+        {
+          "file": "stream_transcribe.py",
+          "name": "decode",
+          "line": 24,
+          "end_line": 32,
+          "cyclomatic": 5,
+          "cognitive": 4,
+          "statement_covered": 8,
+          "statement_total": 8,
+          "statement_missing": [],
+          "crap": 5.0
+        }
+      ]
+    }
+  },
+  "local_import_edges": {
+    "benchmark_ort_speed": [
+      "ctc_transcribe",
+      "rnnt_transcribe",
+      "stream_transcribe"
+    ],
+    "ctc_benchmark": [
+      "ctc_export",
+      "ctc_transcribe"
+    ],
+    "ctc_export": [],
+    "ctc_sherpa_check": [
+      "ctc_benchmark",
+      "ctc_transcribe"
+    ],
+    "ctc_transcribe": [],
+    "data_fleurs": [],
+    "multi_bench": [
+      "multi_client",
+      "multi_export"
+    ],
+    "multi_client": [],
+    "multi_export": [],
+    "multi_quantize": [
+      "multi_export"
+    ],
+    "multi_quantize_int4": [],
+    "rnnt_bench": [
+      "rnnt_export",
+      "rnnt_transcribe"
+    ],
+    "rnnt_export": [],
+    "rnnt_transcribe": [],
+    "score_release": [],
+    "stream_benchmark": [
+      "stream_transcribe"
+    ],
+    "stream_export": [],
+    "stream_transcribe": []
+  },
+  "release": "v0.2.1",
+  "baseline": "v0.2.0",
+  "tests": {
+    "pytest_passed": 21,
+    "hypothesis": [
+      {
+        "test": "test_log_mel_frame_count_and_power_bounds",
+        "passing": 50,
+        "failing": 0,
+        "discarded": 0
+      },
+      {
+        "test": "test_rnnt_language_onehot_and_dual_head_order",
+        "passing": 60,
+        "failing": 0,
+        "discarded": 3
+      },
+      {
+        "test": "test_int4_external_data_and_packing",
+        "passing": 20,
+        "failing": 0,
+        "discarded": 0
+      }
+    ],
+    "mutations": [
+      {
+        "id": "ignore-manifest",
+        "file": "multi_client.py",
+        "line": 81,
+        "test": "test_encoder_resolution",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "lose-onehot",
+        "file": "multi_client.py",
+        "line": 121,
+        "test": "test_rnnt_language_onehot_and_dual_head_order",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "lose-zero-token",
+        "file": "multi_client.py",
+        "line": 130,
+        "test": "test_rnnt_language_onehot_and_dual_head_order",
+        "valid": true,
+        "killed": false,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "swap-decoder-axes",
+        "file": "multi_client.py",
+        "line": 128,
+        "test": "test_rnnt_language_onehot_and_dual_head_order",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "audio-too-short-accepted",
+        "file": "multi_client.py",
+        "line": 107,
+        "test": "test_reject_outside_supported_audio_duration",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "bad-level",
+        "file": "multi_quantize_int4.py",
+        "line": 35,
+        "test": "test_int4_external_data_and_packing",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "bad-block",
+        "file": "multi_quantize_int4.py",
+        "line": 34,
+        "test": "test_int4_external_data_and_packing",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "asymmetric",
+        "file": "multi_quantize_int4.py",
+        "line": 34,
+        "test": "test_int4_external_data_and_packing",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "skip-zero-guard",
+        "file": "multi_quantize_int4.py",
+        "line": 44,
+        "test": "test_int4_rejects_bad_input",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "skip-settings-guard",
+        "file": "multi_quantize_int4.py",
+        "line": 48,
+        "test": "test_int4_checks_actual_settings",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "skip-alias-guard",
+        "file": "multi_quantize_int4.py",
+        "line": 20,
+        "test": "test_int4_rejects_output_alias_without_touching_source",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      },
+      {
+        "id": "skip-external-data-guard",
+        "file": "multi_quantize_int4.py",
+        "line": 28,
+        "test": "test_int4_rejects_source_data_output_before_loading",
+        "valid": true,
+        "killed": true,
+        "mutated_line_reached": true
+      }
+    ]
+  }
+}
