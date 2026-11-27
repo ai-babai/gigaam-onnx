@@ -53,6 +53,21 @@ def cpu_session(path):
     )
 
 
+def select_encoder(package, prefix, manifest):
+    if "encoder_filename" in manifest:
+        return package / manifest["encoder_filename"]
+    default = package / f"{prefix}_encoder.int8.onnx"
+    if default.is_file():
+        return default
+    names = (f"{prefix}_encoder.onnx", f"{prefix}_encoder.int4.onnx")
+    candidates = [package / name for name in names if (package / name).is_file()]
+    if len(candidates) == 1:
+        return candidates[0]
+    if candidates:
+        raise ValueError("Multiple RNN-T encoders in package. Select one with --encoder.")
+    raise FileNotFoundError(default)
+
+
 class GigaAMRNNT:
     def __init__(self, package, *, encoder=None):
         package = Path(package)
@@ -69,7 +84,7 @@ class GigaAMRNNT:
             )
             for head in self.heads
         }
-        self.encoder = cpu_session(encoder or package / f"{prefix}_encoder.int8.onnx")
+        self.encoder = cpu_session(encoder or select_encoder(package, prefix, manifest))
         self.advance = cpu_session(package / f"{prefix}_advance.onnx")
         self.encoder_inputs = [node.name for node in self.encoder.get_inputs()]
         if len(self.encoder_inputs) != 2:
@@ -111,8 +126,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("audio", type=Path)
     parser.add_argument("--package", type=Path, default=Path(__file__).resolve().parent)
+    parser.add_argument("--encoder", type=Path, help="Path to the encoder ONNX graph")
     args = parser.parse_args()
-    model = GigaAMRNNT(args.package)
+    model = GigaAMRNNT(args.package, encoder=args.encoder)
     try:
         result = model.transcribe(read_audio(args.audio, model.sample_rate))
     except subprocess.CalledProcessError as error:

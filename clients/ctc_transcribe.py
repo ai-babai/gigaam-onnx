@@ -37,10 +37,23 @@ def cpu_session(path):
     return ort.InferenceSession(str(path), options, providers=["CPUExecutionProvider"])
 
 
+def select_model(package):
+    default = package / "model.int8.onnx"
+    if default.is_file():
+        return default
+    names = ("model.fp32.onnx", "model.fp16.onnx", "model.int4.onnx")
+    candidates = [package / name for name in names if (package / name).is_file()]
+    if len(candidates) == 1:
+        return candidates[0]
+    if candidates:
+        raise ValueError("Multiple CTC graphs in package. Select one with --model.")
+    raise FileNotFoundError(default)
+
+
 class OrtCtc:
     def __init__(self, package, model=None):
         self.frontend = cpu_session(package / "preprocessor.onnx")
-        self.asr = cpu_session(model or package / "model.int8.onnx")
+        self.asr = cpu_session(model or select_model(package))
         self.blank = int(self.asr.get_modelmeta().custom_metadata_map["blank_id"])
         self.tokens = {}
         for line in (package / "tokens.txt").read_text(encoding="utf-8").splitlines():
@@ -60,18 +73,18 @@ class OrtCtc:
 
 
 class SherpaCtc:
-    def __init__(self, package):
+    def __init__(self, package, model=None):
         import sherpa_onnx
 
-        for filename in ("model.int8.onnx", "tokens.txt"):
-            path = package / filename
+        model = model or select_model(package)
+        for path in (model, package / "tokens.txt"):
             if not path.is_file():
                 raise FileNotFoundError(path)
         tokens = (package / "tokens.txt").read_text(encoding="utf-8").splitlines()
         if not any(line.split()[:1] == ["<blk>"] for line in tokens):
             raise ValueError("tokens.txt must contain the CTC blank token <blk>")
         self.recognizer = sherpa_onnx.OfflineRecognizer.from_nemo_ctc(
-            model=str(package / "model.int8.onnx"),
+            model=str(model),
             tokens=str(package / "tokens.txt"),
             provider="cpu",
             num_threads=3,
@@ -90,9 +103,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("audio", type=Path)
     parser.add_argument("--package", type=Path, default=Path(__file__).resolve().parent)
+    parser.add_argument("--model", type=Path, help="Path to the CTC ONNX graph")
     parser.add_argument("--sherpa", action="store_true")
     args = parser.parse_args()
-    decoder = SherpaCtc(args.package) if args.sherpa else OrtCtc(args.package)
+    decoder_type = SherpaCtc if args.sherpa else OrtCtc
+    decoder = decoder_type(args.package, args.model)
     print(decoder.recognize(load_audio(args.audio)))
 
 
