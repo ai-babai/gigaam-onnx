@@ -2,7 +2,7 @@
 
 The [GigaAM team](https://github.com/salute-developers/GigaAM) developed and trained both models. The ONNX releases provide CPU inference for both models in FP32, FP16 storage, INT8 and INT4.
 
-Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multilingual-v2 for offline transcription in 21 languages. Sherpa also supports NVIDIA CUDA on Linux and experimental native Core ML for v4 CTC and streaming on Apple Silicon. [GPU setup and benchmarks](benchmarks/compatibility/sherpa-gpu.md) · [Apple offline RNN-T preview for both models](benchmarks/compatibility/sherpa-gpu.md#separate-offline-rnn-t-preview-for-apple-silicon)
+Use GigaAM-v4 for Russian–English dictation or streaming, and GigaAM Multilingual-v2 for offline transcription in 21 languages, including Bashkir and Tatar. Sherpa also supports NVIDIA CUDA on Linux and experimental native Core ML for v4 CTC and streaming on Apple Silicon. [GPU setup and benchmarks](benchmarks/compatibility/sherpa-gpu.md) · [Apple offline RNN-T preview for both models](benchmarks/compatibility/sherpa-gpu.md#separate-offline-rnn-t-preview-for-apple-silicon)
 
 [GigaAM-v4 on Hugging Face](https://huggingface.co/ai-babai/gigaam-v4-onnx) · [Multilingual-v2 on Hugging Face](https://huggingface.co/ai-babai/gigaam-multilingual-v2-onnx) · [Benchmarks](benchmarks/README.md) · [Hugging Face collection](https://huggingface.co/collections/ai-babai/gigaam-onnx-offline-and-streaming-speech-recognition-6b0973ce369990a8a4c53c43)
 
@@ -100,7 +100,9 @@ python clients/stream_transcribe.py "$weights/v4/rnnt-streaming-640ms" "$weights
 
 ### GigaAM Multilingual-v2 offline RNN-T
 
-The CLI accepts `auto` or one supported language code, such as `kk` for Kazakh. It prints JSON with formatted `e2e` and plain `raw` text. Split at long pauses even within the 30-second limit.
+Use `--language ba` for Bashkir or `--language tt` for Tatar. Each code provides an explicit language hint. With `--language auto` (the default), the model transcribes without an explicit hint. [Upstream model card](https://huggingface.co/ai-sage/GigaAM-Multilingual-v2#usage) · [Pinned language configuration](https://huggingface.co/ai-sage/GigaAM-Multilingual-v2/blob/c21483b5e185ff32f6fb2e2c801f92f4e7fbfee8/config.json)
+
+The CLI accepts one language code per clip. It prints JSON with formatted `e2e` and plain `raw` text. Split at long pauses even within the 30-second limit.
 
 ```sh
 hf download ai-babai/gigaam-multilingual-v2-onnx --revision v0.3.1 \
@@ -138,7 +140,7 @@ Original model architecture, training and checkpoints by the GigaAM team. [Origi
 
 Pinned source weights for this release. [v4 CTC checkpoint](https://huggingface.co/ai-sage/GigaAM-v4/tree/5b81216afa29c8b5a1a3e64c424c8416e18c1e5b) · [v4 RNN-T checkpoint](https://huggingface.co/ai-sage/GigaAM-v4/tree/9fe3ebf50c9e0cce5eed60d546938632238b6a96) · [Multilingual-v2 RNN-T checkpoint](https://huggingface.co/ai-sage/GigaAM-Multilingual-v2/tree/c21483b5e185ff32f6fb2e2c801f92f4e7fbfee8)
 
-Benchmark audio and reference transcripts are from [Google FLEURS](https://huggingface.co/datasets/google/fleurs/tree/70bb2e84b976b7e960aa89f1c648e09c59f894dd), distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Audio and reference transcripts for the original v0.2.0 benchmark come from Google FLEURS under CC BY 4.0. [Pinned dataset](https://huggingface.co/datasets/google/fleurs/tree/70bb2e84b976b7e960aa89f1c648e09c59f894dd) · [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/)
 
 Please cite the model papers and this ONNX release. [GigaAM, Interspeech 2025](https://doi.org/10.21437/Interspeech.2025-1616) · [GigaAM Multilingual, 2026](https://arxiv.org/abs/2607.10371)
 
